@@ -1,0 +1,325 @@
+
+
+.central{
+    margin: 100px auto;
+    width: 1000px;
+    padding: 0px;
+    height: 750px;
+    background-color:#16A571;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.central>div{
+  position: absolute;
+  width: 500px;
+  height: 750px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.central>.white{
+    z-index: 100;
+    background-color: white;
+
+}
+.central>.nowhite{
+  z-index: 0;
+  background-color: #16A571;
+}
+.right{
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-name: right;
+
+}
+.left{
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-name: left;
+}
+
+
+.central>.white >div{
+    width: 500px;
+    height: 750px;
+    overflow: hidden;
+}
+
+.central>.nowhite >div{
+  width: 500px;
+  height: 750px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.white>div{
+    position: absolute;
+}
+
+
+.nowhite>.ocultar {
+    animation-duration: 1.5s;
+    animation-name: right-ocultar;
+    animation-fill-mode: forwards;
+
+}
+.nowhite>.ver{
+    animation-duration: 1.5s;
+    animation-name: right-ver;
+    animation-fill-mode: forwards;
+}
+
+
+.white>.ocultar {
+    animation-duration: 1.5s;
+    animation-name: right-ocultar;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.white>.ver{
+    animation-duration: 1.5s;
+    animation-name: right-ver;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+
+.center{
+  animation-duration: 1.5s;
+  animation-name: center;
+  animation-fill-mode: forwards;
+}
+.center2{
+  animation-duration: 1.5s;
+  animation-name: center2;
+  animation-fill-mode: forwards;
+}
+.devolver{
+  animation-duration: 1.5s;
+  animation-name: devolver;
+  animation-fill-mode: forwards;
+}
+.devolve2{
+  animation-duration: 1.5s;
+  animation-name: devolver2;
+  animation-fill-mode: forwards;
+}
+
+@keyframes right {
+    0% {
+        transform: translateX(-0px);
+      }
+    0% {
+        transform: translateX(-0px);
+      }
+    100% {
+      transform: translateX(500px);
+    }
+  }
+@keyframes left {
+    0% {
+        transform: translateX(500px);
+      }
+      0% {
+        transform: translateX(500px);
+      }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  @keyframes center {
+    0% {
+        transform: translateX(500px);
+      }
+      0% {
+        transform: translateX(500px);
+      }
+  
+    100% {
+      transform: translateX(250px);
+    }
+  }
+  @keyframes center2 {
+    0% {
+        transform: translateX(0px);
+      }
+      0% {
+        transform: translateX(0px);
+      }
+  
+    100% {
+      transform: translateX(250px);
+    }
+  }
+
+  @keyframes devolver {
+    0% {
+        transform: translateX(250px);
+      }
+      0% {
+        transform: translateX(250px);
+      }
+  
+    100% {
+      transform: translateX(500px);
+    }
+  }
+  @keyframes devolver2 {
+    0% {
+        transform: translateX(250px);
+      }
+      0% {
+        transform: translateX(250px);
+      }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+
+
+  @keyframes right-ocultar{
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+
+  
+    to {
+      transform: translateX(200%);
+      opacity: 0;
+    }
+  }
+  @keyframes right-ver {
+    0% {
+        transform: translateX(200%);
+        opacity: 0;
+      }
+  
+    to {
+        opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+
+  .content>h2{
+    font-size: 48px;
+    margin: 0px 0px 0px 0px;
+  }
+  .content>p{
+    font-size: 18px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .content>.content__input span{
+    background-color: #16A571;
+    color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 0px 3px; 
+    position: absolute;
+    margin: 0px 12px;
+  }
+  .content>.content__input input{
+    margin: 8px 0px;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 20px;
+    border: 1px solid #79747E;
+  }
+
+  .content> p{
+    margin: 10px 0px 50px 0px;
+  }
+  .content>.content__input input{
+    margin: 8px 0px 30px 0px;
+    width: 400px;
+    padding: 12px 10px;
+    border-radius: 20px;
+    border: 1px solid #79747E;
+  }
+  .content>input:focus{
+    outline: 1px solid #16A571;
+  }
+  .content>input:hover{
+    border-color: black;
+  }
+
+  .content>button{
+    background-color: #16A571;
+    color: white;
+    padding: 10px 80px;
+    border: none;
+    border-radius: 20px;
+    margin: 30px 0px 0px 0px;
+  }
+
+  .content>a{
+    margin: 10px 0px;
+    color: #16A571;
+  }
+
+  .content--green{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+  }
+  .content--green *{
+    color: white;
+  }
+  .content--green>h2{
+    font-size: 48px;
+    margin: 0px 0px 0px 0px;
+    
+  }
+  .content--green>p{
+    width: 400px;
+    font-size: 18px;
+    margin: 40px 0px 40px 0px;
+  }
+
+  .content--green>input:focus{
+    outline: 1px solid white;
+  }
+  .content--green>input:hover{
+    border-color: black;
+  }
+
+  .content--green>button{
+    background-color: white;
+    color: #16A571;
+    padding: 10px 80px;
+    border: none;
+    border-radius: 20px;
+    margin: 30px 0px 0px 0px;
+  }
+
+  .content>.content__p3{
+    margin: 0px;
+  }
+  .content>.content__a3{
+    margin: 0px;
+  }
+
+  .content>.content--cancelar{
+    margin: 5px;
+    border: 3px solid #16A571;
+    background-color: white;
+    color: #16A571;
+  }

@@ -1,1 +1,99 @@
-<p>login-register works!</p>
+
+<div class="central">
+
+    <div class="white left">
+
+        <div class="content1 ver">
+            <div class="content">
+                <h2>Login</h2>
+                <p>¡Que bueno tenerte de vuelta!</p>
+                <div class="content__input">
+                    <span>Correo</span>
+                    <input>
+                </div>
+                <div class="content__input">
+                    <span>Contraseña</span>
+                    <input>
+                </div>
+                <button>Login</button>
+                <a routerLink="/forgot-Password">Olvidaste Contraseña</a>
+            </div>
+        </div>
+    
+        <div class="content2 ocultar">
+            <div class="content">
+                <h2>Registrar</h2>
+                <p>Gracias por unirte</p>
+                <div class="content__input">
+                    <span>Correo</span>
+                    <input>
+                </div>
+                <div class="content__input">
+                    <span>Contraseña</span>
+                    <input>
+                </div>
+                <div class="content__input">
+                    <span>Confirmar contraseña</span>
+                    <input>
+                </div>
+                <button (click)="central()">Register</button>
+            </div>
+        </div>
+        <div class="content3 ocultar">
+            <div class="content">
+                <h2>Ya casi terminamos</h2>
+                <p>Falta poco</p>
+                <div class="content__input">
+                    <span>Nombre Negocio</span>
+                    <input>
+                </div>
+                <div class="content__input">
+                    <span>Runt</span>
+                    <input>
+                </div>
+                <div class="content__input">
+                    <span>Tu nombre</span>
+                    <input>
+                </div>
+                <div class="content__input">
+                    <span>Contraseña</span>
+                    <input>
+                </div>
+                <div class="content__input">
+                    <span>Confirmar contraseña</span>
+                    <input>
+                </div>
+                <p class="content__p3">Al terminar estas aceptando</p>
+                <a class="content__a3">terminos y condiciones</a>
+                <button>Terminar</button>
+                <button (click)="devolver()" class="content--cancelar">Cancelar</button>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div>
+
+
+    </div>
+    <div class="nowhite right">
+        <div class="content1 ver">
+            <div class="content--green">
+                <h2>Registrate</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum tempora voluptatum incidunt quia porro. Sed nisi praesentium non sapiente assumenda ut vel temporibus dolore sit, sunt quisquam nobis laudantium reiciendis!</p>
+                <button (click)="quitar()">Registrar</button>
+            </div>
+        </div>
+        <div class="content2 ocultar">
+            <div class="content--green">
+                <h2>¿Ya tienes cuenta?</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum tempora voluptatum incidunt quia porro. Sed nisi praesentium non sapiente assumenda ut vel temporibus dolore sit, sunt quisquam nobis laudantium reiciendis!</p>
+                <button (click)="agregar()">Login</button>
+            </div>
+        </div>
+        <div class="content3 ocultar">
+        </div>
+
+    </div>
+</div>
