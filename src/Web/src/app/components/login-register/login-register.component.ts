@@ -75,6 +75,7 @@ export class LoginRegisterComponent implements OnInit {
   }
   quitar(){
 
+    
     this.ver("content2")
     this.ocultar("content1")
     this.ocultar("content3")
