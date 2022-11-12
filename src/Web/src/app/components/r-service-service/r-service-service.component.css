@@ -1,0 +1,31 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px 0px;
+    padding: 30px calc((94% - 1200px)/2);
+}
+
+
+.grid__card{
+width: 300px;
+overflow: hidden;
+border-radius: 20px;
+border:1px solid #CAC4D0;
+
+}
+.grid__card:hover{
+box-shadow: 0px 0px 20px var(--c1); ;
+outline:2px solid var(--c1);;
+cursor: pointer;
+    
+}
+
+
+.grid__card>img{
+    width: 300px;
+    object-fit: cover;
+    }
+    
+.grid__card>div>*{
+margin: 5px 10px;
+}

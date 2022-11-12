@@ -1,0 +1,153 @@
+.central{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    width: calc(100% - 400px);
+
+}
+
+.left__sup{
+    width: 100%;
+    overflow: scroll;
+    padding: 10px 0px 10px 0px;
+}
+
+.left__sup>div{
+    width: max-content;
+    display: flex;
+}
+
+.left__sup>div>p{
+    order: 99;
+    display: inline-block;
+    color: var(--b);
+    padding: 15px 20px;
+    background-color: var(--w);
+    margin: 0px 10px;
+    border-radius: 15px;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s color, 0.5s background-color,0.5 order;
+}
+.left__sup>div>p:hover{
+    box-shadow: 0px 0px 20px var(--c1); ;
+outline:2px solid var(--c1);;
+}
+.left__inf{
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    margin: 10px 10px;
+    border-radius: 20px;
+    border: 2px solid #CAC4D0;
+    padding: 20px;
+    width: 20%;
+    min-width: 200px;
+    max-width: 280px;
+    cursor: pointer;
+}
+.card:hover{
+    box-shadow: 0px 0px 20px var(--c1); ;
+outline:2px solid var(--c1);;
+}
+
+.card__top{
+    display: flex;
+    align-items: flex-start;
+}
+
+.card__top img{
+width: 50px;
+height: 50px;
+object-fit: cover;
+border-radius: 50%;
+margin: 0px 10px 0px 0px;
+}
+.card__top>*{
+display: inline-block;
+}
+
+.card div>p{
+    margin: 0px 0px 5px 0px;
+}
+.card__down{
+    margin: 30px 0px 0px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.right{
+    position: fixed;
+    width: 300px;
+    right: 10px;
+}
+
+.central .left .active{
+    color: var(--w);
+    background-color: var(--c1);
+    order: 1;
+}
+.central .left .active:hover{
+    color: var(--w);
+    background-color: var(--c1);
+    box-shadow: 0px 0px 0px var(--c1); ;
+    outline:0px solid var(--c1);;
+}
+
+.right__divider{
+    width: 300px;
+    height: 2px;
+    background-color: var(--c2);
+    border-radius:20px ;
+}
+.right>div>p{
+    padding: 5px;
+    margin: 5px 0px 12px 0px;
+    cursor: pointer;
+    transition: 1s margin-left, 1s color, 1s background-color;
+    width: 200px;
+    border-radius: 10px;
+}
+.right>div>p:hover{
+    box-shadow: 0px 0px 20px var(--c1); ;
+    outline:2px solid var(--c1);;
+}
+
+
+.central .right>div>.active{
+    margin-left: 5px;
+    color: var(--w);
+    background-color: var(--c1);
+}
+
+button{
+    background-color: var(--c1);;
+    color: var(--w);;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    width: 200px;
+    border: none;
+    text-align: center;
+    border-radius: 20px;
+    margin: 15px 50px;
+  }
