@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginRegisterComponent },
   { path: 'forgot-Password', component: ForgotPasswordComponent },
   { path: 'change-Password', component: ChangePasswordComponent },
+  { path: 'home', component: HomeComponent},
   
 ];
 
@@ -20,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     LoginRegisterComponent,
     ForgotPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
