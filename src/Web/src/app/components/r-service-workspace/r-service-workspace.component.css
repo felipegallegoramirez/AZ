@@ -63,6 +63,12 @@ outline:2px solid var(--c1);;
     align-items: flex-start;
 }
 
+ .noflow{
+    height: calc(100vh - 100px) !important;
+    overflow: hidden !important;
+
+}
+
 .card__top img{
 width: 50px;
 height: 50px;
@@ -82,12 +88,35 @@ display: inline-block;
 }
 
 
+.left__panel{
+width: calc(100% - 310px);
+height: 100%;
+position: fixed;
+top: 60px;
+left: 0px;
+z-index: 20;
+background: #0007;
+filter: blur(4px);
+backdrop-filter: blur(0px);
+}
 
 
 
+.left__menu{
+    height: 300px;
+    width: 700px;
+    padding: 40px;
+    box-sizing: border-box;
+    position: fixed;
+    top: calc((100% - 300px )/2);
+    left: calc((100% - 1100px )/2);
+    background-color: var(--w);
+    z-index: 100;
+}
 
-
-
+.oculto{
+    visibility: hidden;
+}
 
 
 

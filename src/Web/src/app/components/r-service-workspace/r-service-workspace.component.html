@@ -1,5 +1,5 @@
 <div class="central">
-    <div class="left">
+    <div id="left"class="left">
 
         <div class="left__sup">
             <div id="workbench">
@@ -20,7 +20,7 @@
         </div>
         <div class="left__inf">
 
-            <div class="card">
+            <div (click)="final()" class="card">
                 <div class="card__top">
                     <img src="../../../assets/generic.png" alt="">
                     <div>
@@ -147,6 +147,23 @@
             </div>
 
 
+
+            
+
+
+        </div>
+
+        <div (click)="final()" id="panel" class="left__panel oculto">
+        </div>
+
+        <div id="menu" class="left__menu oculto" >
+            <h2>Servicio agregado</h2>
+            <p>Horario: </p>
+            <p>Servicio: </p>
+            <div>
+                <button>Carrito</button>
+                <button>Agregar otro servicio</button>
+            </div>
         </div>
 
     </div>

@@ -8,6 +8,9 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { RServiceServiceComponent } from './components/r-service-service/r-service-service.component';
 import { RServiceWorkspaceComponent } from './components/r-service-workspace/r-service-workspace.component';
+import { UserManagmentComponent } from './components/user-managment/user-managment.component';
+import { PanelWorkspaceComponent } from './components/panel-workspace/panel-workspace.component';
+import { SoldManagmentComponent } from './components/sold-managment/sold-managment.component';
 
 
 const routes: Routes = [
@@ -16,6 +19,9 @@ const routes: Routes = [
   { path: 'change-Password', component: ChangePasswordComponent },
   { path: 'reserve-service', component: RServiceServiceComponent },
   { path: 'reserve-workspace', component: RServiceWorkspaceComponent },
+  { path: 'panel-workspace', component: PanelWorkspaceComponent },
+  { path: 'user-managment', component: UserManagmentComponent },
+  { path: 'sold-managment', component: SoldManagmentComponent },
   
 ];
 
@@ -26,7 +32,10 @@ const routes: Routes = [
     ForgotPasswordComponent,
     ChangePasswordComponent,
     RServiceServiceComponent,
-    RServiceWorkspaceComponent
+    RServiceWorkspaceComponent,
+    UserManagmentComponent,
+    PanelWorkspaceComponent,
+    SoldManagmentComponent
   ],
   imports: [
     BrowserModule,

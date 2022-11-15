@@ -264,7 +264,7 @@
     width: 100%;
     padding: 10px 10px;
     border-radius: 20px;
-    border: 1px solid #79747E;
+    border: 1px solid var(--g);
   }
 
   .content> p{
@@ -275,7 +275,7 @@
     width: 400px;
     padding: 12px 10px;
     border-radius: 20px;
-    border: 1px solid #79747E;
+    border: 1px solid var(--g);
   }
   .content>input:focus{
     outline: 1px solid var(--c1);;

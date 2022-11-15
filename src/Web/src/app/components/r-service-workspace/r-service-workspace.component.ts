@@ -13,8 +13,6 @@ export class RServiceWorkspaceComponent implements OnInit {
     this.semana(0)
     this.dia(0)
     this.inicial()
-
-
   }
 
   mes(ob: any) {
@@ -59,6 +57,21 @@ export class RServiceWorkspaceComponent implements OnInit {
       for (var i = 0; i <= a.length; i++) {
         a[i]?.classList.add('active');
       }
+    }
+  }
+
+  final(){
+    let a=document.querySelector("#panel")
+    let b=document.querySelector("#menu")
+    let c=document.querySelector("#left")
+    if(a?.classList.contains("oculto")){
+      a.classList.remove("oculto")
+      b?.classList.remove("oculto")
+      c?.classList.add("noflow")
+    }else{
+      a?.classList.add("oculto")
+      b?.classList.add("oculto")
+      c?.classList.remove("noflow")
     }
   }
 

@@ -4,6 +4,7 @@
   --r: #D13333;
   --w: #F2F0F0;
   --b: #0D1311;
+  --g: #79747E;
 }
 
 a , p ,input,button {
@@ -365,3 +366,4 @@ font-size:18px;
   [hidden] {
     display: none;
   }
+  
