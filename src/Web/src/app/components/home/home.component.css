@@ -1,0 +1,348 @@
+.SupBody-Nav{
+    text-align: end;
+    top: 3%;
+    position: absolute;
+    width: 100%;
+}
+.Button-login{
+    background-color: var(--c1);
+    padding: 8px;
+    border-radius: 18px;
+    margin-right: 10px;
+
+    color: var(--w);
+    text-decoration: none;
+}
+.SupBody-Info-FrontPage{
+    width: 100%;
+    display: flex;
+    flex-flow: wrap row;
+}
+.SupBody-Content-Info-Email{
+    width: 38.7%;
+    padding: 0 0 0 70px;
+}
+b{
+    color: var(--c1);
+}
+.Title-Up{
+    font-size: 80px;
+    margin-bottom: 0;
+}
+.P-Up1{
+    margin-top: -10px;
+    font-weight: bold;
+    margin: 3px;
+}
+.P-Up2{
+    margin: 50px 0 30px 0;
+}
+.Email-Button-Register label{
+    background-color: var(--c1);
+    color:var(--w);
+    border-radius: 10px;
+    padding: 0 3px 0 3px;
+    position: absolute;
+    left: 5.7%;
+    margin-top: -8px;
+    transition: all .8s ease-in;
+}
+.Email-Button-Register .input-Email:focus+label{
+    left: 21.5%;
+    transition: all .8s ease-in-out;
+}
+.input-Email{
+    border-radius: 10px;
+    outline: 0 none;
+    border:2px Solid var(--c1);
+    height: 30px;
+    width: 400px;
+
+}
+.Email-Button-Register{
+    display: flex;
+    flex-flow: wrap row;
+}
+.Content-Button-Register1{
+    margin: 5px 0 0 15px;
+}
+.Button-Register1{
+    background-color: var(--c1);
+    padding: 5px;
+    border-radius: 18px;
+
+    text-decoration: none;
+    color: var(--w);
+}   
+
+.SupBody-Front-Page-Image{ 
+    width: 56%;
+}
+
+.front-page-image{
+    margin: 120px 0 0 80px;
+}
+
+.circle1, .circle2, .circle3{
+    width: 180px;
+    height: 180px;
+    background-color: var(--c1);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2;
+    
+}
+.circle1{
+    left: 54%;
+    top: 10%;
+    filter: blur(30px);
+}
+.circle2{
+    left: 85%;
+    top: 50%;
+    filter: blur(30px);
+}
+.circle3{
+    left: 48%;
+    top: 44%;
+    filter: blur(30px);
+}
+
+.Content-MiddleBody1{
+    width: 100%;
+    margin: 0 0 70px 0;
+}
+.MiddleBody1-Title-FreeTrial{
+    margin: 130px 0 0 40px;
+    font-size: 28px;
+    width: 80%;
+}
+.MiddleBody1-Section-Publicity{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.Publicity-Easy, .Publicity-Intelligent, .Plublicity-Ranking, .Publicity-FUP{
+    width: 15%;
+    text-align: center;
+}
+.Content-MiddleBody2{
+    display: flex;
+    flex-flow: wrap row;
+    margin: 80px 0 80px 0;
+    padding: 0 0 0 40px;
+}
+.Content-MiddleBody2 h2{
+    font-size: 38px;
+}
+.MiddleBody2-Info, .MiddleBody2-Gif{
+    width: 50%;
+    line-height: 32px;
+}
+.MiddleBody2-Info p{
+    width: 80%;
+    margin-left: 2%;
+}
+.MiddleBody2-Gif{
+    margin: 10px 0 0 0;
+}
+.Modules-title{
+    font-size: 28px;
+}
+.Modules-info{
+    display: flex;
+    flex-flow: wrap row;
+
+}
+.Content-MiddleBody3{
+    width: 97%;
+    padding: 0 0 0 40px;
+    display: flex;
+    flex-flow: wrap row;
+    margin: 0 0 88px 0;
+}
+.MiddleBody3-modules{
+    width: 65%;
+}
+.MiddleBody3-join{
+    margin-top: 118px;
+    width: 35%;    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 300px;
+}
+.ColorBackground{
+    background-color:var(--c2);
+    filter: blur(60px);
+    width: 320px;
+    height: 230px;
+    position: absolute;
+    z-index: -3;
+    top: 1965px;
+    left: 1045px;
+}
+.ContentJoin label{
+    background-color: var(--c1);
+    color:var(--w);
+    border-radius: 10px;
+    padding: 0 3px 0 3px;
+    position: absolute;
+    left: 71.5%;
+    margin-top: -8px;
+    transition: all .8s ease-in;
+}
+.ContentJoin .input-Email2:focus+label{
+    left: 83.5%;
+    transition: all .8s ease-in-out;
+}
+.input-Email2{
+    border-radius: 10px;
+    outline: 0 none;
+    border:2px Solid var(--c1);
+    height: 30px;
+    width: 350px;
+
+}
+.Join{
+    background-color: var(--w);
+    width: 80%;
+    height: 80%;
+    margin: 30px 0 0 0;
+    border-radius: 25px;
+    box-shadow: 0px 0px 144px rgba(0, 0, 0, 0.25);
+}
+.title{
+    color: var(--c1);
+    margin: 0 0 40px 0;
+}
+.Register2{
+    width: 100%;
+    background-color: #16A571;
+}
+.Button-Register2{
+    background-color: var(--c1);
+    padding: 5px;
+    border-radius: 18px;
+    position: absolute;
+    margin: 25px 0 0 -65px;
+    text-decoration: none;
+    color: var(--w);
+}  
+.Module-inventory,.Module-Store,.Module-Services,.Module-HistoryUser{
+    width: 50%;
+    height: 130px;
+}
+
+.TitleCopy{
+    margin-bottom: -15px;
+}
+.Content-icons{
+    float: left;
+    margin: 40px 5px 0 0;
+    height: 100%;
+}
+.Info-modules{
+    width:400px;
+}
+.Info-modules p{
+    font-size: 16px;
+
+}
+.BottomBody1-clients{
+    width: 97%;
+    padding: 0 0 0 40px;
+    height: 450px;
+}
+.BottomBody1-clients h2{
+    font-size: 38px;
+    margin: 0 0 100px 0;
+}
+.BoxGrid{
+    display: grid;
+    width: 100%;
+    margin: -35px -70px;
+    grid-template-columns: 20% 20% 20%;
+    justify-content: space-around;
+}
+.Opinions{
+    width: 400px;
+    height: 130px;
+    background-color: var(--w);
+    overflow: hidden;
+    filter: drop-shadow(7px 7px 8px rgba(0, 0, 0, 0.5));  
+}
+.Opinions h3{
+    margin: 8px 0 -12px 0;
+}
+.Opinions p{
+    font-size: 17px;
+}
+.img1{
+    float: left;
+    margin: 40px 15px 0 15px;
+}
+.img2{
+    margin-top: -72px;
+    float: right;
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+}
+.BottomBody2-Promotion h2{
+    color: var(--c1);
+    font-size: 70px;
+    margin: -70px 0 0 240px;
+}
+.Promotion-Button{
+    background-color: var(--c1);
+    width: 250px;
+    height: 70px;
+    border-radius: 25px;
+    margin: 28px auto;
+}
+.Promotion-Button a img{
+    margin: 5px 0 0 25px;
+}
+
+.wave img{
+    z-index: -10;
+    width: 100%;
+    position: absolute;
+}
+.Logo-Footer{
+    width: 240px;
+    
+    margin: 0 0 0 20px;
+}
+.Content-info{
+    display: flex;
+    flex-flow: wrap row;
+    
+    margin-top: 12%;
+    z-index: 10;
+    width: 100%;
+
+    position: absolute;
+}
+.Icons-follow{
+    margin: 0 0 0 980px;
+}
+.Icons-follow a img{
+    margin: 70px 0 0 15px;
+    
+}
+
+
+
+
+
+.Pene{
+--c1: #16A571;
+--c2: #33D380;
+--r: #D13333;
+--w: #F2F0F0;
+--b: #0D1311;
+--g: #79747E;
+}
