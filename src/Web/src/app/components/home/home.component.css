@@ -133,6 +133,9 @@ b{
     margin: 80px 0 80px 0;
     padding: 0 0 0 40px;
 }
+.Publicity-FUP-text p{
+    margin: 0 0 0 0;
+}
 .Content-MiddleBody2 h2{
     font-size: 38px;
 }
@@ -181,7 +184,7 @@ b{
     position: absolute;
     z-index: -3;
     top: 1965px;
-    left: 1045px;
+    margin-left: 40px;
 }
 .ContentJoin label{
     background-color: var(--c1);
@@ -293,7 +296,7 @@ b{
 .BottomBody2-Promotion h2{
     color: var(--c1);
     font-size: 70px;
-    margin: -70px 0 0 240px;
+    margin: -30px 0 0 240px;
 }
 .Promotion-Button{
     background-color: var(--c1);
@@ -305,15 +308,14 @@ b{
 .Promotion-Button a img{
     margin: 5px 0 0 25px;
 }
-
 .wave img{
     z-index: -10;
     width: 100%;
     position: absolute;
+    margin: 42px 0 0 0;
 }
 .Logo-Footer{
     width: 240px;
-    
     margin: 0 0 0 20px;
 }
 .Content-info{
