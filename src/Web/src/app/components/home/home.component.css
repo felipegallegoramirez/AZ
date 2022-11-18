@@ -1,3 +1,4 @@
+
 .SupBody-Nav{
     text-align: end;
     top: 3%;
@@ -15,40 +16,46 @@
 }
 .SupBody-Info-FrontPage{
     width: 100%;
+    padding: 0 150px;
+    box-sizing: border-box;
     display: flex;
     flex-flow: wrap row;
 }
 .SupBody-Content-Info-Email{
     width: 38.7%;
-    padding: 0 0 0 70px;
 }
 b{
     color: var(--c1);
 }
 .Title-Up{
-    font-size: 80px;
+    font-size: 60px;
     margin-bottom: 0;
 }
 .P-Up1{
     margin-top: -10px;
     font-weight: bold;
     margin: 3px;
+    font-size: 18px;
 }
 .P-Up2{
     margin: 50px 0 30px 0;
 }
+.P-Up2 p{
+    font-size:14px;
+}
 .Email-Button-Register label{
     background-color: var(--c1);
     color:var(--w);
+    font-size: 16px;
     border-radius: 10px;
     padding: 0 3px 0 3px;
     position: absolute;
-    left: 5.7%;
+    left: 11.2%;
     margin-top: -8px;
     transition: all .8s ease-in;
 }
 .Email-Button-Register .input-Email:focus+label{
-    left: 21.5%;
+    left: 20%;
     transition: all .8s ease-in-out;
 }
 .input-Email{
@@ -56,7 +63,7 @@ b{
     outline: 0 none;
     border:2px Solid var(--c1);
     height: 30px;
-    width: 400px;
+    width: 300px;
 
 }
 .Email-Button-Register{
@@ -70,7 +77,7 @@ b{
     background-color: var(--c1);
     padding: 5px;
     border-radius: 18px;
-
+    font-size: 16px;
     text-decoration: none;
     color: var(--w);
 }   
@@ -98,7 +105,7 @@ b{
     filter: blur(30px);
 }
 .circle2{
-    left: 85%;
+    left: 78%;
     top: 50%;
     filter: blur(30px);
 }
@@ -107,36 +114,62 @@ b{
     top: 44%;
     filter: blur(30px);
 }
-
 .Content-MiddleBody1{
     width: 100%;
     margin: 0 0 70px 0;
 }
 .MiddleBody1-Title-FreeTrial{
     margin: 130px 0 0 0;
-    font-size: 28px;
+    font-size: 22px;
     width: 80%;
 }
 .MiddleBody1-Section-Publicity{
     display: flex;
     flex-flow: wrap row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+}
+.Easy-icon{
+    margin: -25px 0 0 -12px;
+}
+.Ranking-icon{
+    margin: 20px 0 0 -12px;
+}
+.Plublicity-Ranking h3{
+    margin: 0 0 0 0;    
+}
+
+.Intelligent-icon{
+    margin: 0 0 0 -8px;
+}
+.Icon-Fup{
+    margin: 5px 0 0 10px;
 }
 .Publicity-Easy, .Publicity-Intelligent, .Plublicity-Ranking, .Publicity-FUP{
     width: 15%;
     text-align: center;
+    box-sizing: border-box;
+}
+.Publicity-Easy p, .Publicity-Intelligent p, .Plublicity-Ranking p, .Publicity-FUP p{
+    font-size: 15px;
+}
+.Publicity-Easy h3, .Publicity-Intelligent h3, .Plublicity-Ranking h3, .Publicity-FUP h3{
+    font-size: 18px;
+}
+.Publicity-Intelligent h3{
+    margin: -5px 0 0 0;
+}
+.Publicity-Easy h3{
+    margin: -2px 0 0 0;
 }
 .Content-MiddleBody2{
     display: flex;
     flex-flow: wrap row;
     margin: 80px 0 80px 0;
 }
-.Publicity-FUP-text p{
-    margin: 0 0 0 0;
-}
 .Content-MiddleBody2 h2{
-    font-size: 38px;
+    font-size: 35px;
 }
 .MiddleBody2-Info, .MiddleBody2-Gif{
     width: 50%;
@@ -144,13 +177,14 @@ b{
 }
 .MiddleBody2-Info p{
     width: 80%;
-    margin-left: 2%;
+    margin-left: 25px;
+    font-size: 15px;
 }
 .MiddleBody2-Gif{
     margin: 10px 0 0 0;
 }
 .Modules-title{
-    font-size: 28px;
+    font-size: 22px;
 }
 .Modules-info{
     display: flex;
@@ -177,25 +211,26 @@ b{
 .ColorBackground{
     background-color:var(--c2);
     filter: blur(60px);
-    width: 320px;
+    width: 280px;
     height: 230px;
     position: absolute;
     z-index: -3;
-    top: 1965px;
+    margin-top: 20px;
     margin-left: 40px;
 }
 .ContentJoin label{
+    font-size: 14px;
     background-color: var(--c1);
     color:var(--w);
     border-radius: 10px;
     padding: 0 3px 0 3px;
     position: absolute;
-    left: 71.5%;
+    right: 26.5%;
     margin-top: -8px;
     transition: all .8s ease-in;
 }
 .ContentJoin .input-Email2:focus+label{
-    left: 83.5%;
+    right: 16.5%;
     transition: all .8s ease-in-out;
 }
 .input-Email2{
@@ -203,18 +238,19 @@ b{
     outline: 0 none;
     border:2px Solid var(--c1);
     height: 30px;
-    width: 350px;
+    width: 300px;
 
 }
 .Join{
     background-color: var(--w);
-    width: 80%;
+    width: 90%;
     height: 80%;
     margin: 30px 0 0 0;
     border-radius: 25px;
     box-shadow: 0px 0px 144px rgba(0, 0, 0, 0.25);
 }
 .title{
+    font-size: 15px;
     color: var(--c1);
     margin: 0 0 40px 0;
 }
@@ -225,9 +261,10 @@ b{
 .Button-Register2{
     background-color: var(--c1);
     padding: 5px;
+    font-size: 17px;
     border-radius: 18px;
     position: absolute;
-    margin: 25px 0 0 -65px;
+    margin: 25px 0 0 -55px;
     text-decoration: none;
     color: var(--w);
 }  
@@ -235,28 +272,25 @@ b{
     width: 50%;
     height: 130px;
 }
-
+.Module-inventory p,.Module-Store p,.Module-Services p,.Module-HistoryUser p{
+    font-size: 15px;
+    width: 92%;
+}
 .TitleCopy{
-    margin-bottom: -15px;
+    font-size: 17px;
+    margin-bottom: -10px;
 }
 .Content-icons{
     float: left;
     margin: 40px 5px 0 0;
     height: 100%;
 }
-.Info-modules{
-    width:400px;
-}
-.Info-modules p{
-    font-size: 16px;
-
-}
 .BottomBody1-clients{
     width: 97%;
-    height: 450px;
+    height: 350px;
 }
 .BottomBody1-clients h2{
-    font-size: 38px;
+    font-size: 32px;
     margin: 0 0 100px 0;
 }
 .BoxGrid{
@@ -267,42 +301,43 @@ b{
     justify-content: space-around;
 }
 .Opinions{
-    width: 400px;
-    height: 130px;
+    width: 360px;
+    height: 110px;
     background-color: var(--w);
     overflow: hidden;
     filter: drop-shadow(7px 7px 8px rgba(0, 0, 0, 0.5));  
 }
 .Opinions h3{
+    font-size: 16px;
     margin: 8px 0 -12px 0;
 }
 .Opinions p{
-    font-size: 17px;
+    font-size: 14px;
 }
 .img1{
     float: left;
-    margin: 40px 15px 0 15px;
+    margin: 32px 15px 0 15px;
 }
 .img2{
-    margin-top: -72px;
+    margin-top: -60px;
     float: right;
-    width: 100px;
+    width: 80px;
     height: 100%;
     object-fit: cover;
 }
 .BottomBody2-Promotion{
     display: grid;
     justify-content: center;
-
+    margin-bottom: -70px;
 }
 .BottomBody2-Promotion h2{
     color: var(--c1);
-    font-size: 70px;
+    font-size: 40px;
     margin: -30px 0 0 0;
 }
 .Promotion-Button{
     background-color: var(--c1);
-    width: 250px;
+    width: 200px;
     height: 70px;
     border-radius: 25px;
     margin: 28px auto;
@@ -310,6 +345,7 @@ b{
 .Promotion-Button a img{
     margin: 5px 0 0 25px;
 }
+
 .wave img{
     z-index: -10;
     width: 100%;
@@ -318,27 +354,25 @@ b{
 }
 .Logo-Footer{
     width: 240px;
-    margin: 0 0 0 20px;
 }
 .Content-info{
     display: flex;
     flex-flow: wrap row;
-    
+    justify-content: space-between;
     margin-top: 12%;
     z-index: 10;
     width: 100%;
-
+    box-sizing: border-box;
+    padding:0 24px;
     position: absolute;
 }
-.Icons-follow{
-    margin: 0 0 0 980px;
-}
+
 .Icons-follow a img{
     margin: 70px 0 0 15px;
     
 }
 .Central{
-    margin: 0 55px 0 55px;
+    margin: 0 150px;
 }
 
 
