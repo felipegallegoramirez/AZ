@@ -113,7 +113,7 @@ b{
     margin: 0 0 70px 0;
 }
 .MiddleBody1-Title-FreeTrial{
-    margin: 130px 0 0 40px;
+    margin: 130px 0 0 0;
     font-size: 28px;
     width: 80%;
 }
@@ -131,7 +131,6 @@ b{
     display: flex;
     flex-flow: wrap row;
     margin: 80px 0 80px 0;
-    padding: 0 0 0 40px;
 }
 .Publicity-FUP-text p{
     margin: 0 0 0 0;
@@ -160,7 +159,6 @@ b{
 }
 .Content-MiddleBody3{
     width: 97%;
-    padding: 0 0 0 40px;
     display: flex;
     flex-flow: wrap row;
     margin: 0 0 88px 0;
@@ -255,7 +253,6 @@ b{
 }
 .BottomBody1-clients{
     width: 97%;
-    padding: 0 0 0 40px;
     height: 450px;
 }
 .BottomBody1-clients h2{
@@ -293,10 +290,15 @@ b{
     height: 100%;
     object-fit: cover;
 }
+.BottomBody2-Promotion{
+    display: grid;
+    justify-content: center;
+
+}
 .BottomBody2-Promotion h2{
     color: var(--c1);
     font-size: 70px;
-    margin: -30px 0 0 240px;
+    margin: -30px 0 0 0;
 }
 .Promotion-Button{
     background-color: var(--c1);
@@ -335,7 +337,9 @@ b{
     margin: 70px 0 0 15px;
     
 }
-
+.Central{
+    margin: 0 55px 0 55px;
+}
 
 
 
