@@ -12,6 +12,7 @@ import { RServiceWorkspaceComponent } from './components/r-service-workspace/r-s
 import { UserManagmentComponent } from './components/user-managment/user-managment.component';
 import { PanelWorkspaceComponent } from './components/panel-workspace/panel-workspace.component';
 import { SoldManagmentComponent } from './components/sold-managment/sold-managment.component';
+import { NavigatorComponent } from './components/navigator/navigator.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'panel-workspace', component: PanelWorkspaceComponent },
   { path: 'user-managment', component: UserManagmentComponent },
   { path: 'sold-managment', component: SoldManagmentComponent },
-  
+  { path: 'navigator', component:NavigatorComponent}
 ];
 
 @NgModule({
@@ -38,7 +39,8 @@ const routes: Routes = [
     RServiceWorkspaceComponent,
     UserManagmentComponent,
     PanelWorkspaceComponent,
-    SoldManagmentComponent
+    SoldManagmentComponent,
+    NavigatorComponent
   ],
   imports: [
     BrowserModule,

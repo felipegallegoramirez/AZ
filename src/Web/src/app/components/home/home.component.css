@@ -374,15 +374,128 @@ b{
 .Central{
     margin: 0 150px;
 }
-
-
-
-
-.Pene{
---c1: #16A571;
---c2: #33D380;
---r: #D13333;
---w: #F2F0F0;
---b: #0D1311;
---g: #79747E;
+@media only screen and (min-width:1920px){
+    .Title-Up{
+        font-size: 80px;
+    }
+    .SupBody-Content-Info-Email p{
+        font-size: 22px;
+    }
+    .input-Email{
+        width: 450px;
+        height: 30px;
+        border: 4px solid #16A571;
+    }
+    .Email-Button-Register label{
+        left: 8.5%;
+        font-size: 20px;
+    }
+    .Email-Button-Register .input-Email:focus+label{
+        left: 22%;
+        transition: all .8s ease-in-out;
+    }
+    .Button-Register1{
+        font-size: 22px;
+    }
+    .front-page-image{
+        margin: 90px 0 0 125px;
+        width: 820px;
+    }
+    .circle1{
+        left: 52%;
+        top: 10%;
+    }
+    .circle2{
+        left: 82%;
+        top: 38%;
+    }
+    .circle3{
+        left: 48%;
+    }
+    .MiddleBody1-Section-Publicity{
+        display: flex;
+        flex-flow: wrap row;
+        justify-content: space-evenly;
+        
+        align-items: center;
+        width: 100%;
+    }
+    .MiddleBody1-Title-FreeTrial h2{
+        font-size: 42px;
+    }
+    .MiddleBody1-Section-Publicity h3{
+        font-size: 25px;
+    }
+    .MiddleBody1-Section-Publicity p{
+        font-size: 22px;
+    }
+    .MiddleBody2-Info h2{
+        font-size: 42px;
+    }
+    .MiddleBody2-Info p{
+        font-size: 22px;
+    }
+    .Content-MiddleBody3 h2{
+        font-size: 42px;
+    }
+    .Modules-info h3{
+        font-size: 25px;
+    }
+    .Modules-info p{
+        font-size: 20px;
+    }
+    .Module-HistoryUser, .Module-Services{
+        margin-top: 15px;
+    }
+    .Join{
+        width:100%;
+        height:100%;
+    }
+    .Join label{
+        font-size: 19px;
+    }
+    .Join input{
+        width: 450px;
+        height: 30px;
+    }
+    .Join .input-Email2:focus+label{
+        right: 13.5%;
+        transition: all .8s ease-in-out;
+    }
+    .Button-Register2{
+        font-size: 22px;
+    }
+    .BottomBody1-clients h2{
+        font-size: 40px;
+    }
+    .Opinions{
+        width: 430px;
+    }
+    .Opinions h3{
+        font-size: 20px;
+    }
+    .Opinions p{
+        font-size: 18px;
+    }
+    .img2{
+        margin-top: -76px;
+    }
+    .BottomBody2-Promotion h2{
+        font-size: 60px;
+    }
+    .Promotion-Button{
+        width:300px;
+        height: 80px;
+    }
+    .Promotion-Button a img{
+        width: 238px;
+        height: 75px;
+        margin: 3px 0 0 35px;
+    }
+    .Icons-follow img{
+        width: 65px;
+    }
+    .Logo-Footer{
+        width:  320px;
+    }
 }
