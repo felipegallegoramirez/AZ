@@ -1,2 +1,201 @@
-    <img src="../assets/logo.svg" class="logo">
+    <img (click)="Hidden()" src="../assets/logo.svg" class="logo">
 <router-outlet><!--Aca se muestra las paginas--></router-outlet>
+
+<nav id="Central" class="Central">
+    <section class="BodyNavSup-Logo-ButtonClose">
+        <div (click)="Hidden()" class="Logo">
+            <img src="../../../assets/logo.svg" alt="Logo de FUP">
+        </div>
+        <div class="ButtonClose">
+            <button (click)="Hidden()"><img src="../../../assets/Button-Close.svg" alt="Boton de Salir"></button>
+        </div>
+    </section>
+    <section class="BodyNavMiddle-Category">
+        <div class="Category1">
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Home-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Inicio</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación1">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Till-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Caja</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación2">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/reserve-service">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Service-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Servicios</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación3">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/History-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Historias Clinicas</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación4">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Inventory-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Inventario</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación5">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/reserve-workspace">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/ServiceEdit-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Personalizar Servicios</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación6">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Stadistics-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Estadisticas</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación7">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/user-managment">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Clients-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Clientes</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación8">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/sold-managment">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Shop-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Ventas</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación9">0</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="Line">
+        </div>
+        <div class="Category2">
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Profile-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Perfil</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación10">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Support-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Soporte</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación11">0</p>
+                    </div>
+                </a>
+            </div>
+            <div class="Link-Navigator">
+                <a class="Button" routerLink="/home">
+                    <div class="Links-Icons">
+                        <div class="Icon">
+                            <img src="../../../assets/Config-iconNav.svg" alt="">
+                        </div>
+                        <div class="Link">
+                            <p>Configuraciones</p>
+                        </div>
+                    </div>
+                    <div class="Noti">
+                        <p class="Notification" id="Notificación12">0</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</nav>
