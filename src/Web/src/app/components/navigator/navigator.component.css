@@ -51,17 +51,17 @@
 }
 .Link-Navigator .Button:hover{  
     filter: invert(100%);
-    
 }
 .Link-Navigator .Button:hover .Notification{  
     color: #0D1311;
     background-color: #E95A8E;
     visibility: visible;
+    transition: all .1s step-end;
     
 }
 .Link-Navigator:hover{  
     background-color: var(--c1);
-    transition: all .1s ease-in;
+    transition: all .1s ease-in;transition: all .1s ease-in;
     border-radius: 30px;
 }
 p{
@@ -94,7 +94,9 @@ p{
     border-radius: 100%;
     visibility: hidden;
 }
-
+.visto{
+    left: 0 !important;
+}
 
 
 
