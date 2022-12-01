@@ -230,7 +230,7 @@ a{
     border-radius:15px;
     font-size: 15px;
 }
-@media only screen and (min-width:1920px){
+@media only screen and (min-width:1800px){
     .Input-SearchInventory{
         width: 900px;
         height: 40px;
