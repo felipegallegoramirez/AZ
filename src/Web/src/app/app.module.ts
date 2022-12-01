@@ -13,6 +13,7 @@ import { UserManagmentComponent } from './components/user-managment/user-managme
 import { PanelWorkspaceComponent } from './components/panel-workspace/panel-workspace.component';
 import { SoldManagmentComponent } from './components/sold-managment/sold-managment.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
+import { InventoryTillComponent } from './components/inventory-till/inventory-till.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'panel-workspace', component: PanelWorkspaceComponent },
   { path: 'user-managment', component: UserManagmentComponent },
   { path: 'sold-managment', component: SoldManagmentComponent },
-  { path: 'navigator', component:NavigatorComponent}
+  { path: 'navigator', component:NavigatorComponent},
+  { path: 'inventory-till', component:InventoryTillComponent},
 ];
 
 @NgModule({
@@ -40,7 +42,8 @@ const routes: Routes = [
     UserManagmentComponent,
     PanelWorkspaceComponent,
     SoldManagmentComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    InventoryTillComponent
   ],
   imports: [
     BrowserModule,

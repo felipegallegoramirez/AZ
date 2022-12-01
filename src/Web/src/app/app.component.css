@@ -6,9 +6,6 @@
     cursor: pointer;
     
 }
-
-
-
 .Central{
     top: 0px;
     background-color:  var(--w);
@@ -21,7 +18,23 @@
     left: -24%;
     transition: 1s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    overflow:scroll;
+    scrollbar-color: var(--c2) var(--w);
+    scrollbar-width: thin;
 }
+*::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--c2);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+  }
+  
+
 .BodyNavSup-Logo-ButtonClose{
     display: flex;
     flex-flow: wrap row;
