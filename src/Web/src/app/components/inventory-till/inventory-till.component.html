@@ -1,4 +1,86 @@
 <section class="CentralPage">
+    <div id="Mymodal" class="Modal">
+        <div class="ModalContent">
+            <div class="ModalTitle">
+                 <h2>Finalizar</h2>
+            </div>
+            <div class="ModalInfoinput"> 
+                <input class="Input-Modal" id="SearchInventory" type="text" placeholder=""/>
+                <label>Nombre - Cedula - Correo - Celular</label>
+            </div>
+            <div class="ModalShowinfo"> 
+                <div class="MoveStatus">
+                    <div>
+                        <p class="Atribut">Nombre:</p>
+                    </div>
+                    <div>
+                        <p class="Space-2">Dorian Yancelly Ocampo Tangarife</p>
+                    </div>
+                </div>
+                <div class="MoveStatus">
+                    <div>
+                        <p class="Atribut">Cedula:</p>
+                    </div>
+                    <div>
+                        <p class="Space-2"></p>
+                    </div>
+                </div>
+                <div class="MoveStatus">
+                    <div>
+                        <p class="Atribut">Correo:</p>
+                    </div>
+                    <div>
+                        <p class="Space-2"></p>
+                    </div>
+                </div>
+                <div class="MoveStatus">
+                    <div>
+                        <p class="Atribut">Celular:</p>
+                    </div>
+                    <div>
+                        <p class="Space-2"> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ModalPay-Total-Backcash"> 
+                <div class="ModalTotal">
+                    <div>
+                        <p>Total a pagar</p>
+                    </div>
+                    <div>
+                        <p class="Space-3">$$$$$$$$$$$</p>
+                    </div>
+                </div>
+                <div class="ModalPay">
+                    <div>
+                        <p>Pagó</p>
+                    </div>
+                    <div>
+                        <p class="Space-3">33333333333</p>
+                    </div>
+                </div>
+                <div class="ModalBackcash">
+                    <div>
+                        <p>Devuelta</p>
+                    </div>
+                    <div>
+                        <p class="Space-3">$$$$$$$$$$$</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ModalButtons"> 
+                <div>
+                    <button class="ModalButtons-Select">Imprimir</button>
+                </div>
+                <div>
+                    <button class="ModalButtons-Select">Factura al correo</button>
+                </div>
+                <div>
+                    <button (click)="Modal1()" class="ModalButtons-Select">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="BodyMain-Search-Inventory">
         <div class="Search">
             <div class="Email">
@@ -71,7 +153,43 @@
                 </div>
                 <p class="Price">$24.000</p>
             </div>
+            <div class="product">
+                <p class="Quantity">20</p>
+                <div>
+                    <img src="../../../assets/Test-Product.svg" alt="">
+                </div>
+                <p class="Price">$24.000</p>
+            </div>
+            <div class="product">
+                <p class="Quantity">20</p>
+                <div>
+                    <img src="../../../assets/Test-Product.svg" alt="">
+                </div>
+                <p class="Price">$24.000</p>
+            </div>
+            <div class="product">
+                <p class="Quantity">20</p>
+                <div>
+                    <img src="../../../assets/Test-Product.svg" alt="">
+                </div>
+                <p class="Price">$24.000</p>
+            </div>
+            <div class="product">
+                <p class="Quantity">20</p>
+                <div>
+                    <img src="../../../assets/Test-Product.svg" alt="">
+                </div>
+                <p class="Price">$24.000</p>
+            </div>
+            <div class="product">
+                <p class="Quantity">20</p>
+                <div>
+                    <img src="../../../assets/Test-Product.svg" alt="">
+                </div>
+                <p class="Price">$24.000</p>
+            </div>
         </div>
+        
     </section>
     <section class="BodyTill">
         <div class="SupBody-Icons">
@@ -228,7 +346,7 @@
             
         </div>
         <div class="Complete">
-            <a  href="">Completar compra</a>
+            <button (click)="Modal1()" class="OpenModal">Completar compra</button>
         </div>
     </section>
 </section>

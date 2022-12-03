@@ -15,17 +15,5 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  /*ScrolAnimate(){
-    let animado = document.querySelectorAll("#AnimationMiddleBody1");
-    let scrollTop = document.documentElement.scrollTop;
-
-    for(var i=0; i<animado.length; i++){
-      
-      if(this.alturaanimado < scrollTop){
-        this.animado<i>.style.opacity = 1;
-      }
-    }
-
-    window.addEventListener('scroll', mostrarScroll);
-  }*/
+  
 }

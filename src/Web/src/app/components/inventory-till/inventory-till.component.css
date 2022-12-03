@@ -68,11 +68,6 @@ select{
     width: 130px;
     border-radius: 15px;
 }
-.product:hover{
-    width: 170px;
-    height: 160px;
-    transition: all .1s ease-in;
-}
 .product{
     margin: 2px;
     cursor: pointer;
@@ -108,6 +103,8 @@ select{
 .BodyTill{
     width: 55%;
     height: 100%;
+    position: relative;
+    z-index: 100;
     background-color: var(--w);
 }
 .SupBody-Icons{
@@ -222,13 +219,151 @@ b{
     text-align: center;
     margin: 20px 0 0 0;
 }
-a{
+.OpenModal{
+    cursor: pointer;
+    border: none;
     padding: 12px 18px;
     background-color: var(--c1);
     text-decoration: none;
     color: var(--w);
     border-radius:15px;
     font-size: 15px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+.visto{
+    display: block !important; 
+}
+.Modal{
+    display: none;
+    padding: 30px 0 0 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    overflow: auto; 
+}
+.ModalContent{
+    background-color: var(--w);
+    box-sizing: border-box;
+    overflow: auto;
+    margin: 0 auto;
+    width: 38%;
+    border-radius:15px;
+    height: 75%;
+}
+.ModalTitle h2{
+    text-align: center;
+    font-weight:normal;
+    font-size: 28px;
+    color: var(--c1);
+}
+.ModalInfoinput{
+    margin: 0 auto;
+    width: fit-content;
+}
+.ModalInfoinput label{
+    background-color: var(--c1);
+    color:var(--w);
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 0 3px 0 3px;
+    position: absolute;
+    margin-left:-390px;
+    margin-top: -8px;
+    height: 20px;
+    font-size: 14px;
+}
+.ModalInfoinput .Input-Modal:focus+label{
+    color:#e7e1e102 !important; 
+    font-size: none !important;
+    margin-left: -40px;
+    width: 20px;
+    height: 20px; 
+}
+.Input-Modal{
+    border-radius: 10px;
+    outline: 0 none;
+    border:2px Solid var(--c1);
+    height: 30px;
+    width: 400px;
+}
+.ModalShowinfo{
+    margin: 15px auto;
+    width: 406px;
+}
+.MoveStatus{
+    display: flex;
+    align-items: center;
+}
+.MoveStatus div{
+    width: 80px;
+}
+.Atribut{
+    font-size: 15px;
+    background-color: var(--c1);
+    width: fit-content;
+    color: var(--w);
+    border-radius: 15px;
+    padding: 2px 3px;
+}
+.Space-2{
+    background-color: var(--g);
+    padding: 1px 2px;
+    border-radius: 15px;
+    min-width: 125px;
+    width:max-content ;
+    height: 18px;
+    font-size: 15px;
+    color: var(--w);
+}
+.ModalPay-Total-Backcash{
+    margin: 0 auto;
+    width: 406px;
+}
+.ModalTotal,.ModalPay,.ModalBackcash{
+    display: flex;
+    justify-content: space-between;
+}
+.ModalTotal p,.ModalPay p,.ModalBackcash p{
+    font-size: 15px;
+}
+.ModalPay{
+    outline: 2px solid var(--g) ;
+    border-radius: 15px;
+    align-items: center;
+    height: 30px;
+}
+.ModalPay p{
+    margin-left: 5px;
+}
+.Space-3{
+    border-radius: 15px;
+    min-width: 125px;
+    width:max-content ;
+    height: 18px;
+    font-size: 15px;
+    color: var(--c1);  
+}
+.ModalButtons{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px auto;
+    width: 400px;
+}
+.ModalButtons-Select{
+    cursor: pointer;
+    border: none;
+    padding: 12px 18px;
+    background-color: var(--c1);
+    text-decoration: none;
+    color: var(--w);
+    border-radius:15px;
+    font-size: 15px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 @media only screen and (min-width:1800px){
     .Input-SearchInventory{
@@ -265,11 +400,6 @@ a{
     .product div img{
         width: 190px;
     }
-    .product:hover{
-        width: 250px;
-        height: 240px;
-        transition: all .1s ease-in;
-    }
     .product{
         width: 230px;
         height: 220px;
@@ -291,6 +421,7 @@ a{
     }
     .Payproducts-box{
         width: 100%;
+        
     }
     .NameProduct p{
         font-size: 22px;
@@ -333,11 +464,68 @@ a{
     .Complete{
         margin: 50px 0 0 0;
     }
-    a{
+    .OpenModal{
         padding: 12px 18px;
         font-size: 22px;
     }
-
+    .ModalContent{
+        width: 30%;
+    }
+    .ModalTitle h2{
+        font-size: 38px;
+    }
+    .ModalInfoinput label{
+        height: 20px;
+        font-size: 18px;
+    }
+    .ModalInfoinput .Input-Modal:focus+label{
+        margin-left: -48px;
+        width: 25px;
+        height: 25px; 
+    }
+    .Input-Modal{
+        border:3px Solid var(--c1);
+        height: 40px;
+        width: 400px;
+    }
+    .ModalShowinfo{
+        margin: 15px auto;
+        width: 406px;
+    }
+    .MoveStatus div{
+        width: 120px;
+    }
+    .Atribut{
+        font-size: 20px;
+        padding: 3px 6px;
+    }
+    .Space-2{
+        padding: 2px 4px;
+        height: 28px;
+        font-size: 19px;
+    }
+    .ModalTotal p,.ModalPay p,.ModalBackcash p{
+        font-size: 20px;
+    }
+    .ModalPay{
+        padding: 8px;
+    }
+    .ModalPay p{
+        margin-left: 8px;
+    }
+    .Space-3{
+        font-size: 20px;
+    }
+    .ModalButtons{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 20px auto;
+        width: 500px;
+    }
+    .ModalButtons-Select{
+        padding: 12px 18px;
+        font-size: 20px;
+    }
 }
 .pene{
     --c1: #16A571;
@@ -346,7 +534,4 @@ a{
     --w: #F2F0F0;
     --b: #0D1311;
     --g: #79747E;
-}
-.D{
-
 }
