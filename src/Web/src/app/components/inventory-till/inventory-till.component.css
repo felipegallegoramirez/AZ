@@ -50,11 +50,40 @@ select{
     width: 650px;
 
 }
+
 .Catalogue{
+    display:grid;
     padding: 10px 0 0 0;
     gap:20px;
     margin-top:30px;
-    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width:900px;
+    max-width: 950px;
+    max-height: 87vh;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+}
+.Catalogue2{
+    display: none ;
+    padding: 10px 0 0 0;
+    gap:20px;
+    margin-top:30px;
+    grid-template-columns: auto auto auto auto;
+    width:900px;
+    max-width: 950px;
+    max-height: 87vh;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+}
+.Catalogue3{
+    display: none ;
+    padding: 10px 0 0 0;
+    gap:20px;
+    margin-top:30px;
     grid-template-columns: auto auto auto auto;
     width:900px;
     max-width: 950px;
@@ -425,7 +454,7 @@ b{
     }
     .NameProduct p{
         font-size: 22px;
-        width: 220px;
+        width: 245px;
     }
     .ButtonQuantity{
         width: 120px;
@@ -442,7 +471,7 @@ b{
         
     }
     .Pricetill{
-        margin: 0px 0 0 42px;
+        margin: 0px 0 0 20px;
      }
     .Pricetill p{
         width: 170px;

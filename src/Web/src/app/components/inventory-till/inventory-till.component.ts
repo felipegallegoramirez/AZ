@@ -8,7 +8,6 @@ import { monitorEventLoopDelay } from 'perf_hooks';
   styleUrls: ['./inventory-till.component.css']
 })
 export class InventoryTillComponent implements OnInit {
-  button = 'Finish';
   contador:number=1;
   constructor() { }
 
@@ -25,4 +24,5 @@ export class InventoryTillComponent implements OnInit {
     }
 
   }
+  
 }
