@@ -1,0 +1,15 @@
+const express = require("express");
+const router = express.Router();
+const user = require("../controllers/user.controller")
+const validatorHandler  = require("../midleware/verificatorSchemas")
+const {createUserSchema , updateUserSchema , getUserSchema} = require("../midleware/schemas/user.schema")
+const {checkAuth , checkpermision} = require('../midleware/authverify')
+
+router.get("/",checkpermision(1000), user.getUsers);
+router.post("/",validatorHandler(createUserSchema, 'body'), user.createUser); 
+router.get("/:shopid/:id",checkpermision(9),validatorHandler(getUserSchema, 'params'), user.getUser); 
+router.put("/:shopid/:id",checkpermision(9),validatorHandler(getUserSchema, 'params'),validatorHandler(updateUserSchema, 'body') ,user.editUser);
+router.delete("/:shopid/:id",checkpermision(9),validatorHandler(getUserSchema, 'params'), user.deleteUser);
+
+
+module.exports = router 
