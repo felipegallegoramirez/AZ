@@ -23,7 +23,6 @@ const StorageScheme = new mongoose.Schema(
     },
     city: {
       type: String,
-      enum: ['Medellin', 'Bogota', 'Otro'],
       require: true
     },
     phone: {
