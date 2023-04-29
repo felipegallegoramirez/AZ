@@ -1,27 +1,30 @@
 export class Shop {
   _id?: string;
   email?: string;
-  runt?: number;
+  nit?: string;
   name?: string;
   address?: string;
   ownerid?: string;
   employeeid?: Array<string>;
+  phone?:number;
 
   constructor(
     _id: string = "",
     email: string = "",
-    runt: number = 0,
+    nit: string = "",
     name: string = "",
     address: string = "",
     ownerid: string = "",
-    employeeid: Array<string> = []
+    employeeid: Array<string> = [],
+    phone: number = 0,
   ) {
     this._id = _id;
     this.email = email;
-    this.runt = runt;
+    this.nit = nit;
     this.name = name;
     this.address = address;
     this.ownerid = ownerid;
     this.employeeid = employeeid;
+    this.phone = phone
   }
 }

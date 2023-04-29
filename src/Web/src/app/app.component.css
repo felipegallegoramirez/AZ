@@ -1,12 +1,12 @@
 .logo{
-    margin: 0px 10px;
+    margin: 20px 10px;
     height: 50px;
-    position: absolute;
+    position: relative;
     z-index: 99;
     cursor: pointer;
     
 }
-.Central{
+.CentralNav{
     top: 0px;
     background-color:  var(--w);
     width: 24%;

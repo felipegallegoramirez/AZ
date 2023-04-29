@@ -15,9 +15,9 @@ ShopCtrl.getShops = async (req, res, next) => {
 
 ShopCtrl.createShop = async (req, res, next) => {
     try{
-        const { email, runt, name, address, ownerid, employeeid } = req.body;
+        const { email, nit, name, address, ownerid, employeeid } = req.body;
 
-        const body = { email, runt, name, address, ownerid, employeeid };
+        const body = { email, nit, name, address, ownerid, employeeid };
         var save= await Shop.create(body);
         res.status(200).send(save)
     }catch(err){

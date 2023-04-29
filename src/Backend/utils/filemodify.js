@@ -1,11 +1,16 @@
 const sharp = require('sharp')
+const {delet} = require("./imgdelete")
 
-const resizeImage = (name) => {
-  const resize = sharp(`${__dirname}/../storage/${name}`)
-  .resize(300, 3000)
-  .toFile(`${__dirname}/../storage/${name}`)
+function resizeImage (name)  {
+  sharp(`${__dirname}/../storage/${name}`)
+  .resize(300, 300)
+  .toFile(`${__dirname}/../storage/r/${name}`,(err,inf)=>{
+    if(err){}
+    else{
+      delet(name)
+    }
+  })
 
-  console.log(resize)
 }
 
-resizeImage()
+module.exports ={resizeImage}

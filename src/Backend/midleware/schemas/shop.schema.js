@@ -7,6 +7,7 @@ const name = Joi.string().min(8).max(20);
 const addres = Joi.string().min(5).max(20)
 const ownerid = Joi.string();
 const employeeid = Joi.array().items(Joi.string());
+const phone = Joi.number().integer().min(0).max(9999999999)
 
 const createShopSchema = Joi.object({
   email: email.required(),
@@ -15,6 +16,8 @@ const createShopSchema = Joi.object({
   addres: addres.required(),
   ownerid: ownerid.required(),
   employeeid: employeeid.required(),
+  phone: phone.required(),
+
 });
 
 

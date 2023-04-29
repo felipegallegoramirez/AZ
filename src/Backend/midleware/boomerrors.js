@@ -1,7 +1,18 @@
+const {delet} = require("../utils/imgdelete")
+
+
 function logErrors (err, req, res, next) {
     console.error(err);
     next(err);
   }
+
+async function deleteimage(err,req,res,next){
+  if (req.file) {
+    image = req.file.filename
+    await delet(image)
+  }
+  next(err)
+}
   
   function errorHandler(err, req, res, next) {
     res.status(500).json({
@@ -20,5 +31,5 @@ function logErrors (err, req, res, next) {
   }
   
   
-  module.exports = { logErrors, errorHandler, boomErrorHandler }
+  module.exports = { logErrors, errorHandler, boomErrorHandler ,deleteimage}
   

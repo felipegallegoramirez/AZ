@@ -10,9 +10,10 @@ export class UserService {
   selectedUser: User;
   users: User[] = [];
   readonly URL_API = "http://localhost:3000/api/user";
-  token = localStorage.getItem('token');
+  token = localStorage.getItem('token') || "";
 
   constructor(private http: HttpClient) {
+    console.log()
     this.selectedUser = new User();
   }
 
@@ -29,6 +30,10 @@ export class UserService {
 
   postUser(user: User) {
     return this.http.post<User>(this.URL_API, user,this.httpOptions);
+  }
+
+  postRegister(data: any) {
+    return this.http.post<any>(this.URL_API+ `/register`, data);
   }
 
   getUsers() {

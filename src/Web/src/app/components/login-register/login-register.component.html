@@ -9,13 +9,13 @@
                 <p>¡Que bueno tenerte de vuelta!</p>
                 <div class="content__input">
                     <span>Correo</span>
-                    <input>
+                    <input id="email_login">
                 </div>
                 <div class="content__input">
                     <span>Contraseña</span>
-                    <input>
+                    <input  id="password_login">
                 </div>
-                <button>Login</button>
+                <button (click)="login()">Login</button>
                 <a routerLink="/forgot-Password">Olvidaste Contraseña</a>
             </div>
         </div>
@@ -26,17 +26,17 @@
                 <p>Gracias por unirte</p>
                 <div class="content__input">
                     <span>Correo</span>
-                    <input>
+                    <input id="email_register">
                 </div>
                 <div class="content__input">
                     <span>Contraseña</span>
-                    <input>
+                    <input type="password" id="password_register">
                 </div>
                 <div class="content__input">
                     <span>Confirmar contraseña</span>
-                    <input>
+                    <input type="password" id="password2_register">
                 </div>
-                <button (click)="central()">Continuar</button>
+                <button (click)="RegisterOne()">Continuar</button>
             </div>
         </div>
         <div class="content3 ocultar">
@@ -45,27 +45,27 @@
                 <p>Falta poco</p>
                 <div class="content__input">
                     <span>Nombre Negocio</span>
-                    <input>
+                    <input id="nameshop_register">
                 </div>
                 <div class="content__input">
-                    <span>Runt</span>
-                    <input>
+                    <span>NIT</span>
+                    <input id="nit_register">
                 </div>
                 <div class="content__input">
                     <span>Tu nombre</span>
-                    <input>
+                    <input id="name_register">
                 </div>
                 <div class="content__input">
-                    <span>Contraseña</span>
-                    <input>
+                    <span>Direccion negocio</span>
+                    <input id="address_register">
                 </div>
                 <div class="content__input">
-                    <span>Confirmar contraseña</span>
-                    <input>
+                    <span>Celular</span>
+                    <input id="phone_register" type="number">
                 </div>
                 <p class="content__p3">Al terminar estas aceptando</p>
                 <a class="content__a3">terminos y condiciones</a>
-                <button>Terminar</button>
+                <button (click)="RegisterTwo()">Terminar</button>
                 <button (click)="devolver()" class="content--cancelar">Cancelar</button>
             </div>
         </div>

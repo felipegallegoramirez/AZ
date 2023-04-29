@@ -17,9 +17,9 @@
       opacity: 1;
     }
 }
-.central{
 
-    margin: 10px auto;
+.central{
+    margin: 0px auto;
     width: 1000px;
     padding: 0px;
     z-index: 1000000;
@@ -160,7 +160,7 @@
   
     100% {
       padding: 0px 80px;
-      transform: translateX(200px);
+      transform: translateX(170px);
     }
   }
   @keyframes center2 {
@@ -173,7 +173,7 @@
       }
   
     100% {
-      transform: translateX(250px);
+      transform: translateX(170px);
     }
   }
 

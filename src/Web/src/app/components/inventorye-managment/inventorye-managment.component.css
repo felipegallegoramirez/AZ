@@ -1,0 +1,377 @@
+.any > div {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .options {
+    display: inline-block;
+    width: 100px;
+    padding: 50px;
+    padding-top: 30px;
+  }
+  .options > div {
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 70px;
+    width: 70px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: var(--c1);
+  }
+  .options > div > img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .central {
+    width: calc(100% - 200px);
+  }
+  
+  .sup__stats {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .sup__stats > div {
+    background-color: var(--c1);
+    display: flex;
+    height: 40px;
+    width: 400px;
+    border-radius: 20px;
+    margin: 20px;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid var(--g);
+    box-shadow: 0px 0px 5px var(--g);
+  }
+  
+  .sup__stats > div > * {
+    display: inline-block;
+    margin: 0px;
+    padding: 10px 10px;
+  }
+  .sup__stats > div > *:nth-child(even) {
+    background-color: var(--w);
+    text-align: center;
+    width: 80px;
+  }
+  .sup__stats > div > *:nth-child(odd) {
+    color: var(--w);
+    vertical-align: middle;
+    width: 280px;
+  }
+  .sup__search {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: flex-end;
+  }
+  
+  .sup__search > * {
+    display: inline-block;
+  }
+  .sup__input {
+    height: 50px;
+  }
+  .sup .sup__input span {
+    background-color: var(--c1);
+    color: var(--w);
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 0px 3px;
+    position: absolute;
+    margin: 0px 12px;
+  }
+  
+  .sup .sup__input input {
+    margin: 8px 0px 30px 0px;
+    width: calc(100vw - 800px);
+    max-width: 700px;
+    padding: 12px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--g);
+  }
+  .sup input:focus {
+    outline: 1px solid var(--c1);
+  }
+  .sup input:hover {
+    border-color: -var(--b);
+  }
+  
+  .sup button {
+    background-color: var(--c1);
+    color: var(--w);
+    padding: 10px 0px;
+    width: 100px;
+    border: none;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  
+  .sup__select {
+    margin: 0px 10px;
+  }
+  
+  .sup__select select {
+    background-color: var(--c1);
+    border-radius: 20px;
+    color: var(--w);
+    padding: 8px 5px;
+    width: 200px;
+    border: none;
+    font-size: 18px;
+    outline: none;
+  }
+  .sup__select select:focus {
+    background-color: var(--w);
+    color: var(--c1);
+    outline: 2px solid var(--c1);
+  }
+  
+  .sup__select select option {
+    padding: 30px;
+  }
+  .sup__select select option:checked {
+    background-color: var(--c2);
+    color: var(--w);
+  }
+  
+  .inf {
+    margin: 20px 50px 0px 50px;
+    height: calc(100vh - 330px);
+    overflow: scroll;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border: 2px solid var(--b);
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+  tr:nth-child(even) {
+    height: 30px;
+  }
+  th,
+  td {
+    font-size: 18px;
+  }
+
+  table > tr:nth-child(even) > td {
+    border-bottom: 2px solid var(--b);
+    border-left: 2px solid var(--b);
+    margin: 0px;
+    height: 35px;
+    cursor: pointer;
+  }
+  table > tr:nth-child(even):hover > td {
+    background-color: var(--c1);
+    color: var(--w);
+  }
+  table > tr:nth-child(even) > td:nth-child(1) {
+    width: 200px;
+  }
+  table > tr:nth-child(even) > td:nth-child(2) {
+    width: 400px;
+  }
+  table > tr:nth-child(odd) > th {
+    border-bottom: 2px solid var(--b);
+    border-left: 2px solid var(--b);
+    margin: 0px;
+    color: var(--c1);
+  }
+  .table__img{
+    width: 100%;
+    text-align: center;
+  }
+  .table__img>div{
+    background-color: var(--c1);
+    width: 35px;
+    display: inline-block;
+    border-radius: 25px;
+    margin: 0px 10px ;
+    height: 35px;
+  }
+  .table__img>div>img{
+    width: 35px;
+    height: 35px;
+  }
+  
+  .table__img>div:hover{
+    background-color: var(--c2);
+
+
+  }
+
+
+  .ocult {
+    height: 0px;
+    overflow: hidden;
+    width: 100%;
+    transition: 0.5s height;
+  }
+  
+  .noocult {
+    height: 200px !important;
+    border-bottom: 2px solid var(--b);
+  }
+  
+  .pages {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pages > p {
+    padding: 10px 5px;
+    text-align: center;
+    border-radius: 20px;
+    height: 40px;
+    min-width: 40px;
+    box-sizing: border-box;
+    border: 2px solid var(--c1);
+    margin: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  
+  .pages > p:hover {
+    background-color: var(--c2);
+    color: var(--bs);
+  }
+  
+  .pages > .active {
+    background-color: var(--c1);
+    color: var(--w);
+  }
+  
+  .panel--ocultar {
+    width: calc(100% - 200px);
+    height: 100%;
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    z-index: 20;
+    background: #0007;
+    filter: blur(4px);
+    backdrop-filter: blur(0px);
+  }
+  
+  .panel {
+    position: absolute;
+    top: 130px;
+    height: calc(100vh - 260px);
+    max-height: 800px;
+    width: 700px;
+    right: calc((100vw - 400px) / 2);
+    background-color: var(--w);
+    border-radius: 20px;
+    z-index: 90;
+    padding: 20px;
+    box-shadow: 0px 0px 10px var(--w);
+  }
+  
+  
+  .input span {
+    background-color: var(--c1);
+    color: var(--w);
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 0px 3px;
+    position: relative;
+    margin: 0px 12px;
+    top: 15px;
+  }
+  
+  .input input {
+    margin: 8px 0px 30px 0px;
+    width: calc(100% - 23px);
+    max-width: 700px;
+    padding: 12px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--g);
+  }
+  .input input:focus {
+    outline: 1px solid var(--c1);
+  }
+  .input__image{
+    width: 600px;
+    margin: 10px 50px;
+    height: 400px;
+    object-fit: contain;
+  }
+  .sup input:hover {
+    border-color: -var(--b);
+  }
+  
+  .panel__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px 60px;
+  }
+  
+  .panel__chekbox {
+    display: flex;
+    justify-content: space-between;
+  }
+  .panel__chekbox > div {
+    display: flex;
+  }
+  .panel__chekbox > div:first-child {
+    width: calc(100%);
+  }
+  .panel__chekbox > div > label {
+    height: 30px;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+  }
+  
+  .panel__chekbox img {
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+  }
+  
+  .panel .panel--buttons {
+    position: absolute;
+    bottom: 30px;
+    right: calc((100% - 440px) / 2);
+  }
+  
+  .oculto {
+    visibility: hidden;
+  }
+
+  .input select {
+    margin: 8px 0px 30px 0px;
+    width: calc(100% - 0px);
+    max-width: 700px;
+    padding: 12px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--g);
+  }
+  .panel__content{
+    height: calc(100% - 70px);
+    overflow-y: scroll;
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+  }
+  
+  .panel .panel--buttons button{
+    background-color: var(--c1);;
+    color: var(--w);;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    width: 200px;
+    border: none;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0px 10px;
+  }

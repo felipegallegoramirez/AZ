@@ -11,6 +11,7 @@ export class InventoryService {
   inventorys: Inventory[] = [];
   readonly URL_API = "http://localhost:3000/api/inventory";
   token = localStorage.getItem('token');
+  shopid = localStorage.getItem('shop');
 
   constructor(private http: HttpClient) {
     this.selectedInventory = new Inventory();
@@ -18,32 +19,70 @@ export class InventoryService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type' : 'application/json; charset=utf-8',
-      'Accept'       : 'application/json',
       'Authorization': `Bearer ${this.token}`,
     })
   };
 
-
+  // * Esto necesita optimizacion en el futuro
+  getProductSearch(select:string,actpage:number,size:number,param:string,order:number,category:string) {
+    /*
+    const search = req.query.search || "";
+    const actpage = req.query.actpage || 1;
+    const size = req.query.size || 1000;
+    const param= req.query.param || "code";
+    const order= req.query.order || 1;
+    */
+  //Todo category -> <- resto
+    return this.http.get<Inventory[]>(this.URL_API + `/${this.shopid}?search=${select}&actpage=${actpage}&size=${size}&param=${param}&order=${order}&category=${category}`,this.httpOptions);
+  }
 
 
   postInventory(inventory: Inventory) {
-    return this.http.post<Inventory>(this.URL_API, inventory,this.httpOptions);
+    inventory.shopid =this.shopid || ""
+    return this.http.post<Inventory>(this.URL_API + `/${this.shopid}/`, inventory,this.httpOptions);
   }
 
-  getInventorys(idshop:string) {
-    return this.http.get<Inventory[]>(this.URL_API + `/${idshop}/`,this.httpOptions);
-  }
-  getInventory(id:string,idshop:string) {
-    return this.http.get<Inventory>(this.URL_API + `/${idshop}/${id}`,this.httpOptions);
+  postInventoryI(inventory: Inventory,file:File) {
+    console.log(inventory)
+    const fd = new FormData();
+    fd.append('code', inventory.code || "");
+    fd.append('category',inventory.category || "");
+    fd.append('count', inventory.count?.toString() || "");
+    fd.append('points', inventory.points?.toString() || "");
+    fd.append('price', inventory.price?.toString() || "");
+    fd.append('productname', inventory.productname || "");
+    fd.append('shopid', this.shopid || "");
+    fd.append('images', file);
+    return this.http.post<Inventory>(this.URL_API+ `/i/${this.shopid}/`, fd,this.httpOptions);
   }
 
-  putInventory(inventory: Inventory,id:string,idshop:string) {
-    return this.http.put(this.URL_API + `/${idshop}/${id}`,inventory,this.httpOptions);
+  getInventorys() {
+    return this.http.get<Inventory[]>(this.URL_API + `/${this.shopid}/`,this.httpOptions);
+  }
+  getInventory(id:string) {
+    return this.http.get<Inventory>(this.URL_API + `/${this.shopid}/${id}`,this.httpOptions);
   }
 
-  deleteInventory(id: string,idshop:string) {
-    return this.http.delete(this.URL_API + `/${idshop}/${id}`,this.httpOptions);
+  putInventory(inventory: Inventory,id:string) {
+    inventory.shopid =this.shopid || ""
+    return this.http.put(this.URL_API + `/${this.shopid}/${id}`,inventory,this.httpOptions);
+  }
+  putInventoryI(inventory: Inventory,file:File,id:string) {
+    const fd = new FormData();
+    fd.append('code', inventory.code || "");
+    fd.append('category',inventory.category || "");
+    fd.append('count', inventory.count?.toString() || "");
+    fd.append('points', inventory.points?.toString() || "");
+    fd.append('price', inventory.price?.toString() || "");
+    fd.append('productname', inventory.productname || "");
+    fd.append('shopid', this.shopid || "");
+    fd.append('image',inventory.image || "");
+    fd.append('images', file);
+    return this.http.put<Inventory>(this.URL_API+`/i/${this.shopid}/${id}`, fd,this.httpOptions);
+  }
+
+  deleteInventory(id: string) {
+    return this.http.delete(this.URL_API + `/${this.shopid}/${id}`,this.httpOptions);
   }
 
   

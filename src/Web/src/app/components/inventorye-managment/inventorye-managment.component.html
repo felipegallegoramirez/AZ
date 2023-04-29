@@ -1,0 +1,217 @@
+<div class="any">
+  <div class="central">
+    <div class="sup">
+      <div class="sup__stats">
+        <div>
+          <p>Clientes ultimos 15 Dias</p>
+          <p>200</p>
+        </div>
+        <div>
+          <p>Clientes ultimos 30 Dias</p>
+          <p>600</p>
+        </div>
+        <div>
+          <p>Clientes ultimos 6 meses</p>
+          <p>1500</p>
+        </div>
+      </div>
+
+      <div class="sup__search">
+        <div class="sup__input">
+          <span>Codigo - Nombre</span>
+          <input id ="search" />
+        </div>
+        <button (click)="search()">Buscar</button>
+        <div class="sup__select">
+          <select id="order">
+            <option value="code/1">Codigo Ascendente</option>
+            <option value="code/-1">Codigo Desendente</option>
+            <option value="price/1">Precio Ascendente</option>
+            <option value="price/-1">Precio Desendente</option>
+            <option value="points/1">Puntos Ascendente</option>
+            <option value="points/-1">Puntos Desendente</option>
+            <option value="count/1">Cantidad Ascendente</option>
+            <option value="count/-1">Cantidad Desendente</option>
+          </select>
+        </div>
+        <div class="sup__select">
+          <select id="cate">
+            <option value="">Categoria (Any)</option>
+            <option *ngFor="let cat of category" value="{{ cat.id }}">{{ cat.name }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="inf">
+      <table>
+        <tr>
+          <th>Codigo</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Puntos</th>
+          <th>Cantidad</th>
+          <th>Categoria</th>
+          <th *ngIf="edit">Accion</th>
+        </tr>
+
+        <ng-container *ngFor="let data of products">
+          <tr (click)="rara(data.i)">
+            <td>{{ data.code }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.price }}</td>
+            <td>{{ data.points }}</td>
+            <td>{{ data.count }}</td>
+            <td>{{ data.category }}</td>
+            <td *ngIf="edit">
+              <div class="table__img">
+                <div (click)="refill_product(data.id)">
+                  <img src="../../../assets/crud/Pen.svg" />
+                </div>
+                <div (click)="delete_product(data.id)">
+                  <img src="../../../assets/crud/Paper Bin.svg"/>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7">
+              <div class="ocult">
+                <h2>hola</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                  laboriosam! Quia cupiditate voluptate minus exercitationem
+                  dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Vitae tempora exercitationem modi est repellat quas in
+                  repellendus provident, obcaecati voluptatum ex, hic non.
+                  Suscipit possimus reiciendis, laboriosam repellat obcaecati
+                  libero. repellendus expedita nesciunt autem ullam quidem.
+                </p>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+    <div class="pages">
+      <p>Anterior</p>
+      <p class="active">1</p>
+      <p>2</p>
+      <p>3</p>
+      <p>4</p>
+      <p>5</p>
+      <p>Siguiente</p>
+    </div>
+  </div>
+
+  <div class="options">
+    <div (click)="add_view()">
+      <img src="../../../assets/crud/Add.svg" />
+    </div>
+    <div (click)="editar()">
+      <img src="../../../assets/crud/Pen.svg" />
+    </div>
+
+    <div (click)="add_category()">
+      <img src="../../../assets/crud/Book.svg" />
+    </div>
+  </div>
+</div>
+
+<div
+  class="panel--ocultar oculto"
+  id="background_panel"
+  (click)="close()"
+></div>
+
+<div class="add-client panel oculto" id="panel">
+  <div class="panel__content">
+    <input id="id_product" type="text" style="display: none" />
+    <input id="image_product" type="text" style="display: none" />
+    <div class="input">
+      <span>Nombre</span>
+      <input id="name_product" />
+    </div>
+
+    <div class="input">
+      <select id="category_product" name="lenguajes">
+        <option *ngFor="let cat of category" value="{{cat.id}}">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input">
+      <span>Cantidad</span>
+      <input id="count_product" type="number" />
+    </div>
+
+    <div class="input">
+      <span>Codigo</span>
+      <input id="code_product" type="number" />
+    </div>
+
+    <div class="input">
+      <span>Precio</span>
+      <input id="price_product" type="number" />
+    </div>
+
+    <div class="input">
+      <span>Puntos</span>
+      <input id="points_product" type="number" />
+    </div>
+
+    <div class="input">
+      <span>Foto</span>
+      <input accept="image/png, image/jpeg" #imageproduct  (change)="onPhotoSelected($event,0)" id="file_product" type="file" />
+      <img (click)="imageproduct.click()"  [src]="photoSelected[0]"  class="input__image">
+    </div>
+  </div>
+  <div class="panel--buttons">
+    <button *ngIf="!update" (click)="create_product()">Crear</button>
+    <button *ngIf="update" (click)="update_product()">Editar</button>
+    <button (click)="close()">Cancelar</button>
+  </div>
+</div>
+
+<div class="add-category panel oculto" id="panel-category">
+  <div class="panel__content">
+    <div class="input">
+      <select (change)="actualize_category()" name="lenguajes" id="action">
+        <option value="1">Crear</option>
+        <option value="2">Modificar</option>
+        <option value="3">Eliminar</option>
+      </select>
+    </div>
+
+    <div class="input">
+      <select
+        [disabled]="!categoryselect"
+        (change)="refill_category()"
+        name="lenguajes"
+        id="create_id"
+      >
+        <option *ngFor="let cat of category" value="{{ cat.id }}">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input">
+      <span>Nombre</span>
+      <input [disabled]="!categorydata" id="name_category" />
+    </div>
+
+    <div class="input">
+      <span>Foto</span>
+      <input [disabled]="!categorydata" accept="image/png, image/jpeg" #imagecategory  (change)="onPhotoSelected($event,1)" id="file_category" type="file" />
+      <img (click)="imagecategory.click()"  [src]="photoSelected[1]"  class="input__image">
+
+    </div>
+  </div>
+  <div class="panel--buttons">
+    <button (click)="select()">Terminar</button>
+    <button (click)="close()">Cancelar</button>
+  </div>
+</div>

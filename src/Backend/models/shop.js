@@ -9,8 +9,8 @@ const StorageScheme = new mongoose.Schema(
         unique: true,
         trim: true
       },
-    runt: {
-        type:Number,
+    nit: {
+        type:String,
         unique: true,
     },
     name: {
@@ -20,6 +20,9 @@ const StorageScheme = new mongoose.Schema(
         type: String, 
     },
     ownerid: {
+      type: String, 
+    },
+    phone: {
       type: String, 
     },
     employeeid: [{

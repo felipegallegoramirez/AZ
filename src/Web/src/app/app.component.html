@@ -1,7 +1,5 @@
 <img (click)="Hidden()" src="../assets/logo.svg" class="logo">
-<router-outlet><!--Aca se muestra las paginas--></router-outlet>
-
-<nav id="Central" class="Central">
+<nav id="Central" class="CentralNav">
     <section class="BodyNavSup-Logo-ButtonClose">
         <div (click)="Hidden()" class="Logo">
             <img src="../../../assets/logo.svg" alt="Logo de FUP">
@@ -73,7 +71,7 @@
                 </a>
             </div>
             <div class="Link-Navigator">
-                <a class="Button" routerLink="/home">
+                <a class="Button" routerLink="/inventory-managment">
                     <div class="Links-Icons">
                         <div class="Icon">
                             <img src="../../../assets/Inventory-iconNav.svg" alt="">
@@ -199,3 +197,7 @@
         </div>
     </section>
 </nav>
+
+
+<router-outlet><!--Aca se muestra las paginas--></router-outlet>
+

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fup';
-  contador:number = 1;
+  contador:number = 0;
 
   Hidden(){
       

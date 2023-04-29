@@ -1,4 +1,4 @@
-const { string } = require("joi");
+const { string, number } = require("joi");
 const mongoose = require("mongoose");
 //const mongoosePaginate = require("mongoose-paginate-v2");
 //const mongoosePaginateAggregate = require("mongoose-aggregate-paginate-v2");
@@ -15,7 +15,7 @@ const StorageScheme = new mongoose.Schema(
         require:true
     },
     count: {
-        type:String,
+        type:Number,
         require:true
     },
     category: {
@@ -34,8 +34,10 @@ const StorageScheme = new mongoose.Schema(
       type: String,
       require: true
     },
-
-
+    image: {
+      type: String,
+      require: true
+    },
 
     },
 

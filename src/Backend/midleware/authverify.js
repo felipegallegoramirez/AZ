@@ -1,5 +1,6 @@
 const { verifyToken } = require("../utils/token");
 const boom = require('@hapi/boom');
+const User = require("../models/user");
 
 const checkAuth = async (req, res, next) => {
   try {
@@ -30,6 +31,7 @@ const checkpermision = (permissions) => {
       }
       const token = req.headers.authorization.split(" ").pop();
       const tokenData = await verifyToken(token);
+      console.log(tokenData._id)
       if (tokenData._id) {
         const user = await User.findById(tokenData._id);
         if(!user){

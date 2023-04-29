@@ -21,7 +21,7 @@ UserCtrl.createUser = async (req, res, next) => {
             password: await encrypt(req.body.password),
             dni:req.body.dni,
             name:req.body.name,
-            city:req.body.city,
+            address:req.body.address,
             phone:req.body.phone,
         }
         var save= await User.create(body);
@@ -72,35 +72,35 @@ const Shop = require("../models/shop");
 
 UserCtrl.register = async (req, res, next) => {
     try{
+        
         var body = {
             email:req.body.email,
             password: await encrypt(req.body.password),
-            dni:req.body.dni,
             name:req.body.name,
-            city:req.body.city,
             phone:req.body.phone,
             shop: req.body.shop,
         }
 
-        
-        body.shop={
+        var temp=req.body.shop; 
+         body.shop={
             id: '',
             permissions: [0,1,2,3,4,5,6,7,8,9,10,11]
         }
         var save= await User.create(body);
-
         var shop = {
-            email: body.shop.email, 
-            runt:body.shop.email, 
-            name:body.shop.email, 
-            address:body.shop.email, 
+            email: temp.email, 
+            nit:temp.nit, 
+            name:temp.name, 
+            address:temp.address,
             ownerid:save._id, 
             employeeid:[]
         }
+        console.log(shop)
         var saveShop = await Shop.create(shop);
+        console.log(saveShop)
 
         save.shop.id=saveShop._id
-        save= User.findByIdAndUpdate(save._id,save);
+        save= await User.findByIdAndUpdate(save._id,save);
         res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
@@ -116,7 +116,7 @@ UserCtrl.addEmployee = async (req, res, next) => {
             password: await encrypt(req.body.password),
             dni:req.body.dni,
             name:req.body.name,
-            city:req.body.city,
+            address:req.body.address,
             phone:req.body.phone,
             shop: req.body.shop,
         }

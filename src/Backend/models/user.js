@@ -15,19 +15,19 @@ const StorageScheme = new mongoose.Schema(
     },
     dni: {
       type: Number,
-      require: true
+
     },
     name: {
       type: String,
       require: true
     },
-    city: {
+    address: {
       type: String,
-      require: true
+
     },
     phone: {
       type: Number,
-      require: true
+
     },
     verified: {
       state: {

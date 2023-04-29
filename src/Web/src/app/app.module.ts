@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
@@ -14,6 +15,10 @@ import { PanelWorkspaceComponent } from './components/panel-workspace/panel-work
 import { SoldManagmentComponent } from './components/sold-managment/sold-managment.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
 import { InventoryTillComponent } from './components/inventory-till/inventory-till.component';
+import { EmailsendComponent } from './components/emailsend/emailsend.component';
+import { EmailcodeComponent } from './components/emailcode/emailcode.component';
+import { EmployeeManagmentComponent } from './components/employee-managment/employee-managment.component';
+import { InventoryeManagmentComponent } from './components/inventorye-managment/inventorye-managment.component';
 
 
 const routes: Routes = [
@@ -26,8 +31,12 @@ const routes: Routes = [
   { path: 'panel-workspace', component: PanelWorkspaceComponent },
   { path: 'user-managment', component: UserManagmentComponent },
   { path: 'sold-managment', component: SoldManagmentComponent },
+  { path: 'employee-managment', component: EmployeeManagmentComponent },
+  { path: 'inventory-managment', component: InventoryeManagmentComponent },
   { path: 'navigator', component:NavigatorComponent},
   { path: 'inventory-till', component:InventoryTillComponent},
+  { path: 'emailcode/:id/:code', component:EmailcodeComponent},
+  { path: 'emailsend', component:EmailsendComponent},
 ];
 
 @NgModule({
@@ -43,10 +52,15 @@ const routes: Routes = [
     PanelWorkspaceComponent,
     SoldManagmentComponent,
     NavigatorComponent,
-    InventoryTillComponent
+    InventoryTillComponent,
+    EmailsendComponent,
+    EmailcodeComponent,
+    EmployeeManagmentComponent,
+    InventoryeManagmentComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes, {useHash:true}),
 
   ],
