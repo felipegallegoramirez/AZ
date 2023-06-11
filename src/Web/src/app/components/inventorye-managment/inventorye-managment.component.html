@@ -169,8 +169,8 @@
     </div>
   </div>
   <div class="panel--buttons">
-    <button *ngIf="!update" (click)="create_product()">Crear</button>
-    <button *ngIf="update" (click)="update_product()">Editar</button>
+    <button *ngIf="!update" (click)="resolveProduct(0)">Crear</button>
+    <button *ngIf="update" (click)="resolveProduct(1)">Editar</button>
     <button (click)="close()">Cancelar</button>
   </div>
 </div>

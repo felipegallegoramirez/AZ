@@ -19,6 +19,7 @@ import { EmailsendComponent } from './components/emailsend/emailsend.component';
 import { EmailcodeComponent } from './components/emailcode/emailcode.component';
 import { EmployeeManagmentComponent } from './components/employee-managment/employee-managment.component';
 import { InventoryeManagmentComponent } from './components/inventorye-managment/inventorye-managment.component';
+import { PorfileComponent } from './components/porfile/porfile.component';
 
 
 const routes: Routes = [
@@ -56,7 +57,8 @@ const routes: Routes = [
     EmailsendComponent,
     EmailcodeComponent,
     EmployeeManagmentComponent,
-    InventoryeManagmentComponent
+    InventoryeManagmentComponent,
+    PorfileComponent
   ],
   imports: [
     BrowserModule,

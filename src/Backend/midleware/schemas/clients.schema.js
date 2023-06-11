@@ -22,15 +22,15 @@ const points = Joi.number().integer().min(0).max(999999999)
 const shopid = Joi.string();
 
 const createClientsSchema = Joi.object({
-  email: email.required(),
-  dni: dni.required(),
-  name: name.required(),
-  address: address.required(),
-  phone: phone.required(),
-  points: points.required(),
-  phone: phone.required(),
-  sells: Joi.array().items(sellsSchema).required(),
-  shopid: shopid.required(),
+  email: email,
+  dni: dni,
+  name: name,
+  address: address,
+  phone: phone,
+  points: points,
+  phone: phone,
+  sells: Joi.array().items(sellsSchema),
+  shopid: shopid,
 });
 
 
@@ -48,6 +48,7 @@ const updateClientsSchema = Joi.object({
 
 const getClientsSchema = Joi.object({
   id: id.required(),
+  shopid: shopid.required(),
 });
 
 module.exports = { createClientsSchema, updateClientsSchema, getClientsSchema }

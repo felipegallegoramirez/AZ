@@ -11,6 +11,7 @@ const StorageScheme = new mongoose.Schema(
       },
     dni: {
         type:Number,
+        unique: true,
     },
     name: {
         type:String,

@@ -41,7 +41,6 @@ export class LoginRegisterComponent implements OnInit {
       this.central()
     }
     
-    this.central()
   }
 
   RegisterTwo (){

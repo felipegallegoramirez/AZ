@@ -57,7 +57,8 @@ const message = async (req, res, next) => {
       const tokenJwt = await tokenSign(user);
 
       const data = {
-        token: tokenJwt
+        token: tokenJwt,
+        shopid:user.shop.id
       };
 
 

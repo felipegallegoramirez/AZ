@@ -193,7 +193,6 @@ export class InventoryeManagmentComponent implements OnInit {
     delete data._id;
     delete data.image;
 
-    console.log(data)
     if(file){
       this.inventoryService.postInventoryI(data,file).subscribe((res)=>{
         this.getProducts();
@@ -297,13 +296,6 @@ export class InventoryeManagmentComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
   // ! ----------- Categoria -----------
 
   actualize_category(){
@@ -379,11 +371,9 @@ export class InventoryeManagmentComponent implements OnInit {
     data.shopid=localStorage.getItem('shop')||"";
 
     if(file){
-
       this.productCategoryService.postProductCategoryI(data,file).subscribe((res)=>{
       })
     }else{
-
       this.productCategoryService.postProductCategory(data).subscribe((res)=>{
       })
     }
@@ -429,16 +419,51 @@ export class InventoryeManagmentComponent implements OnInit {
       }
     },(err)=>{
       console.log(err)
-
     })
   }
 
 
-  resolveProduct(){
+  resolveProduct(op:Number){
+    let name= (<HTMLInputElement>document.getElementById("name_product")).value
+    let count= (<HTMLInputElement>document.getElementById("count_product")).value
+    let code= (<HTMLInputElement>document.getElementById("code_product")).value
+    let price= (<HTMLInputElement>document.getElementById("price_product")).value
+    let points= (<HTMLInputElement>document.getElementById("points_product")).value
 
+    if(name.length <= 0 ){
+      alert("Error Nombre")
+    }else if (Number(count) <= 0){
+      alert("Error Cantidad")
+    }else if (code.length <= 0){
+      let x= Math.floor(Math.random() * 100);
+      code= x.toString();
+    }else if (Number(price) < 0){
+      alert("Error Price")
+    }else if (Number(points) < 0){
+      alert("Error Points")
+    }else if (op==0){
+      this.create_product()
+    }else {
+      this.update_product()
+    }
   }
 
-  resolveCategory(){
-
+  resolveCategory(op : Number){
+    let name= (<HTMLInputElement>document.getElementById("name_category")).value
+    if(name.length <= 0 ){
+      alert("Error Nombre")
+    }else if (op == 0){
+      this.create_category()
+    }else{
+      this.edit_category()
+    }
   }
+
+
+
+
+
+
+
+
 }

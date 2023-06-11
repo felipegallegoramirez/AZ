@@ -31,7 +31,7 @@ const checkpermision = (permissions) => {
       }
       const token = req.headers.authorization.split(" ").pop();
       const tokenData = await verifyToken(token);
-      console.log(tokenData._id)
+      
       if (tokenData._id) {
         const user = await User.findById(tokenData._id);
         if(!user){
@@ -40,8 +40,8 @@ const checkpermision = (permissions) => {
         var ipguard = req.header('x-forwarded-for') || req.connection.remoteAddress;
         if (user.shop.id == req.params.shopid) {
 
-          if (user.ips.find(x => x === ipguard)) {
-            if (user.shop.permissions.find(x => x === permissions)) {
+          if (user.ips.includes(ipguard)) {
+            if (user.shop.permissions.includes(permissions)) {
               next();
             }else{
               next(boom.unauthorized("No have Permissions"));

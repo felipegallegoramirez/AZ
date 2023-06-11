@@ -1,3 +1,9 @@
+input[type="number"]
+{
+    -webkit-appearance: textfield !important;
+    -moz-appearance:textfield !important;
+}
+
 .CentralPage{
     display: flex;
     flex-flow: row;
@@ -93,9 +99,10 @@ select{
     overflow-x: hidden;
     position: absolute;
 }
-.product div img{
+.product>img{
     width: 130px;
     border-radius: 15px;
+    margin: 0px;
 }
 .product{
     margin: 2px;
@@ -103,32 +110,29 @@ select{
     box-sizing: border-box;
     overflow: hidden;
     width: 160px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 180px;
+    text-align: center;
     background-color: var(--w);
     border-radius: 15px;
+    padding: 10px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.Quantity{
-    margin:-115px 0 0 130px;
-    padding: 5px;
-    font-size: 14px;
-    color: var(--w);
-    background-color: var(--c1);
-    border-radius: 15px;
-    position: absolute;
+.product>div{
+    display: flex;
+    justify-content: flex-end;
 }
-.Price{
-    font-size: 15px;
-    position: absolute;
-    background-color: var(--c1);
-    border-radius: 15px;
+.product>div>p , .price{
+    background-color:var(--c1);
+    padding: 2px 10px;
+    border-radius: 10px;
     color: var(--w);
-    padding: 5px 50px;
-    margin: 105px 0 0 0;
 }
+.product p{
+    margin: 5px 0px;
+}
+
+
+
 .BodyTill{
     width: 55%;
     height: 100%;
@@ -235,13 +239,16 @@ b{
     color: var(--c1);
 }
 .Space{
+    margin: 10px;
     background-color: var(--c1);
     width: 125px;
     height: 18px;
     color: var(--w);
     border-radius: 15px;
-    text-align: right;
+    text-align: left;
     padding: 0 4px;
+    outline: none;
+    border: none;
 }
 .Complete{
     width: 100%;
@@ -343,7 +350,7 @@ b{
     background-color: var(--g);
     padding: 1px 2px;
     border-radius: 15px;
-    min-width: 125px;
+    min-width: 300px;
     width:max-content ;
     height: 18px;
     font-size: 15px;

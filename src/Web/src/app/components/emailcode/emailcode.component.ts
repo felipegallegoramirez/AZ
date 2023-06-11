@@ -18,11 +18,15 @@ export class EmailcodeComponent implements OnInit {
       var data = {
         code: Number(params['code'])
       }
+      
       console.log(data)
       this.authService.postAuthCode(data,id).subscribe(res=>{
+          console.log(res)
           var x = res.token
+          var y = res.shopid
           localStorage.setItem('token',x);
-          window.location.replace("http://localhost:4200/#/aboutus");
+          localStorage.setItem('shop',y);
+          window.location.replace("http://localhost:4200/#/home");
       })
 
       //

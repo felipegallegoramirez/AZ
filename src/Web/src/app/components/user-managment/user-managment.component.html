@@ -1,144 +1,95 @@
-
 <div class="any">
-<div class="central">
-
-    <div class="sup">
+    <div class="central">
+      <div class="sup">
         <div class="sup__stats">
-
-            <div>
-                <p>Clientes ultimos 15 Dias</p>
-                <p>200</p>
-            </div>
-            <div>
-                <p>Clientes ultimos 30 Dias</p>
-                <p>600</p>
-            </div>
-            <div>
-                <p>Clientes ultimos 6 meses</p>
-                <p>1500</p>
-            </div>
-
+          <div>
+            <p>Clientes ultimos 15 Dias</p>
+            <p>200</p>
+          </div>
+          <div>
+            <p>Clientes ultimos 30 Dias</p>
+            <p>600</p>
+          </div>
+          <div>
+            <p>Clientes ultimos 6 meses</p>
+            <p>1500</p>
+          </div>
         </div>
-
+  
         <div class="sup__search">
-
-            <div class="sup__input">
-                <span>Nombre - Cedula - Celular - Codigo</span>
-                <input>
-            </div>
-            <button>Buscar</button>
-            <div class="sup__select">
-                <select name="lenguajes" id="lang">
-                  <option value="javascript">Ordenar Por (Any)</option>
-                  <option value="php">PHP</option>
-                  <option value="java">Java</option>
-                  <option value="golang">Golang</option>
-                  <option value="python">Python</option>
-                  <option value="c#">C#</option>
-                  <option value="C++">C++</option>
-                  <option value="erlang">Erlang</option>
-                </select>
-            </div>
-            <div class="sup__select">
-                <select name="lenguajes" id="lang">
-                  <option value="javascript">Filtros (Any)</option>
-                  <option value="php">PHP</option>
-                  <option value="java">Java</option>
-                  <option value="golang">Golang</option>
-                  <option value="python">Python</option>
-                  <option value="c#">C#</option>
-                  <option value="C++">C++</option>
-                  <option value="erlang">Erlang</option>
-                </select>
-            </div>
-
+          <div class="sup__input">
+            <span>Codigo - Nombre</span>
+            <input id ="search" />
+          </div>
+          <button (click)="search()">Buscar</button>
+          <div class="sup__select">
+            <select id="order">
+              <option value="dni/1">Cedula Ascendente</option>
+              <option value="dni/-1">Cedula Desendente</option>
+              <option value="points/1">Puntos Ascendente</option>
+              <option value="points/-1">Puntos Desendente</option>
+            </select>
+          </div>
+          <div class="sup__select">
+            <select id="cate">
+              <option value="">Categoria (Any)</option>
+            </select>
+          </div>
         </div>
-
-    </div>
-
-
-
-    <div class="inf">
+      </div>
+  
+      <div class="inf">
         <table>
-
+          <tr>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>puntos</th>
+            <th>random</th>
+            <th *ngIf="edit">Accion</th>
+          </tr>
+  
+          <ng-container *ngFor="let data of clients">
+            <tr (click)="rara(data.i)">
+              <td>{{ data.dni }}</td>
+              <td>{{ data.name }}</td>
+              <td>{{ data.email }}</td>
+              <td>{{ data.phone }}</td>
+              <td>{{ data.points }}</td>
+              <td>random</td>
+              <td *ngIf="edit">
+                <div class="table__img">
+                  <div (click)="refill_client(data.id)">
+                    <img src="../../../assets/crud/Pen.svg" />
+                  </div>
+                  <div (click)="delete_client(data.id)">
+                    <img src="../../../assets/crud/Paper Bin.svg"/>
+                  </div>
+                </div>
+              </td>
+            </tr>
             <tr>
-              <th>Cedula</th>
-              <th>Nombre Cliente</th>
-              <th>Compras en bruto</th>
-              <th>Puntos Acumulados</th>
-              <th>Activo desde</th>
+              <td colspan="7">
+                <div class="ocult">
+                  <h2>hola</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                    laboriosam! Quia cupiditate voluptate minus exercitationem
+                    dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Vitae tempora exercitationem modi est repellat quas in
+                    repellendus provident, obcaecati voluptatum ex, hic non.
+                    Suscipit possimus reiciendis, laboriosam repellat obcaecati
+                    libero. repellendus expedita nesciunt autem ullam quidem.
+                  </p>
+                </div>
+              </td>
             </tr>
-
-
-
-            <tr (click)="rara(1)">
-              <td>1001111111</td>
-              <td>Camilo andres Martinez Perez</td>
-              <td>Hola</td>
-              <td>Como</td>
-              <td>Esta</td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <div class="ocult">
-                        <h2>hola</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
-                    </div>
-                </td>
-            </tr>
-
-            <tr (click)="rara(2)">
-                <td>1001111111</td>
-                <td>Camilo andres Martinez Perez</td>
-                <td>Hola</td>
-                <td>Como</td>
-                <td>Esta</td>
-            </tr>
-              <tr>
-                  <td colspan="5">
-                      <div class="ocult">
-                          <h2>hola</h2>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
-                      </div>
-                  </td>
-              </tr>
-
-              <tr (click)="rara(3)">
-                <td>1001111111</td>
-                <td>Camilo andres Martinez Perez</td>
-                <td>Hola</td>
-                <td>Como</td>
-                <td>Esta</td>
-              </tr>
-              <tr>
-                  <td colspan="5">
-                      <div class="ocult">
-                          <h2>hola</h2>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
-                      </div>
-                  </td>
-              </tr>
-
-              <tr (click)="rara(4)">
-                <td>1001111111</td>
-                <td>Camilo andres Martinez Perez</td>
-                <td>Hola</td>
-                <td>Como</td>
-                <td>Esta</td>
-              </tr>
-              <tr>
-                  <td colspan="5">
-                      <div class="ocult">
-                          <h2>hola</h2>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
-                      </div>
-                  </td>
-              </tr>
-
-            
-          </table>
-    </div>
-    <div class="pages">
+          </ng-container>
+        </table>
+      </div>
+      <div class="pages">
         <p>Anterior</p>
         <p class="active">1</p>
         <p>2</p>
@@ -146,66 +97,61 @@
         <p>4</p>
         <p>5</p>
         <p>Siguiente</p>
+      </div>
     </div>
+  
+    <div class="options">
+      <div (click)="add_view()">
+        <img src="../../../assets/crud/Add.svg" />
+      </div>
+      <div (click)="editar()">
+        <img src="../../../assets/crud/Pen.svg" />
+      </div>
 
-
-</div>
-
-<div class="options">
-    <div>
-        <img  src="../../../assets/crud/Add.svg">
     </div>
-    <div>
-        <img  src="../../../assets/crud/Pen.svg">
+  </div>
+  
+  <div
+    class="panel--ocultar oculto"
+    id="background_panel"
+    (click)="close()"
+  ></div>
+  
+  <div class="add-client panel oculto" id="panel">
+    <div class="panel__content">
+      <input id="id_client" type="text" style="display: none" />
+      <input id="image_client" type="text" style="display: none" />
+
+      <div class="input">
+        <span>Nombre</span>
+        <input id="name_client" />
+      </div>
+
+      <div class="input">
+        <span>Correo</span>
+        <input id="email_client" />
+      </div>
+
+      <div class="input">
+        <span>Direccion</span>
+        <input id="address_client" />
+      </div>
+
+      <div class="input">
+        <span>Celular</span>
+        <input type="number" id="phone_client" />
+      </div>
+
+      <div class="input">
+        <span>Cedula</span>
+        <input type="number" id="dni_client" />
+      </div>
+
+
+    <div class="panel--buttons">
+      <button *ngIf="!update" (click)="resolveClients(0)">Crear</button>
+      <button *ngIf="update" (click)="resolveClients(1)">Editar</button>
+      <button (click)="close()">Cancelar</button>
     </div>
-    <div>
-        <img  src="../../../assets/crud/Paper Bin.svg">
-    </div>
-
-
-</div>
-</div>
-
-<div class="panel--ocultar"></div>
-
-<div class="add-client panel  ">
-  <div class="input">
-    <span>Nombre</span>
-    <input />
   </div>
-
-  <div class="input">
-    <span>Correo</span>
-    <input />
-  </div>
-
-  <div class="input">
-    <span>Documento identidad</span>
-    <input />
-  </div>
-
-  <div class="input">
-    <span>Direccion</span>
-    <input />
-  </div>
-
-  <div class="input">
-    <span>Celular</span>
-    <input />
-  </div>
-
-  <div class="input">
-    <span>Puntos</span>
-    <input />
-  </div>
-  <div class="panel--buttons">
-    <button>Crear</button>
-    <button>Cancelar</button>
-
-  </div>
- 
-
-
-
-
-</div>
+  

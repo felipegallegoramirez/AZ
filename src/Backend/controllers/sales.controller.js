@@ -77,24 +77,15 @@ SalesCtrl.soldPreview = async (req, res, next) => {
     const { time, client, employee, date, product, service, totalprice, totalpoints, shopid } = req.body;
     const body = { time, client, employee, date, product, service, totalprice, totalpoints, shopid };
 
-    /*
-    serviceid = body.service.map((x)=>{return x.id})
-    productid = body.product.map((x)=>{return x.id})
-
-    const productData = Inventory.find({ _id: { $in: productid } })
-    const serviceData = Service.find({ _id: { $in: serviceid } })
-    */
     var state = true
 
     /* 
     !Posible forma de romper esta parte
         Si durante la compra, se modifica la base de datos al tiempo
-
-
     */
 
-    newdataproduct= []
     log=[]
+    
     for (var i= 0 ; i <= body.product.length  ;i++){
         let data = await Inventory.findById(body.product[i].id);
         if (data.count <body.product[i].count){
@@ -102,28 +93,18 @@ SalesCtrl.soldPreview = async (req, res, next) => {
             log.push(`Error Producto ${body.product[i].name} no suficientes`)
         }else{
             data.count-= body.product[i].count
-            newdataproduct.push(data)
+            Inventory.findByIdAndUpdate(data._id,data)
         }
     }
 
-    newdataservice= []
-    /*
-    for (var i= 0 ; i <= body.service.length  ;i++){
-        let data = await Service.findById(body.service[i].id);
-        if (data.count <body.service[i].count){
-            state=false
-            log.push(`Error Producto ${body.service[i].name} no suficientes`)
-        }else{
-            data.count-= body.service[i].count
-            newdataservice.push(data)
-        }
-    }
-    */
-
-
-
+    var save= await Sales.create(body);
+    res.status(200).send(save)
 }
 
+SalesCtrl.soldCancel= async (req, res, next) => {
+
+    
+}
 
 
 

@@ -22,17 +22,7 @@
     scrollbar-color: var(--c2) var(--w);
     scrollbar-width: thin;
 }
-*::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: var(--c2);
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-  }
+
   
 
 .BodyNavSup-Logo-ButtonClose{
@@ -49,14 +39,15 @@
     margin: 20px 10px;
     border-style: none;
     background-color: var(--w);
+    cursor: pointer;
 }
 .ButtonClose button img{
     margin: 5px 5px;
 }
-.ButtonClose button img:hover{
+.ButtonClose button:hover img{
     filter: hue-rotate(0deg) saturate(0) brightness(100);
     transition: all .1s ease-in;
-    cursor: pointer;
+
 }
 
 .ButtonClose button:hover{
@@ -129,14 +120,3 @@ p{
 }
 
 
-
-
-
-.pene{
-    --c1: #16A571;
-    --c2: #33D380;
-    --r: #D13333;
-    --w: #F2F0F0;
-    --b: #0D1311;
-    --g: #79747E;
-}

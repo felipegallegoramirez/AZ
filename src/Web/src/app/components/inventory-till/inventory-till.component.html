@@ -5,7 +5,7 @@
                  <h2>Finalizar</h2>
             </div>
             <div class="ModalInfoinput"> 
-                <input class="Input-Modal" id="SearchInventory" type="text" placeholder=""/>
+                <input (keyup)="searchclient()" class="Input-Modal" id="SearchInventory" type="text" placeholder=""/>
                 <label>Nombre - Cedula - Correo - Celular</label>
             </div>
             <div class="ModalShowinfo"> 
@@ -14,15 +14,15 @@
                         <p class="Atribut">Nombre:</p>
                     </div>
                     <div>
-                        <p class="Space-2">Dorian Yancelly Ocampo Tangarife</p>
+                        <p class="Space-2">{{cliente.name}}</p>
                     </div>
                 </div>
                 <div class="MoveStatus">
                     <div>
-                        <p class="Atribut">Cedula:</p>
+                        <p class="Atribut">Cedula: </p>
                     </div>
                     <div>
-                        <p class="Space-2"></p>
+                        <p class="Space-2">{{cliente.dni}}</p>
                     </div>
                 </div>
                 <div class="MoveStatus">
@@ -30,7 +30,7 @@
                         <p class="Atribut">Correo:</p>
                     </div>
                     <div>
-                        <p class="Space-2"></p>
+                        <p class="Space-2">{{cliente.email}}</p>
                     </div>
                 </div>
                 <div class="MoveStatus">
@@ -38,7 +38,7 @@
                         <p class="Atribut">Celular:</p>
                     </div>
                     <div>
-                        <p class="Space-2"> </p>
+                        <p class="Space-2">{{cliente.phone}}</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                         <p>Total a pagar</p>
                     </div>
                     <div>
-                        <p class="Space-3">$$$$$$$$$$$</p>
+                        <p class="Space-3">{{pago.total}}</p>
                     </div>
                 </div>
                 <div class="ModalPay">
@@ -56,7 +56,7 @@
                         <p>Pagó</p>
                     </div>
                     <div>
-                        <p class="Space-3">33333333333</p>
+                        <p class="Space-3">{{pago.pagar}}</p>
                     </div>
                 </div>
                 <div class="ModalBackcash">
@@ -64,7 +64,7 @@
                         <p>Devuelta</p>
                     </div>
                     <div>
-                        <p class="Space-3">$$$$$$$$$$$</p>
+                        <p class="Space-3">{{pago.devuelta}}</p>
                     </div>
                 </div>
             </div>
@@ -84,423 +84,66 @@
     <section class="BodyMain-Search-Inventory">
         <div class="Search">
             <div class="Email">
-                <input class="Input-SearchInventory" id="SearchInventory" type="text" placeholder=""/>
+                <input  (keyup)="search()" class="Input-SearchInventory" id="search" (change)="search()" type="text" />
                 <label>Nombre o codigo del producto</label>
             </div>
             <div class="Category">
-                <select name="Type-products">
-                    <option value="1" default>Categorias</option>
-                    <option value="1">Pene</option>
-                    <option value="2">Pene</option>
-                    <option value="3" >Pene</option>
-                </select>
+                <select id="cate">
+                    <option value="">Categoria (Any)</option>
+                    <option *ngFor="let cat of category" value="{{ cat.id }}">{{ cat.name }}</option>
+                  </select>
             </div>
         </div>
-        <div class="Catalogue" id="Catalogue" >
-            <div class="product">
-                <p class="Quantity">20</p>
+
+        <!--
+
+            <div (click)="agregar(data.id)" *ngFor="let data of products" class="product">
+                <p class="Quantity">{{data.count}}</p>
                 <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
+                    <img src="{{data.image}}" alt="">
                 </div>
-                <p class="Price">$24.000</p>
+                <p class="Price">${{data.price}}</p>
+                <p class="Price2">{{data.name}}</p>
             </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
+        -->
+        <div  class="Catalogue" id="Catalogue" >
+
+            <div (click)="agregar(data.id)" *ngFor="let data of products" class="product">
+                <div><p>{{data.count}}</p></div>
+                <img src="{{data.image}}" alt="">
+                <p>{{data.name}}</p>
+                <p class="price">{{data.price}}</p>
+
             </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-        </div>
-        <div class="Catalogue2" id="Catalogue2">
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-        </div>
-        <div class="Catalogue3" id="Catalogue3">
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
-            <div class="product">
-                <p class="Quantity">20</p>
-                <div>
-                    <img src="../../../assets/Test-Product.svg" alt="">
-                </div>
-                <p class="Price">$24.000</p>
-            </div>
+
         </div>
     </section>
+
+<!-- Que locura -->
+
+
     <section class="BodyTill">
         <div class="SupBody-Icons">
             <img src="../../../assets/logo.svg" alt="Logo de fup">
         </div>
+
         <div class="MiddleBody-Payproducts">
-            <div class="Payproducts-box">
+            <div *ngFor="let data of carrito" class="Payproducts-box">
                 <div class="Box-NameP-ButtonQ">
                     <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
+                        <p id="Name">{{data.name}}</p>
                     </div>
                     <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
+                        <button (click)="eliminar(data.id)"><b>-</b></button>
+                        <p>{{data.count}}</p>
+                        <button (click)="agregar(data.id)"><b>+</b></button>
                     </div>
                 </div>
                 <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
+                    <p id="Pricetill-N">${{data.total}}</p>
                 </div>
             </div>
-            <div class="Payproducts-box">
-                <div class="Box-NameP-ButtonQ">
-                    <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
-                    </div>
-                    <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
-                    </div>
-                </div>
-                <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
-                </div>
-            </div>
-            <div class="Payproducts-box">
-                <div class="Box-NameP-ButtonQ">
-                    <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
-                    </div>
-                    <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
-                    </div>
-                </div>
-                <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
-                </div>
-            </div>
-            <div class="Payproducts-box">
-                <div class="Box-NameP-ButtonQ">
-                    <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
-                    </div>
-                    <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
-                    </div>
-                </div>
-                <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
-                </div>
-            </div>
-            <div class="Payproducts-box">
-                <div class="Box-NameP-ButtonQ">
-                    <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
-                    </div>
-                    <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
-                    </div>
-                </div>
-                <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
-                </div>
-            </div>
-            <div class="Payproducts-box">
-                <div class="Box-NameP-ButtonQ">
-                    <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
-                    </div>
-                    <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
-                    </div>
-                </div>
-                <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
-                </div>
-            </div>
-            <div class="Payproducts-box">
-                <div class="Box-NameP-ButtonQ">
-                    <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
-                    </div>
-                    <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
-                    </div>
-                </div>
-                <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
-                </div>
-            </div>
-            <div class="Payproducts-box">
-                <div class="Box-NameP-ButtonQ">
-                    <div class="NameProduct">
-                        <p id="Name">Lorem ipsum, Lorem ipsum dolor sit a</p>
-                    </div>
-                    <div class="ButtonQuantity">
-                        <button><b>-</b></button>
-                        <p>5</p>
-                        <button><b>+</b></button>
-                    </div>
-                </div>
-                <div class="Pricetill">
-                    <p id="Pricetill-N">$24.000</p>
-                </div>
-            </div>
+
 
         </div>
         <div class="BottomBody-Total-Pay-Backcash">
@@ -509,7 +152,7 @@
                     <p class="Text-T">Total</p>
                 </div>
                 <div>
-                    <p class="Space"></p>
+                    <p class="Space">{{pago.total}}</p>
                 </div>
             </div>
             <div class="Pay">
@@ -517,7 +160,7 @@
                     <p class="Text-P">Pagar</p>
                 </div>
                 <div>
-                    <p class="Space"></p>
+                    <input class="Space" type="number" id="pago" (keyup)="pagar()">
                 </div>
             </div>
             <div class="Backcash">
@@ -525,7 +168,7 @@
                     <p class="Text-D">Devuelta</p>
                 </div>
                 <div>
-                    <p class="Space"></p>
+                    <p class="Space">{{pago.devuelta}}</p>
                 </div>
             </div>
             

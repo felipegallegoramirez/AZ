@@ -1,4 +1,6 @@
 const ProductCategory = require("../../models/modelsProducts/productcategory");
+const Inventory = require("../../models/modelsProducts/inventory");
+
 
 const ProductCategoryCtrl = {};
 const {delet} = require("../../utils/imgdelete")
@@ -28,10 +30,8 @@ ProductCategoryCtrl.createProductCategory = async (req, res, next) => {
 
         if (req.file) {
             image = req.file.filename
-
             resizeImage(image)
             }
-            console.log("si pasamos")
         const body = {name,shopid,image};
 
 
@@ -81,6 +81,10 @@ ProductCategoryCtrl.deleteProductCategory = async (req, res, next) => {
         const save = await ProductCategory.findById(id);
         if (save.image!="basic.png"){
             delet(`r/${save.image}`)
+        }
+
+        for(let x of save.listproductid){
+            await Inventory.findByIdAndRemove(x);
         }
         await ProductCategory.findByIdAndRemove(id);
         res.json({ status: "ProductCategory Deleted" });
