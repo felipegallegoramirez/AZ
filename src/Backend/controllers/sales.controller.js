@@ -136,11 +136,12 @@ SalesCtrl.soldPreview = async (req, res, next) => {
             points:totalpoints
         }]
     }
-
     clien.points+=totalpoints
     await Clients.findByIdAndUpdate(clien._id,clien)
     res.status(200).send(save)
 }
+
+
 
 
 

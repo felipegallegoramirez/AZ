@@ -274,7 +274,9 @@ export class InventoryTillComponent implements OnInit {
       delete sal.employee
       console.log(sal)
       this.salesService.postSales(sal,shopid).subscribe(res=>{
-        console.log(res)
+        this.actualizar()
+        this.carrito=[]
+        this.Modal1()
       })
     }
 

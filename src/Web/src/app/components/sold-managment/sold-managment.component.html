@@ -67,67 +67,45 @@
             </tr>
 
 
-
-            <tr (click)="rara(1)">
-              <td>1001111111</td>
-              <td>1001111111</td>
-              <td>$230.000</td>
-              <td>30/08/2022</td>
-            </tr>
-            <tr>
-                <td colspan="4">
-                    <div class="ocult">
-                        <h2>hola</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
+            <ng-container *ngFor="let data of solds">
+                <tr (click)="rara(data.i)">
+                  <td>{{ data.id }}</td>
+                  <td>{{ data.dni }}</td>
+                  <td>{{ data.total }}</td>
+                  <td>{{ data.date }}</td>
+                  <!--
+                  <td *ngIf="edit">
+                    <div class="table__img">
+                      <div (click)="refill_product(data.id)">
+                        <img src="../../../assets/crud/Pen.svg" />
+                      </div>
+                      <div (click)="delete_product(data.id)">
+                        <img src="../../../assets/crud/Paper Bin.svg"/>
+                      </div>
                     </div>
-                </td>
-            </tr>
-
-            <tr (click)="rara(2)">
-                <td>1001111111</td>
-                <td>1001111111</td>
-                <td>$230.000</td>
-                <td>30/08/2022</td>
-              </tr>
-              <tr>
-                  <td colspan="4">
-                      <div class="ocult">
-                          <h2>hola</h2>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
-                      </div>
                   </td>
-              </tr>
-
-              <tr (click)="rara(3)">
-                <td>1001111111</td>
-                <td>1001111111</td>
-                <td>$230.000</td>
-                <td>30/08/2022</td>
-              </tr>
-              <tr>
+                  -->
+                </tr>
+                <tr>
                   <td colspan="4">
-                      <div class="ocult">
-                          <h2>hola</h2>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
-                      </div>
+                    <div class="ocult">
+                      <h2>hola</h2>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                        laboriosam! Quia cupiditate voluptate minus exercitationem
+                        dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Vitae tempora exercitationem modi est repellat quas in
+                        repellendus provident, obcaecati voluptatum ex, hic non.
+                        Suscipit possimus reiciendis, laboriosam repellat obcaecati
+                        libero. repellendus expedita nesciunt autem ullam quidem.
+                      </p>
+                    </div>
                   </td>
-              </tr>
+                </tr>
+              </ng-container>
 
-              <tr (click)="rara(4)">
-                <td>1001111111</td>
-                <td>1001111111</td>
-                <td>$230.000</td>
-                <td>30/08/2022</td>
-              </tr>
-              <tr>
-                  <td colspan="4">
-                      <div class="ocult">
-                          <h2>hola</h2>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam! Quia cupiditate voluptate minus exercitationem dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla eius repellendus expedita nesciunt autem ullam quidem.</p>
-                      </div>
-                  </td>
-              </tr>
-
+     
            
 
             
