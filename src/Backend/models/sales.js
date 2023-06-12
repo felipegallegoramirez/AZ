@@ -7,8 +7,6 @@ const StorageScheme = new mongoose.Schema(
     time: {
       type: String,
       required: true,
-      unique: true,
-      trim: true
     },
     client: {
       id: {

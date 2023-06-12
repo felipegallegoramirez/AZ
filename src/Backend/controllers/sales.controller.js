@@ -91,9 +91,15 @@ SalesCtrl.soldPreview = async (req, res, next) => {
 
     const token = req.headers.authorization.split(" ").pop();
     const tokenData = await verifyToken(token);
-
     const employeeinfo = await User.findById(tokenData._id);
-    var employee={
+    if(client.id=="0"){
+        client.id=tokenData._id
+        client.name="DEFAULT"
+        client.dni=0
+    }
+
+
+    const employee={
         id:tokenData._id,
         name:employeeinfo.name,
         dni:employeeinfo.dni
@@ -107,11 +113,32 @@ SalesCtrl.soldPreview = async (req, res, next) => {
             log.push(`Error Producto ${body.product[i].name} no suficientes`)
         }else{
             data.count-= body.product[i].count
-            Inventory.findByIdAndUpdate(data._id,data)
+            await Inventory.findByIdAndUpdate(data._id,data);
+
         }
     }
 
+
     var save= await Sales.create(body);
+
+    let clien =  await Clients.findById(client.id)
+    console.log(clien)
+    if (clien.sells){
+        clien.sells.push({
+            id:save._id,
+            price:totalprice,
+            points:totalpoints
+        })
+    }else{
+        clien.sells=[{
+            id:save._id,
+            price:totalprice,
+            points:totalpoints
+        }]
+    }
+
+    clien.points+=totalpoints
+    await Clients.findByIdAndUpdate(clien._id,clien)
     res.status(200).send(save)
 }
 

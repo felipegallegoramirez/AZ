@@ -6,12 +6,10 @@ const StorageScheme = new mongoose.Schema(
     email: {
         type: String,
         required: true,
-        unique: true,
         trim: true
       },
     dni: {
         type:Number,
-        unique: true,
     },
     name: {
         type:String,

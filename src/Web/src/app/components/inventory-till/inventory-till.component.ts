@@ -254,16 +254,12 @@ export class InventoryTillComponent implements OnInit {
       };
       if(this.cliente._id==""){
         client={
-          "id": "000",
+          "id": "0",
           "dni": 0,
-          "name": "Default",
+          "name": "DEFAULT",
         };
       }
-      const employe={
-        "id": undefined,
-        "dni": undefined,
-        "name": undefined,
-      };
+
       const option=op
       const shopid=localStorage.getItem("shop")||"a"
 
@@ -273,9 +269,13 @@ export class InventoryTillComponent implements OnInit {
 
 
 
-      let sal = new Sales(undefined,hora,client,employe,fecha,this.carrito,undefined,totalprice,totalpoints,shopid,option)
+      let sal = new Sales(undefined,hora,client,undefined,fecha,this.carrito,undefined,totalprice,totalpoints,shopid,option)
+      delete sal._id
+      delete sal.employee
       console.log(sal)
-      this.salesService.postSales(sal,shopid).subscribe(res=>{})
+      this.salesService.postSales(sal,shopid).subscribe(res=>{
+        console.log(res)
+      })
     }
 
   

@@ -106,7 +106,7 @@ UserCtrl.register = async (req, res, next) => {
         console.log(saveShop)
 
         const RG = {
-            _id:"64594a80464601aae11233ac",
+            _id:save._id,
             email:"DEFAULT",
             dni:0,
             name:"DEFAULT",

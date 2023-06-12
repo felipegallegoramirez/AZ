@@ -4,7 +4,7 @@ const Joi = require('joi');
 
 const idclient = Joi.string();
 const dniclient = Joi.number().integer().min(0).max(9999999999);
-const nameclient = Joi.string().min(8).max(20);
+const nameclient = Joi.string().min(0).max(20);
 
 const clientSchema = Joi.object({
   id: idclient.required(),
@@ -72,10 +72,10 @@ const shopid = Joi.string();
 const createSaleSchema = Joi.object({
   time: time.required(),
   client: clientSchema.required(),
-  employee: employeeSchema.required(),
+  //employee: employeeSchema.required(),
   date: date.required(),
   product: Joi.array().items(productSchema),
-  product: Joi.array().items(serviceSchema),
+  service: Joi.array().items(serviceSchema),
   totalprice: price.required(),
   totalpoints: points.required(),
   shopid: shopid.required(),
@@ -86,10 +86,10 @@ const createSaleSchema = Joi.object({
 const updatesaleSchema = Joi.object({
   time: time,
   client: clientSchema,
-  employee: employeeSchema,
+  //employee: employeeSchema,
   date: date,
   product: Joi.array().items(productSchema),
-  product: Joi.array().items(serviceSchema),
+  service: Joi.array().items(serviceSchema),
   totalprice: price,
   totalpoints: points,
   shopid: shopid,
