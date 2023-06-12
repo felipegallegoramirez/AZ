@@ -1,4 +1,7 @@
 const Sales = require("../models/sales");
+const Clients = require("../models/clients");
+const User = require("../models/user");
+const { verifyToken } = require("../utils/token");
 
 const SalesCtrl = {};
 
@@ -74,8 +77,8 @@ const Inventory = require("../models/modelsProducts/inventory");
 
 SalesCtrl.soldPreview = async (req, res, next) => {
 
-    const { time, client, employee, date, product, service, totalprice, totalpoints, shopid } = req.body;
-    const body = { time, client, employee, date, product, service, totalprice, totalpoints, shopid };
+    const { time, client, date, product, service, totalprice, totalpoints, shopid } = req.body;
+
 
     var state = true
 
@@ -85,8 +88,19 @@ SalesCtrl.soldPreview = async (req, res, next) => {
     */
 
     log=[]
-    
-    for (var i= 0 ; i <= body.product.length  ;i++){
+
+    const token = req.headers.authorization.split(" ").pop();
+    const tokenData = await verifyToken(token);
+
+    const employeeinfo = await User.findById(tokenData._id);
+    var employee={
+        id:tokenData._id,
+        name:employeeinfo.name,
+        dni:employeeinfo.dni
+    }
+    const body = { time, client,employee, date, product, service, totalprice, totalpoints, shopid };
+
+    for (var i= 0 ; i < body.product.length  ;i++){
         let data = await Inventory.findById(body.product[i].id);
         if (data.count <body.product[i].count){
             state=false
@@ -101,10 +115,6 @@ SalesCtrl.soldPreview = async (req, res, next) => {
     res.status(200).send(save)
 }
 
-SalesCtrl.soldCancel= async (req, res, next) => {
-
-    
-}
 
 
 

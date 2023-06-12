@@ -8,7 +8,6 @@ import {Clients} from'../../models/clients'
 import { ClientsService} from "../../services/clients.service"
 import { Sales} from'../../models/sales'
 import { SalesService} from "../../services/sales.service"
-import { asapScheduler } from 'rxjs';
 
 
 @Component({
@@ -32,7 +31,7 @@ export class InventoryTillComponent implements OnInit {
     id:string,
     name:string,
     code:string,
-    price:string,
+    price:number,
     points:number,
     count:number,
     category:string,
@@ -41,24 +40,28 @@ export class InventoryTillComponent implements OnInit {
     image:string
   }> =[]
 
+
+
   carrito: Array<{
     id:string,
     name:string,
-    points:number,
-    totalpoints:number
-    count:number,
-    price:number,
-    total:string,
+    count: number,
+    unitarypoints:number
+    totalpoints:number,
+    unitaryprice:number,
+    totalprice:number,
   }> =[]
 
   pago:{
     total:number;
     pagar:number;
     devuelta:number;
+    point:number;
   }={
     total:0,
     pagar:0,
-    devuelta:0
+    devuelta:0,
+    point:0
   }
 
 
@@ -96,7 +99,7 @@ export class InventoryTillComponent implements OnInit {
             id:data[i]._id||"",
             name:data[i].productname||"",
             code:data[i].code||"",
-            price:data[i].price?.toLocaleString()||"0",
+            price:data[i].price||0,
             points:data[i].points||0,
             count:data[i].count||0,
             category: ar?.name||"",
@@ -142,7 +145,7 @@ export class InventoryTillComponent implements OnInit {
             id:data[i]._id||"",
             name:data[i].productname||"",
             code:data[i].code||"",
-            price:data[i].price?.toLocaleString()||"0",
+            price:data[i].price||0,
             points:data[i].points||0,
             count:data[i].count||0,
             category: ar?.name||"",
@@ -158,16 +161,13 @@ export class InventoryTillComponent implements OnInit {
     //! Carrito
 
     agregar(id:string){
-      let result = this.carrito.findIndex(x=>x.id==id)
       let produ= this.products.findIndex(x=>x.id==id)
       if(Number(this.products[produ].count)>0){
-      if(result!=-1){
-        
-
+      let result = this.carrito.findIndex(x=>x.id==id)
+      if(result!=-1){     
           this.carrito[result].count+=1
-   
-          this.carrito[result].total=(this.carrito[result].count*this.carrito[result].price).toLocaleString()
-          this.carrito[result].totalpoints=(this.carrito[result].count*this.carrito[result].points)
+          this.carrito[result].totalprice=(this.carrito[result].count*this.carrito[result].unitaryprice)
+          this.carrito[result].totalpoints=(this.carrito[result].count*this.carrito[result].unitarypoints)
         }
 
       else{
@@ -176,13 +176,14 @@ export class InventoryTillComponent implements OnInit {
           id:data?.id||"",
           name:data?.name||"",
           count:1,
-          price:Number(data?.price)||0,
-          points:data?.points ||0,
+          unitaryprice:data?.price||0,
+          unitarypoints:data?.points ||0,
           totalpoints:data?.points||0,
-          total:data?.price.toLocaleString()||"0",
+          totalprice:data?.price||0,
         })
       }        
-      this.pago.total+=Number(this.products[produ].price)
+      this.pago.total+=this.products[produ].price
+      this.pago.point+=this.products[produ].points
       this.products[produ].count-=1
     }
 
@@ -191,20 +192,20 @@ export class InventoryTillComponent implements OnInit {
 
     eliminar(id:string){
       let result = this.carrito.findIndex(x=>x.id==id)
+      let produ= this.products.findIndex(x=>x.id==id)
+
+      this.pago.total-=this.carrito[result].unitaryprice
+      this.pago.point-=this.carrito[result].unitarypoints
+
       if(this.carrito[result].count>1){
-        let produ= this.products.findIndex(x=>x.id==id)
           this.carrito[result].count-=1
           this.products[produ].count+=1
-          this.carrito[result].total=(this.carrito[result].count*this.carrito[result].price).toLocaleString()
-          this.carrito[result].totalpoints=(this.carrito[result].count*this.carrito[result].points)
-          this.pago.total-=Number(this.products[produ].price)
-
+          this.carrito[result].totalprice=(this.carrito[result].count*this.carrito[result].unitaryprice)
+          this.carrito[result].totalpoints=(this.carrito[result].count*this.carrito[result].unitarypoints)
 
       }else{
-        let produ= this.products.findIndex(x=>x.id==id)
         this.products[produ].count+=1
-        this.carrito.splice(produ,produ+1)
-        this.pago.total-=Number(this.products[produ].price)
+        this.carrito.splice(result,result+1)
       }
     }
 
@@ -213,6 +214,7 @@ export class InventoryTillComponent implements OnInit {
     stado:boolean=true
     //! Cliente
     searchclient(){
+      console.log(this.cliente)
       // order -  cate - search
       let search= (<HTMLInputElement>document.getElementById("SearchInventory")).value
       if(search.trim().length<=3){
@@ -240,47 +242,40 @@ export class InventoryTillComponent implements OnInit {
       this.pago.devuelta=this.pago.pagar-this.pago.total
     }
 
-    buy(){
-      /*
-      _id?:string;
-  time?: string;
-  client?: {
-    id?: string;
-    dni?: number;
-    name?: string;
-  };
-  employee?: {
-    id?: string;
-    dni?: number;
-    name?: string;
-  };
-  date?: string;
-  product?: Array<{
-    id?: string;
-    name?: string;
-    count?: number;
-    unitarypoints?: string;
-    totalpoints?: number;
-    unitaryprice?: string;
-    totalprice?: number;
-  }>;
-  service?: Array<{
-    id?: string;
-    name: string;
-    points?: string;
-    price?: string;
-    time: string;
-    date: string;
-  }>;
-  totalprice?: number;
-  totalpoints?: number;
-  shopid: string; */
-      asapScheduler
+    buy(op:number){
+      const tiempoTranscurrido = Date.now();
+      let hoy = new Date(tiempoTranscurrido);
+      let fecha = hoy.toLocaleDateString();
+      let hora = `${hoy.getHours()}:${hoy.getMinutes()}`
+      var client={
+        "id": this.cliente._id,
+        "dni": this.cliente.dni,
+        "name": this.cliente.name,
+      };
+      if(this.cliente._id==""){
+        client={
+          "id": "000",
+          "dni": 0,
+          "name": "Default",
+        };
+      }
+      const employe={
+        "id": undefined,
+        "dni": undefined,
+        "name": undefined,
+      };
+      const option=op
+      const shopid=localStorage.getItem("shop")||"a"
 
-      let sal = new Sales()
-      this.salesService.postSales(sal).subscribe(res=>{
+      const totalprice=this.pago.total
+      const totalpoints=this.pago.total
 
-      })
+
+
+
+      let sal = new Sales(undefined,hora,client,employe,fecha,this.carrito,undefined,totalprice,totalpoints,shopid,option)
+      console.log(sal)
+      this.salesService.postSales(sal,shopid).subscribe(res=>{})
     }
 
   

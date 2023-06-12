@@ -73,7 +73,7 @@
                     <button class="ModalButtons-Select">Imprimir</button>
                 </div>
                 <div>
-                    <button class="ModalButtons-Select">Factura al correo</button>
+                    <button (click)="buy(1)" class="ModalButtons-Select">Factura al correo</button>
                 </div>
                 <div>
                     <button (click)="Modal1()" class="ModalButtons-Select">Cancelar</button>
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <div class="Pricetill">
-                    <p id="Pricetill-N">${{data.total}}</p>
+                    <p id="Pricetill-N">${{data.totalprice}}</p>
                 </div>
             </div>
 

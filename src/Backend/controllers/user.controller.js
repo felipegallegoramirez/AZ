@@ -1,4 +1,6 @@
 const User = require("../models/user");
+const Shop = require("../models/shop");
+const Clients = require("../models/clients");
 const {encrypt} =  require("../utils/encript")
 
 const UserCtrl = {};
@@ -68,7 +70,6 @@ UserCtrl.deleteUser = async (req, res, next) => {
 
 
 
-const Shop = require("../models/shop");
 
 UserCtrl.register = async (req, res, next) => {
     try{
@@ -80,24 +81,43 @@ UserCtrl.register = async (req, res, next) => {
             phone:req.body.phone,
             shop: req.body.shop,
         }
-
+        console.log(req,body)
         var temp=req.body.shop; 
          body.shop={
             id: '',
             permissions: [0,1,2,3,4,5,6,7,8,9,10,11]
         }
+
         var save= await User.create(body);
+        console.log(save)
         var shop = {
             email: temp.email, 
             nit:temp.nit, 
             name:temp.name, 
-            address:temp.address,
             ownerid:save._id, 
             employeeid:[]
         }
-        console.log(shop)
-        var saveShop = await Shop.create(shop);
+        try{
+            var saveShop = await Shop.create(shop);
+        }catch(e){
+            console.log(e)
+        }
+
         console.log(saveShop)
+
+        const RG = {
+            _id:"64594a80464601aae11233ac",
+            email:"DEFAULT",
+            dni:0,
+            name:"DEFAULT",
+            address:"DEFAULT",
+            phone:0,
+            points:0,
+            sells:[],
+            shopid:saveShop._id
+          };
+        var rg= await Clients.create(RG);
+        console.log(rg)
 
         save.shop.id=saveShop._id
         save= await User.findByIdAndUpdate(save._id,save);

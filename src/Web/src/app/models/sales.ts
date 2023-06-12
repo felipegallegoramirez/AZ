@@ -16,9 +16,9 @@ export class Sales {
     id?: string;
     name?: string;
     count?: number;
-    unitarypoints?: string;
+    unitarypoints?: number;
     totalpoints?: number;
-    unitaryprice?: string;
+    unitaryprice?: number;
     totalprice?: number;
   }>;
   service?: Array<{
@@ -31,7 +31,8 @@ export class Sales {
   }>;
   totalprice?: number;
   totalpoints?: number;
-  shopid: string;
+  shopid?: string;
+  option?:number;
 
   constructor(
     _id:string ="",
@@ -51,9 +52,9 @@ export class Sales {
       id?: string;
       name?: string;
       count?: number;
-      unitarypoints?: string;
+      unitarypoints?: number;
       totalpoints?: number;
-      unitaryprice?: string;
+      unitaryprice?: number;
       totalprice?: number;
     }> = [],
     service: Array<{
@@ -66,7 +67,8 @@ export class Sales {
     }> = [],
     totalprice: number = 0,
     totalpoints: number = 0,
-    shopid: string= ""
+    shopid: string= "",
+    option: number = 0,
   ) {
     this._id= _id;
     this.time = time;
@@ -78,5 +80,6 @@ export class Sales {
     this.totalprice = totalprice;
     this.totalpoints = totalpoints;
     this.shopid = shopid;
+    this.option=option
   }
 }

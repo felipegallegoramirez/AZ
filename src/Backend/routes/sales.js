@@ -6,7 +6,7 @@ const {createSalesSchema , updateSalesSchema , getSalesSchema} = require("../mid
 const {checkAuth , checkpermision} = require('../midleware/authverify')
 
 router.get("/:shopid",checkpermision(3), sales.getSaless);
-router.post("/",checkpermision(8),validatorHandler(createSalesSchema, 'body'), sales.createSales); 
+router.post("/:shopid",checkpermision(8), sales.soldPreview); 
 router.get("/:shopid/:id",checkpermision(3),validatorHandler(getSalesSchema, 'params'), sales.getSales); 
 router.put("/:shopid/:id",checkpermision(8),validatorHandler(getSalesSchema, 'params'),validatorHandler(updateSalesSchema, 'body') ,sales.editSales);
 router.delete("/:shopid/:id",checkpermision(8),validatorHandler(getSalesSchema, 'params'), sales.deleteSales);

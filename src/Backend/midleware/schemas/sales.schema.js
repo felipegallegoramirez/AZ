@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const service = require('../../models/ModelsServices/service');
+
 //! SubStructurs
 
 const idclient = Joi.string();
@@ -12,14 +12,14 @@ const clientSchema = Joi.object({
   name: nameclient.required(),
 });
 
-const idemployee = Joi.string();
-const dniemployee = Joi.number().integer().min(0).max(9999999999);
-const nameemployee = Joi.string().min(8).max(20);
+const idemployee = Joi.any();
+const dniemployee = Joi.any();
+const nameemployee = Joi.any();
 
 const employeeSchema = Joi.object({
-  id: idemployee.required(),
-  dni: dniemployee.required(),
-  name: nameemployee.required(),
+  id: idemployee,
+  dni: dniemployee,
+  name: nameemployee,
 });
 
 const idservice = Joi.string();
@@ -63,6 +63,7 @@ const productSchema = Joi.object({
 const id = Joi.string();
 const price = Joi.number().min(0).max(100000000000000);
 const points = Joi.number().min(0).max(10000000);
+const option = Joi.number().min(0).max(10);
 const time = Joi.string();
 const date = Joi.string();
 const shopid = Joi.string();
@@ -78,6 +79,8 @@ const createSaleSchema = Joi.object({
   totalprice: price.required(),
   totalpoints: points.required(),
   shopid: shopid.required(),
+  option: option.required(),
+
 });
 
 const updatesaleSchema = Joi.object({

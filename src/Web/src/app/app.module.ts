@@ -8,12 +8,11 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { HomeComponent } from './components/home/home.component';
-import { RServiceServiceComponent } from './components/r-service-service/r-service-service.component';
-import { RServiceWorkspaceComponent } from './components/r-service-workspace/r-service-workspace.component';
+
 import { UserManagmentComponent } from './components/user-managment/user-managment.component';
 import { PanelWorkspaceComponent } from './components/panel-workspace/panel-workspace.component';
 import { SoldManagmentComponent } from './components/sold-managment/sold-managment.component';
-import { NavigatorComponent } from './components/navigator/navigator.component';
+
 import { InventoryTillComponent } from './components/inventory-till/inventory-till.component';
 import { EmailsendComponent } from './components/emailsend/emailsend.component';
 import { EmailcodeComponent } from './components/emailcode/emailcode.component';
@@ -27,14 +26,11 @@ const routes: Routes = [
   { path: 'forgot-Password', component: ForgotPasswordComponent },
   { path: 'change-Password', component: ChangePasswordComponent },
   { path: 'home', component: HomeComponent},
-  { path: 'reserve-service', component: RServiceServiceComponent },
-  { path: 'reserve-workspace', component: RServiceWorkspaceComponent },
   { path: 'panel-workspace', component: PanelWorkspaceComponent },
   { path: 'user-managment', component: UserManagmentComponent },
   { path: 'sold-managment', component: SoldManagmentComponent },
   { path: 'employee-managment', component: EmployeeManagmentComponent },
   { path: 'inventory-managment', component: InventoryeManagmentComponent },
-  { path: 'navigator', component:NavigatorComponent},
   { path: 'inventory-till', component:InventoryTillComponent},
   { path: 'emailcode/:id/:code', component:EmailcodeComponent},
   { path: 'emailsend', component:EmailsendComponent},
@@ -47,12 +43,9 @@ const routes: Routes = [
     ForgotPasswordComponent,
     ChangePasswordComponent,
     HomeComponent,
-    RServiceServiceComponent,
-    RServiceWorkspaceComponent,
     UserManagmentComponent,
     PanelWorkspaceComponent,
     SoldManagmentComponent,
-    NavigatorComponent,
     InventoryTillComponent,
     EmailsendComponent,
     EmailcodeComponent,
