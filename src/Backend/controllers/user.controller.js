@@ -136,22 +136,20 @@ UserCtrl.addEmployee = async (req, res, next) => {
             password: await encrypt(req.body.password),
             dni:req.body.dni,
             name:req.body.name,
-            address:req.body.address,
+            //address:req.body.address,
             phone:req.body.phone,
             shop: req.body.shop,
         }
 
         
-        body.shop={
-            id: req.params.shopid,
-            permissions: [0,1,2,3,4,5,6,7,8,9,10,11]
-        }
-
-        const saveShop = await Shop.findById(req.params.shopid);
+        var saveShop = await Shop.findById(req.params.shopid);
         var save= await User.create(body);
 
+
         saveShop.employeeid.push(save._id)
-        saveShop= Shop.findByIdAndUpdate(saveShop._id,saveShop);
+        saveShop= await Shop.findByIdAndUpdate(saveShop._id,saveShop);
+
+
 
 
 
@@ -161,6 +159,59 @@ UserCtrl.addEmployee = async (req, res, next) => {
         res.status(400).send(err)
     }
 
+};
+UserCtrl.getEmployee = async (req, res, next) => {
+    try {
+
+        /*
+        const { shopid } = req.params;
+        const save = await Inventory.find({ shopid });*/
+
+
+        const { shopid } = req.params;
+        const search = req.query.search || "";
+        const actpage = req.query.actpage || 1;
+        const size = req.query.size || 1000;
+        const param= req.query.param || "dni";
+        const order= req.query.order || 1;
+
+        const filters = {
+            $and: [
+              {
+                $or: [
+                  { email: { $regex: search, $options: 'i' } },
+                  { name: { $regex: search, $options: 'i' } },
+                  {$expr: { $regexMatch: {
+                      input: { $toString: "$phone" },
+                      regex: search.toString(),
+                      options: "i"
+                    } } },
+                    {$expr: { $regexMatch: {
+                        input: { $toString: "$dni" },
+                        regex: search.toString(),
+                        options: "i"
+                      } } }
+                    ,
+                ]
+              },
+              { "shop.id": shopid },
+            ]
+          };
+
+          let sort={}
+          sort[param]=Number(order);
+          const skip = (actpage - 1) * size;
+          const docs = await User.find(filters).sort(sort).skip(skip).limit(size);
+          console.log(docs)
+          delete docs.password
+
+
+        res.status(200).send(docs)
+    } catch (err) {
+        console.log(err)
+        res.status(400).send(err)
+
+    }
 };
 
 

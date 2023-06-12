@@ -7,14 +7,15 @@ const password = Joi.string().min(8).max(20);
 const name = Joi.string().min(8).max(20);
 const city = Joi.string().min(5).max(20)
 const phone = Joi.number().integer().min(0).max(9999999999)
+const shop = Joi.any()
 
 const createUserSchema = Joi.object({
   email: email.required(),
   dni: dni.required(),
   password: password.required(),
   name: name.required(),
-  city: city.required(),
   phone: phone.required(),
+  shop:shop.required()
 });
 
 const LoginUserSchema  = Joi.object({

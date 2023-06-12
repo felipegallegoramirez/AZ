@@ -4,7 +4,7 @@ export class User {
   password: string;
   dni: number;
   name: string;
-  city: string;
+  city?: string;
   phone: number;
   verified?: {
     state?: number;
@@ -14,7 +14,7 @@ export class User {
     id?: string;
     permissions?: Array<number>;
   };
-  ips: Array<string>;
+  ips?: Array<string>;
 
   constructor(
     _id :string = "",

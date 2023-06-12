@@ -36,8 +36,15 @@ export class UserService {
     return this.http.post<any>(this.URL_API+ `/register`, data);
   }
 
-  getUsers() {
-    return this.http.get<User[]>(this.URL_API,this.httpOptions);
+  postEmployee(data: any,idshop:string) {
+    return this.http.post<any>(this.URL_API + `/${idshop}`, data,this.httpOptions);
+  }
+
+  getUsers(idshop:string) {
+    return this.http.get<User[]>(this.URL_API + `/${idshop}`,this.httpOptions);
+  }
+  getUsersSearch(select:string,actpage:number,size:number,param:string,order:number,shopid:string) {
+    return this.http.get<User[]>(this.URL_API + `/${shopid}?search=${select}&actpage=${actpage}&size=${size}&param=${param}&order=${order}`,this.httpOptions);
   }
   getUser(id:string,idshop:string) {
     return this.http.get<User>(this.URL_API + `/${idshop}/${id}`,this.httpOptions);
