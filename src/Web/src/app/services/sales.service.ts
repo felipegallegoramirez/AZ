@@ -45,6 +45,9 @@ export class SalesService {
   deleteSales(id: string,idshop:string) {
     return this.http.delete(this.URL_API + `/${idshop}/${id}`,this.httpOptions);
   }
+  getSalesSearch(select:string,actpage:number,size:number,param:string,order:number,shopid:string) {
+    return this.http.get(this.URL_API + `/${shopid}?search=${select}&actpage=${actpage}&size=${size}&param=${param}&order=${order}`,this.httpOptions);
+  }
 
   
 }

@@ -7,13 +7,57 @@ const SalesCtrl = {};
 
 
 SalesCtrl.getSaless = async (req, res, next) => {
-    try{
-        const save = await Sales.find();
-        res.status(200).send(save)
-    }catch(err){
-        res.status(400).send(err)
+        try {
+    
+            /*
+            const { shopid } = req.params;
+            const save = await Inventory.find({ shopid });*/
+    
+    
+            const { shopid } = req.params;
+            const search = req.query.search || "";
+            const actpage = req.query.actpage || 1;
+            const size = req.query.size || 1000;
+            const param= req.query.param || "createdAt";
+            const order= req.query.order || 1;
+            console.log(shopid)
+    
+            const filters = {
+                $and: [
+                  {
+                    $or: [
+                      { email: { $regex: search, $options: 'i' } },
+                      { name: { $regex: search, $options: 'i' } },
+                      {$expr: { $regexMatch: {
+                          input: { $toString: "$client.dni" },
+                          regex: search.toString(),
+                          options: "i"
+                        } } },
+                        {$expr: { $regexMatch: {
+                            input: { $toString: "$date" },
+                            regex: search.toString(),
+                            options: "i"
+                          } } }
+                        ,
+                    ]
+                  },
+                  { "shopid": shopid },
+                ]
+              };
+    
+              let sort={}
+              sort[param]=Number(order);
+              const skip = (actpage - 1) * size;
+              const docs = await Sales.find(filters).sort(sort).skip(skip).limit(size);
 
-    }
+    
+    
+            res.status(200).send(docs)
+        } catch (err) {
+            console.log(err)
+            res.status(400).send(err)
+    
+        }
 };
 
 SalesCtrl.createSales = async (req, res, next) => {

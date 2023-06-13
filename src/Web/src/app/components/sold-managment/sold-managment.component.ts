@@ -23,7 +23,8 @@ export class SoldManagmentComponent implements OnInit {
 */
 solds:Array<{
     id:string,
-    dni:string,
+    name:string,
+    dni:number,
     total:number,
     date:string,
     i:number
@@ -53,7 +54,8 @@ solds:Array<{
       for(var i=0;i<x.length;i++){
         this.solds.push({
           id:x[i]._id||"",
-          dni:x[i].client?.id||"",
+          dni:x[i].client?.dni||0,
+          name:x[i].client?.name||"",
           total:x[i].totalprice||0,
           date:x[i].date||"",
           i:i+1
@@ -62,6 +64,31 @@ solds:Array<{
 
 
     })
+  }
+
+  search(){
+    // order -  cate - search
+    let order= (<HTMLInputElement>document.getElementById("order")).value
+    let cate= (<HTMLInputElement>document.getElementById("cate")).value
+    let search= (<HTMLInputElement>document.getElementById("search")).value
+    let or=order.split("/")
+    this.salesService.getSalesSearch(search,1,1000,or[0],Number(or[1]),localStorage.getItem("shop")||"").subscribe((res)=>{
+      let x = res as Sales[]
+      this.solds=[]
+      for (let i=0; i< x.length ;i++){
+        this.solds.push({
+          id:x[i]._id||"",
+          dni:x[i].client?.dni||0,
+          name:x[i].client?.name||"",
+          total:x[i].totalprice||0,
+          date:x[i].date||"",
+          i:i+1
+        })
+      }
+
+      
+    })
+
   }
 
 }

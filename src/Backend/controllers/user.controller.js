@@ -81,7 +81,6 @@ UserCtrl.register = async (req, res, next) => {
             phone:req.body.phone,
             shop: req.body.shop,
         }
-        console.log(req,body)
         var temp=req.body.shop; 
          body.shop={
             id: '',
@@ -89,7 +88,6 @@ UserCtrl.register = async (req, res, next) => {
         }
 
         var save= await User.create(body);
-        console.log(save)
         var shop = {
             email: temp.email, 
             nit:temp.nit, 
@@ -103,7 +101,6 @@ UserCtrl.register = async (req, res, next) => {
             console.log(e)
         }
 
-        console.log(saveShop)
 
         const RG = {
             _id:save._id,
@@ -117,7 +114,6 @@ UserCtrl.register = async (req, res, next) => {
             shopid:saveShop._id
           };
         var rg= await Clients.create(RG);
-        console.log(rg)
 
         save.shop.id=saveShop._id
         save= await User.findByIdAndUpdate(save._id,save);
@@ -149,16 +145,10 @@ UserCtrl.addEmployee = async (req, res, next) => {
         saveShop.employeeid.push(save._id)
         saveShop= await Shop.findByIdAndUpdate(saveShop._id,saveShop);
 
-
-
-
-
-
         res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
     }
-
 };
 UserCtrl.getEmployee = async (req, res, next) => {
     try {
@@ -182,7 +172,7 @@ UserCtrl.getEmployee = async (req, res, next) => {
                   { email: { $regex: search, $options: 'i' } },
                   { name: { $regex: search, $options: 'i' } },
                   {$expr: { $regexMatch: {
-                      input: { $toString: "$phone" },
+                      input: { $toString: "$name" },
                       regex: search.toString(),
                       options: "i"
                     } } },
@@ -202,7 +192,6 @@ UserCtrl.getEmployee = async (req, res, next) => {
           sort[param]=Number(order);
           const skip = (actpage - 1) * size;
           const docs = await User.find(filters).sort(sort).skip(skip).limit(size);
-          console.log(docs)
           delete docs.password
 
 
@@ -214,6 +203,33 @@ UserCtrl.getEmployee = async (req, res, next) => {
     }
 };
 
+UserCtrl.editEmployee = async (req, res, next) => {
+    try{
+        const { id } = req.params;
+        var al = await User.findById(id)
+        var password;
+        if(req.body.password==""){
+            password=al.password
+        }else{
+            password= await encrypt(req.body.password)
+        }
+        var body = {
+            email:req.body.email,
+            password:password,
+            dni:req.body.dni,
+            name:req.body.name,
+            //address:req.body.address,
+            phone:req.body.phone,
+            shop: req.body.shop,
+        }
+
+        var save= await User.findByIdAndUpdate(id,body);
+
+        res.status(200).send(save)
+    }catch(err){
+        res.status(400).send(err)
+    }
+};
 
 
 module.exports = UserCtrl;

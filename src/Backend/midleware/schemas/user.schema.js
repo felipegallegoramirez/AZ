@@ -32,6 +32,7 @@ const updateUserSchema = Joi.object({
 });
 
 const getUserSchema = Joi.object({
+  shopid:shop.required(),
   id: id.required(),
 });
 

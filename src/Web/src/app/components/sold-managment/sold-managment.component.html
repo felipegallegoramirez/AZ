@@ -21,32 +21,22 @@
         <div class="sup__search">
 
             <div class="sup__input">
-                <span>Fecha - Cedula - Codigo</span>
-                <input>
+                <span>Fecha - Cedula </span>
+                <input id ="search" />
             </div>
-            <button>Buscar</button>
+            <button (click)="search()">Buscar</button>
             <div class="sup__select">
-                <select name="lenguajes" id="lang">
-                  <option value="javascript">Ordenar Por (Any)</option>
-                  <option value="php">PHP</option>
-                  <option value="java">Java</option>
-                  <option value="golang">Golang</option>
-                  <option value="python">Python</option>
-                  <option value="c#">C#</option>
-                  <option value="C++">C++</option>
-                  <option value="erlang">Erlang</option>
+                <select name="lenguajes" id="order">
+                  <option value="createdAt/1">Fecha Ascendente</option>
+                  <option value="createdAt/-1">Fehca Desendente</option>
+                  <option value="dni/1">Cedula Ascendente</option>
+                  <option value="dni/-1">Cedula Desendente</option>
                 </select>
             </div>
             <div class="sup__select">
-                <select name="lenguajes" id="lang">
-                  <option value="javascript">Filtros (Any)</option>
-                  <option value="php">PHP</option>
-                  <option value="java">Java</option>
-                  <option value="golang">Golang</option>
-                  <option value="python">Python</option>
-                  <option value="c#">C#</option>
-                  <option value="C++">C++</option>
-                  <option value="erlang">Erlang</option>
+                <select name="lenguajes" id="cate">
+                  <option value="">Filtros (Any)</option>
+                  
                 </select>
             </div>
 
@@ -60,7 +50,7 @@
         <table>
 
             <tr>
-              <th>Codigo</th>
+              <th>Nombre</th>
               <th>Cedula cliente</th>
               <th>Ganancia</th>
               <th>Fecha</th>
@@ -69,7 +59,7 @@
 
             <ng-container *ngFor="let data of solds">
                 <tr (click)="rara(data.i)">
-                  <td>{{ data.id }}</td>
+                  <td>{{ data.name }}</td>
                   <td>{{ data.dni }}</td>
                   <td>{{ data.total }}</td>
                   <td>{{ data.date }}</td>

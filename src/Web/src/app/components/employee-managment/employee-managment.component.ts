@@ -158,7 +158,7 @@ export class EmployeeManagmentComponent implements OnInit {
     delete prueba.ips;
 
     this.userService.postEmployee(prueba,localStorage.getItem("shop")||"").subscribe(res=>{
-      this.actualizar
+      this.actualizar()
     })
 
 
@@ -205,7 +205,9 @@ export class EmployeeManagmentComponent implements OnInit {
   
 
   delete_employee(id:string){
-    //this.clientsService.deleteClients(id).subscribe((res)=>{this.getClients();})
+    this.userService.deleteUser(id,localStorage.getItem("shop")||"").subscribe(res=>{
+      this.actualizar()
+    })
   }
 
 
