@@ -1,6 +1,8 @@
 const Sales = require("../models/sales");
 const Clients = require("../models/clients");
 const User = require("../models/user");
+const Shop = require("../models/shop");
+const {factura}= require("../utils/pdf")
 const { verifyToken } = require("../utils/token");
 
 const SalesCtrl = {};
@@ -166,7 +168,6 @@ SalesCtrl.soldPreview = async (req, res, next) => {
     var save= await Sales.create(body);
 
     let clien =  await Clients.findById(client.id)
-    console.log(clien)
     if (clien.sells){
         clien.sells.push({
             id:save._id,
@@ -182,7 +183,11 @@ SalesCtrl.soldPreview = async (req, res, next) => {
     }
     clien.points+=totalpoints
     await Clients.findByIdAndUpdate(clien._id,clien)
-    res.status(200).send(save)
+    saveshop= await Shop.findById(shopid)
+    factura(save._id,clien,saveshop,save)
+
+
+    res.status(200).send({ tienda:saveshop.name, total:save.totalprice, id:save._id, correo:clien.email})
 }
 
 

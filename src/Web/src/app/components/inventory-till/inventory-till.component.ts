@@ -8,6 +8,7 @@ import {Clients} from'../../models/clients'
 import { ClientsService} from "../../services/clients.service"
 import { Sales} from'../../models/sales'
 import { SalesService} from "../../services/sales.service"
+import { PdfService} from "../../services/pdf.service"
 
 
 @Component({
@@ -18,7 +19,7 @@ import { SalesService} from "../../services/sales.service"
 })
 export class InventoryTillComponent implements OnInit {
   contador:number=0;
-  constructor( private productCategoryService:ProductCategoryService, private inventoryService:InventoryService,private clientsService:ClientsService, private salesService: SalesService) { }
+  constructor( private productCategoryService:ProductCategoryService, private inventoryService:InventoryService,private clientsService:ClientsService, private salesService: SalesService,private pdfService:PdfService) { }
 
   // TODO variables
   category: Array<{
@@ -274,9 +275,34 @@ export class InventoryTillComponent implements OnInit {
       delete sal.employee
       console.log(sal)
       this.salesService.postSales(sal,shopid).subscribe(res=>{
-        this.actualizar()
-        this.carrito=[]
-        this.Modal1()
+        if(option==0){
+          let data={
+            "tienda":res.tienda, 
+            "total":res.total, 
+            "id":res.id, 
+            "correo":res.correo
+          }
+          this.pdfService.postPdf(data,shopid).subscribe(r=>{
+            this.actualizar()
+            this.carrito=[]
+            this.Modal1()
+          })
+        }else if(option==1){
+          this.pdfService.getPdf(shopid,res.id).subscribe(r=>{
+            const fileURL = URL.createObjectURL(r);
+            const link = document.createElement('a');
+            link.href = fileURL;
+            link.download = 'archivo.pdf';
+            link.target = '_blank';
+            link.click();
+            URL.revokeObjectURL(fileURL);
+            this.actualizar()
+            this.carrito=[]
+            this.Modal1()
+          })
+        }
+
+
       })
     }
 

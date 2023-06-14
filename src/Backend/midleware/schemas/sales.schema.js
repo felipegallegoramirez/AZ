@@ -79,7 +79,7 @@ const createSaleSchema = Joi.object({
   totalprice: price.required(),
   totalpoints: points.required(),
   shopid: shopid.required(),
-  option: option.required(),
+  option: option,
 
 });
 

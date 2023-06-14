@@ -28,7 +28,7 @@ export class SalesService {
 
 
   postSales(sales: Sales,idshop:string) {
-    return this.http.post<Sales>(this.URL_API+ `/${idshop}`, sales,this.httpOptions);
+    return this.http.post<any>(this.URL_API+ `/${idshop}`, sales,this.httpOptions);
   }
 
   getSaless(idshop:string) {
