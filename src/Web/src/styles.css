@@ -3,15 +3,23 @@
   --c2: #33D380;
   --r: #D13333;
   --w: #F2F0F0;
-  --b: #0D1311;
+  --b: #333;
   --g: #79747E;
 }
 
 a , p ,input,button {
 font-size:18px; 
 }
+button:hover{
+  cursor: pointer;
+}
+select:hover{
+  cursor: pointer;
+}
 
-*{
+*
+{
+  color: var(--b);
   font-family: 'Poppins', sans-serif;
 
 }

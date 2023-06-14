@@ -19,6 +19,7 @@ import { EmailcodeComponent } from './components/emailcode/emailcode.component';
 import { EmployeeManagmentComponent } from './components/employee-managment/employee-managment.component';
 import { InventoryeManagmentComponent } from './components/inventorye-managment/inventorye-managment.component';
 import { PorfileComponent } from './components/porfile/porfile.component';
+import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'inventory-till', component:InventoryTillComponent},
   { path: 'emailcode/:id/:code', component:EmailcodeComponent},
   { path: 'emailsend', component:EmailsendComponent},
+  { path: 'comingSoon',component:ComingSoonComponent},
 ];
 
 @NgModule({
@@ -51,7 +53,8 @@ const routes: Routes = [
     EmailcodeComponent,
     EmployeeManagmentComponent,
     InventoryeManagmentComponent,
-    PorfileComponent
+    PorfileComponent,
+    ComingSoonComponent
   ],
   imports: [
     BrowserModule,
