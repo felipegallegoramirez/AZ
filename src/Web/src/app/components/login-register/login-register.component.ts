@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService } from '../../services/user.service'
 import {AuthService } from '../../services/auth.service'
+import { error } from 'console';
 
 @Component({
   selector: 'app-login-register',
@@ -107,6 +108,8 @@ export class LoginRegisterComponent implements OnInit {
     } 
     this.authService.postAuth(data).subscribe((res)=>{
       window.location.replace("http://localhost:4200/#/emailsend");
+    },(error)=>{
+      alert(error)
     })
 
   }

@@ -20,6 +20,11 @@ import { EmployeeManagmentComponent } from './components/employee-managment/empl
 import { InventoryeManagmentComponent } from './components/inventorye-managment/inventorye-managment.component';
 import { PorfileComponent } from './components/porfile/porfile.component';
 import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
+import { SimpleShopMainComponent } from './components/simple-shop-main/simple-shop-main.component';
+import { SimpleShopCartComponent } from './components/simple-shop-cart/simple-shop-cart.component';
+import { SimpleShopCartCheckoutComponent } from './components/simple-shop-cart-checkout/simple-shop-cart-checkout.component';
+
+
 
 
 const routes: Routes = [
@@ -36,6 +41,9 @@ const routes: Routes = [
   { path: 'emailcode/:id/:code', component:EmailcodeComponent},
   { path: 'emailsend', component:EmailsendComponent},
   { path: 'comingSoon',component:ComingSoonComponent},
+  { path: 'shop-main',component:SimpleShopMainComponent},
+  { path: 'shop-cart',component:SimpleShopCartComponent},
+  { path: 'shop-checkout',component:SimpleShopCartCheckoutComponent},
 ];
 
 @NgModule({
@@ -54,7 +62,10 @@ const routes: Routes = [
     EmployeeManagmentComponent,
     InventoryeManagmentComponent,
     PorfileComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
+    SimpleShopMainComponent,
+    SimpleShopCartComponent,
+    SimpleShopCartCheckoutComponent
   ],
   imports: [
     BrowserModule,
