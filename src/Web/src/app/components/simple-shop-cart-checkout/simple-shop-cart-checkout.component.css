@@ -1,0 +1,79 @@
+h2{
+    margin: 0px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.input span {
+    background-color: var(--c1);
+    color: var(--w);
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 0px 3px;
+    position: relative;
+    margin: 0px 12px;
+    top: 15px;
+  }
+  
+  .input input {
+    margin: 8px 0px 10px 0px;
+    width: calc(100% - 23px);
+    max-width: 700px;
+    padding: 12px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--g);
+  }
+  .input input:focus {
+    outline: 1px solid var(--c1);
+  }
+
+.form{
+    margin: 5px;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    padding: 10px 0px;
+    transition-duration: 1s;
+    height: 400px;
+    overflow: hidden;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 20px;
+}
+
+.option{
+    margin: 15px 10px;
+    outline: 2px solid var(--g);
+    box-sizing: border-box;
+    padding: 1px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    background-color: var(--w);
+}
+
+.option.select{
+    outline: 3px solid var(--c1);
+}
+
+
+button{
+    background-color: var(--c1);;
+    color: var(--w);;
+    padding: 10px 0px;
+    width: 200px;
+    border: none;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.form>div{
+    height: max-content;
+}
+.oculto{
+    height: 0px;
+    padding: 0px;
+}

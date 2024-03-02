@@ -11,5 +11,22 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  act:number=-1;
+  subMenu(menu:number){
+    const buttons=document.getElementsByClassName("option")
+    const subMenu=document.getElementsByClassName("form")
+    for(let i=0;i<2;i++){
+      buttons[i].classList.remove("select")
+      subMenu[i].classList.add("oculto")
+    }
+    if(this.act!=menu){
+      buttons[menu].classList.add("select")
+      subMenu[menu].classList.remove("oculto")
+      this.act=menu
+    }else{
+      this.act=-1
+    }
+
+  }
 
 }
