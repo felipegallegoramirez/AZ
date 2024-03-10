@@ -1,19 +1,19 @@
 
 <div class="content">
-    <div class="card-product">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="">
+    <div *ngFor="let product of inventorys;index as i;" class="card-product">
+        <img src="http://localhost:3000/public/images/{{product.image}}" alt="">
         <div class="card-product_text">
             <div class="card-product_text--cart">
-                <h3>Nombre</h3>
-                <p>x</p>
+                <h3>{{product.productname}}</h3>
+                <p (click)="delete(i)">x</p>
             </div>
 
             <div class="card-product_text--cuantity">
-                <p>$200.000</p>
+                <p>{{prices[i]}}</p>
                 <div>
-                    <p>-</p>
-                    <p>2</p>
-                    <p>+</p>
+                    <p (click)="remove(i)">-</p>
+                    <p>{{product.count}}</p>
+                    <p (click)="add(i)">+</p>
                 </div>
 
             </div>
@@ -25,7 +25,7 @@
 <div class="button">
     <div>
         <p>Total:</p>
-        <p>$300.000</p>
+        <p>${{total}}</p>
     </div>
-    <button>Pagar</button>
+    <button (click)="next()">Pagar</button>
 </div>

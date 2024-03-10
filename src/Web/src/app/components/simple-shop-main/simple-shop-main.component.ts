@@ -46,5 +46,5 @@ export class SimpleShopMainComponent implements OnInit {
     window.location.replace("http://localhost:4200/#/shop-cart");
   }
 
-//    let x=JSON.parse(localStorage.getItem("cart")||"")
+
 }

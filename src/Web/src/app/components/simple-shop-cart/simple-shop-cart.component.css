@@ -131,3 +131,14 @@ button{
     padding: 0px;
     box-sizing: border-box;
 }
+
+.content{
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+
+}
+
+.card-product_text--cuantity>div>p{
+    user-select: none;
+}

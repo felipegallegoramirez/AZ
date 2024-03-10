@@ -10,6 +10,10 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(function() {
+      alert("Aun no funciona")
+  }, 500);
+
   }
   act:number=-1;
   subMenu(menu:number){
