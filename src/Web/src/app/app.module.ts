@@ -23,6 +23,7 @@ import { ComingSoonComponent } from './components/misc/coming-soon/coming-soon.c
 import { SimpleShopMainComponent } from './components/shop-mobile/simple-shop-main/simple-shop-main.component';
 import { SimpleShopCartComponent } from './components/shop-mobile/simple-shop-cart/simple-shop-cart.component';
 import { SimpleShopCartCheckoutComponent } from './components/shop-mobile/simple-shop-cart-checkout/simple-shop-cart-checkout.component';
+import { SimpleShopManagmentComponent } from './components/shop-mobile/simple-shop-managment/simple-shop-managment.component';
 
 
 
@@ -65,7 +66,8 @@ const routes: Routes = [
     ComingSoonComponent,
     SimpleShopMainComponent,
     SimpleShopCartComponent,
-    SimpleShopCartCheckoutComponent
+    SimpleShopCartCheckoutComponent,
+    SimpleShopManagmentComponent
   ],
   imports: [
     BrowserModule,
