@@ -50,7 +50,7 @@
             <th *ngIf="edit">Accion</th>
           </tr>
   
-          <ng-container *ngFor="let data of clients">
+          <ng-container *ngFor="let data of clients;index as i">
             <tr (click)="rara(data.i)">
               <td>{{ data.dni }}</td>
               <td>{{ data.name }}</td>
@@ -63,7 +63,7 @@
                   <div (click)="refill_client(data.id)">
                     <img src="../../../assets/crud/Pen.svg" />
                   </div>
-                  <div (click)="delete_client(data.id)">
+                  <div *ngIf="data.dni!=0" (click)="delete_client(data.id)">
                     <img src="../../../assets/crud/Paper Bin.svg"/>
                   </div>
                 </div>
