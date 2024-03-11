@@ -16,7 +16,7 @@ import { SoldManagmentComponent } from './components/managment/sold-managment/so
 import { InventoryTillComponent } from './components/inventory-till/inventory-till.component';
 import { EmailsendComponent } from './components/login/emailsend/emailsend.component';
 import { EmailcodeComponent } from './components/login/emailcode/emailcode.component';
-import { EmployeeManagmentComponent } from './components/employee-managment/employee-managment.component';
+import { EmployeeManagmentComponent } from './components/managment/employee-managment/employee-managment.component';
 import { InventoryeManagmentComponent } from './components/managment/inventorye-managment/inventorye-managment.component';
 import { PorfileComponent } from './components/porfile/porfile.component';
 import { ComingSoonComponent } from './components/misc/coming-soon/coming-soon.component';
@@ -24,6 +24,8 @@ import { SimpleShopMainComponent } from './components/shop-mobile/simple-shop-ma
 import { SimpleShopCartComponent } from './components/shop-mobile/simple-shop-cart/simple-shop-cart.component';
 import { SimpleShopCartCheckoutComponent } from './components/shop-mobile/simple-shop-cart-checkout/simple-shop-cart-checkout.component';
 import { SimpleShopManagmentComponent } from './components/shop-mobile/simple-shop-managment/simple-shop-managment.component';
+import { DistributorManagmentComponent } from './components/managment/distributor-managment/distributor-managment.component';
+import { DistributorHistoryComponent } from './components/distributor-history/distributor-history.component';
 
 
 
@@ -45,6 +47,8 @@ const routes: Routes = [
   { path: 'shop-main',component:SimpleShopMainComponent},
   { path: 'shop-cart',component:SimpleShopCartComponent},
   { path: 'shop-checkout',component:SimpleShopCartCheckoutComponent},
+  { path: 'shop-managment',component:SimpleShopManagmentComponent},
+  { path: 'distribuitor-managment',component:DistributorManagmentComponent},
 ];
 
 @NgModule({
@@ -67,7 +71,9 @@ const routes: Routes = [
     SimpleShopMainComponent,
     SimpleShopCartComponent,
     SimpleShopCartCheckoutComponent,
-    SimpleShopManagmentComponent
+    SimpleShopManagmentComponent,
+    DistributorManagmentComponent,
+    DistributorHistoryComponent
   ],
   imports: [
     BrowserModule,

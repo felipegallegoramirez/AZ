@@ -60,7 +60,7 @@
               <td>random</td>
               <td *ngIf="edit">
                 <div class="table__img">
-                  <div (click)="refill_client(data.id)">
+                  <div *ngIf="data.dni!=0" (click)="refill_client(data.id)">
                     <img src="../../../assets/crud/Pen.svg" />
                   </div>
                   <div *ngIf="data.dni!=0" (click)="delete_client(data.id)">
