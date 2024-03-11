@@ -84,8 +84,8 @@
     <section class="BodyMain-Search-Inventory">
         <div class="Search">
             <div class="Email">
-                <input  (keyup)="search()" class="Input-SearchInventory" id="search" (change)="search()" type="text" />
                 <label>Nombre o codigo del producto</label>
+                <input  (keyup)="search()" class="Input-SearchInventory" id="search" (change)="search()" type="text" />
             </div>
             <div class="Category">
                 <select id="cate">
@@ -148,28 +148,16 @@
         </div>
         <div class="BottomBody-Total-Pay-Backcash">
             <div class="Total">
-                <div>
                     <p class="Text-T">Total</p>
-                </div>
-                <div>
                     <p class="Space">{{pago.total}}</p>
-                </div>
             </div>
             <div class="Pay">
-                <div>
                     <p class="Text-P">Pagar</p>
-                </div>
-                <div>
-                    <input class="Space" type="number" id="pago" (keyup)="pagar()">
-                </div>
+                    <input placeholder="Escribe aca" class="Space" type="number" id="pago" (keyup)="pagar()">
             </div>
             <div class="Backcash">
-                <div>
                     <p class="Text-D">Devuelta</p>
-                </div>
-                <div>
                     <p class="Space">{{pago.devuelta}}</p>
-                </div>
             </div>
             
         </div>

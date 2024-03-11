@@ -9,18 +9,24 @@ input[type="number"]
     flex-flow: row;
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 93px);
+    overflow-y: hidden;
     position: absolute;
 }
 .BodyMain-Search-Inventory{
-    width: 55%;
-    height: 90%;
-    padding: 2% 10%;
+    width: calc(100vw - 500px);
+    height: calc(100vh - 930px);
+    padding: 20px;
+    margin: 20px;
 }
 .Search{
+    position: absolute ;
+    top: 30px;
     display: flex;
     flex-flow: row;
-    margin: 0 0 0 28px;
+    justify-content: center;
+    width: calc(100vw - 500px);
+    height: calc(100vh - 930px);
 }
 .Category{
     margin: -4px 15px;
@@ -35,19 +41,14 @@ select{
 }
 .Search label{
     background-color: var(--c1);
-    color:var(--w);
-    font-size: 16px;
-    border-radius: 10px;
-    padding: 0 3px 0 3px;
+    color: var(--w);
+    font-size: 14px;
+    border-radius: 20px;
+    padding: 0px 3px;
     position: absolute;
-    left: 13%;
-    margin-top: -8px;
-    transition: all .8s ease-in;
+    margin: -10px 12px;
 }
-.Search .Input-SearchInventory:focus+label{
-    left: 38.5%;
-    transition: all 1.4s ease-in-out;
-}
+
 .Input-SearchInventory{
     border-radius: 10px;
     outline: 0 none;
@@ -61,46 +62,21 @@ select{
     display:grid;
     padding: 10px 0 0 0;
     gap:20px;
-    margin-top:30px;
+    margin-top: 30px;
     grid-template-columns: auto auto auto auto;
-    width:900px;
-    max-width: 950px;
-    max-height: 87vh;
+    width: calc(100vw - 500px);
+    height: calc(100% - 100px);
+
     box-sizing: border-box;
     overflow-y: scroll;
     overflow-x: hidden;
     position: absolute;
 }
-.Catalogue2{
-    display: none ;
-    padding: 10px 0 0 0;
-    gap:20px;
-    margin-top:30px;
-    grid-template-columns: auto auto auto auto;
-    width:900px;
-    max-width: 950px;
-    max-height: 87vh;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: absolute;
-}
-.Catalogue3{
-    display: none ;
-    padding: 10px 0 0 0;
-    gap:20px;
-    margin-top:30px;
-    grid-template-columns: auto auto auto auto;
-    width:900px;
-    max-width: 950px;
-    max-height: 87vh;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: absolute;
-}
+
 .product>img{
     width: 130px;
+    height: 80px;
+    object-fit: cover;
     border-radius: 15px;
     margin: 0px;
 }
@@ -110,7 +86,7 @@ select{
     box-sizing: border-box;
     overflow: hidden;
     width: 160px;
-    height: 180px;
+    height: 200px;
     text-align: center;
     background-color: var(--w);
     border-radius: 15px;
@@ -134,9 +110,10 @@ select{
 
 
 .BodyTill{
-    width: 55%;
-    height: 100%;
-    position: relative;
+    width: 350px;
+    height: calc(100vh - 120px);
+    position: absolute;
+    right: 0px;
     z-index: 100;
     background-color: var(--w);
 }
@@ -147,114 +124,104 @@ select{
 .SupBody-Icons img{
     width: 100px;
 }
+/*! Barra lateral*/
 .MiddleBody-Payproducts{
-    overflow-x:hidden;
-    overflow-y:scroll;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    height: 450px;
-    padding: 12px;
+    height: calc(100% - 260px);
 }
 .Payproducts-box{
     display: flex;
-    flex-flow: wrap row;
-    width: 320px;
+    padding: 10px;
 }
 
-.NameProduct p{
-    font-size: 14px;
-    width: 170px;
-    white-space: nowrap;
-    text-overflow: ellipsis ellipsis;
-    overflow: hidden;
+.Payproducts-box>.Box-NameP-ButtonQ{
+    width: 100%;
 }
+.Payproducts-box * {
+    margin: 0px;
+}
+
 .ButtonQuantity{
-    background-color: var(--w);
-    width: 92px;
-    margin: -10px 0 0 0;
     display: flex;
-    height: 20px;
-    border-radius: 12px;
-    border: var(--b) solid 2px;
+    justify-content: flex-end;
 }
-.ButtonQuantity button{
-    width:20px;
-    height: 20px;
-    border: none;
-    background-color: var(--w);
-    cursor: pointer;
+
+.ButtonQuantity>p{
+    text-align: center;
+    width: 30px;
 }
-.ButtonQuantity :nth-child(1){
-    border-radius: 12px 0 0 12px;
-}
-.ButtonQuantity :nth-child(3){
-    border-radius: 0 12px 12px 0;
-}
-.ButtonQuantity p{
-    background-color: white;
-    font-size: 14px;
-    padding: 0 20px;
-    margin: 1px 0 0 0;
-    border-radius: 12px;
-    
-}
-b{
-    color: var(--c1);
-}
-.Pricetill{
-   margin: 0px 0 0 25px;
-}
-.Pricetill p{
+
+.ButtonQuantity>button{
     background-color: var(--c1);
-    color: var(--w);
-    border-radius: 15px;
-    width: 119px;
-    padding: 0 5px 0 0;
-    font-size: 15px;
-    text-align: right;
-}
-.BottomBody-Total-Pay-Backcash  p{
-    font-size: 15px;
-}
-.BottomBody-Total-Pay-Backcash{
-    padding: 0 0 0 80px;
-    margin: 30px 0 30px 0;
-}
-.Total,.Pay,.Backcash{
-    display: flex;
-    margin-top: -14px;
-    justify-content: space-evenly;
-}
-.Text-T{
-    width: 60px;
-    color: var(--c1);
-}
-.Text-P{
-    width: 60px;
-    color: var(--c1);
-}
-.Text-D{
-    width: 60px;
-    color: var(--c1);
-}
-.Space{
-    margin: 10px;
-    background-color: var(--c1);
-    width: 125px;
-    height: 18px;
-    color: var(--w);
-    border-radius: 15px;
-    text-align: left;
-    padding: 0 4px;
+
     outline: none;
     border: none;
+    border-radius: 5px;
 }
+
+.ButtonQuantity>button>b{
+    color: var(--w);
+}
+
+
+
+.Box-NameP-ButtonQ{
+    display: flex;
+}
+
+.Box-NameP-ButtonQ>div{
+    display: flex;
+    width: 50%;
+}
+.Pricetill{
+    min-width: 100px;
+    text-align: end;
+
+}
+
+.BottomBody-Total-Pay-Backcash{
+    padding: 20px;
+}
+.BottomBody-Total-Pay-Backcash>div{
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.BottomBody-Total-Pay-Backcash>div>*{
+    margin: 0px;
+    min-width: 100px;
+}
+
+.BottomBody-Total-Pay-Backcash>div>p:nth-child(2){
+    background-color: var(--c1);
+    color: var(--w);
+    width: 100%;
+    height: 20px;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.BottomBody-Total-Pay-Backcash>div>input:nth-child(2){
+    color: var(--b);
+    border: 2px solid var(--c1);
+    outline: none;
+    width: 100%;
+    height: 20px;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
 .Complete{
     width: 100%;
-    text-align: center;
-    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
 }
+
+
+
+
+
+/*! Fin barra */
+
 .OpenModal{
     cursor: pointer;
     border: none;
@@ -303,23 +270,14 @@ b{
 }
 .ModalInfoinput label{
     background-color: var(--c1);
-    color:var(--w);
-    font-size: 16px;
-    border-radius: 10px;
-    padding: 0 3px 0 3px;
-    position: absolute;
-    margin-left:-390px;
-    margin-top: -8px;
-    height: 20px;
+    color: var(--w);
     font-size: 14px;
+    border-radius: 20px;
+    padding: 0px 3px;
+    position: absolute;
+    margin: 0px 12px;
 }
-.ModalInfoinput .Input-Modal:focus+label{
-    color:#e7e1e102 !important; 
-    font-size: none !important;
-    margin-left: -40px;
-    width: 20px;
-    height: 20px; 
-}
+
 .Input-Modal{
     border-radius: 10px;
     outline: 0 none;
@@ -400,174 +358,4 @@ b{
     border-radius:15px;
     font-size: 15px;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-}
-@media only screen and (min-width:1800px){
-    .Input-SearchInventory{
-        width: 900px;
-        height: 40px;
-        border:3px Solid var(--c1);
-    }
-    select{
-        padding: 10px;
-        font-size: 22px;
-    }
-    .Search label{
-        font-size: 20px;
-    }
-    .Search .Input-SearchInventory:focus+label{
-        left: 40.8%;
-    }
-    .Category{
-        margin: -4px 25px;
-    }
-    .BodyMain-Search-Inventory{
-        width: 55%;
-    }
-    .BodyTill{
-        width: 45%;
-    }
-    .Catalogue{
-        gap:40px;        
-        width:1180px;
-        max-width: 1200px;
-        max-height: 87vh;
-        
-    }        
-    .product div img{
-        width: 190px;
-    }
-    .product{
-        width: 230px;
-        height: 220px;
-    }
-    .Quantity{
-        margin:-180px 0 0 170px;
-        padding: 5px;
-        border-radius: 18px;
-        font-size: 22px;
-    }
-    .Price{
-        font-size: 22px;
-        padding: 5px 72px;
-        margin: 160px 0 0 0;
-    }
-    .MiddleBody-Payproducts{
-        height: 600px;
-        padding: 16px;
-    }
-    .Payproducts-box{
-        width: 100%;
-        
-    }
-    .NameProduct p{
-        font-size: 22px;
-        width: 245px;
-    }
-    .ButtonQuantity{
-        width: 120px;
-        height: 25px;
-    }
-    .ButtonQuantity button{
-        width:25px;
-        height: 25px;
-        font-size: 20px;    
-    }
-    .ButtonQuantity p{
-        font-size: 20px;
-        padding: 0 27px
-        
-    }
-    .Pricetill{
-        margin: 0px 0 0 20px;
-     }
-    .Pricetill p{
-        width: 170px;
-        font-size: 22px;
-    }
-    .BottomBody-Total-Pay-Backcash  p{
-        font-size: 22px;
-    }
-    .BottomBody-Total-Pay-Backcash{
-        padding: 0 0 0 100px;
-    }
-    .Space{
-        font-size: 20px;
-        width: 170px;
-        height: 25px;
-        padding: 0 4px;
-        margin-right: -40px;
-    }
-    .Complete{
-        margin: 50px 0 0 0;
-    }
-    .OpenModal{
-        padding: 12px 18px;
-        font-size: 22px;
-    }
-    .ModalContent{
-        width: 30%;
-    }
-    .ModalTitle h2{
-        font-size: 38px;
-    }
-    .ModalInfoinput label{
-        height: 20px;
-        font-size: 18px;
-    }
-    .ModalInfoinput .Input-Modal:focus+label{
-        margin-left: -48px;
-        width: 25px;
-        height: 25px; 
-    }
-    .Input-Modal{
-        border:3px Solid var(--c1);
-        height: 40px;
-        width: 400px;
-    }
-    .ModalShowinfo{
-        margin: 15px auto;
-        width: 406px;
-    }
-    .MoveStatus div{
-        width: 120px;
-    }
-    .Atribut{
-        font-size: 20px;
-        padding: 3px 6px;
-    }
-    .Space-2{
-        padding: 2px 4px;
-        height: 28px;
-        font-size: 19px;
-    }
-    .ModalTotal p,.ModalPay p,.ModalBackcash p{
-        font-size: 20px;
-    }
-    .ModalPay{
-        padding: 8px;
-    }
-    .ModalPay p{
-        margin-left: 8px;
-    }
-    .Space-3{
-        font-size: 20px;
-    }
-    .ModalButtons{
-        display: flex;
-        justify-content: space-evenly;
-        margin: 20px auto;
-        width: 500px;
-    }
-    .ModalButtons-Select{
-        padding: 12px 18px;
-        font-size: 20px;
-    }
-}
-.pene{
-    --c1: #16A571;
-    --c2: #33D380;
-    --r: #D13333;
-    --w: #F2F0F0;
-    --b: #0D1311;
-    --g: #79747E;
 }
