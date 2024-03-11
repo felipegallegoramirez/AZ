@@ -7,7 +7,7 @@ const {checkAuth , checkpermision} = require('../midleware/authverify')
 
 router.get("/",checkpermision(1000), user.getUsers);
 router.get("/:shopid",checkpermision(9), user.getEmployee);
-router.post("/:shopid",checkpermision(9),validatorHandler(createUserSchema, 'body'), user.addEmployee); 
+router.post("/shop/:shopid",checkpermision(9),validatorHandler(createUserSchema, 'body'), user.addEmployee); 
 router.put("/:shopid/:id",checkpermision(9),validatorHandler(createUserSchema, 'body'), user.editEmployee); 
 router.post("/register",validatorHandler(createAdmonSchema, 'body'), user.register); 
 router.get("/:shopid/:id",checkpermision(9),validatorHandler(getUserSchema, 'params'), user.getUser); 

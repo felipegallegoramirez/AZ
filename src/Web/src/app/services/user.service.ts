@@ -37,7 +37,7 @@ export class UserService {
   }
 
   postEmployee(data: any,idshop:string) {
-    return this.http.post<any>(this.URL_API + `/${idshop}`, data,this.httpOptions);
+    return this.http.post<any>(this.URL_API + `/shop/${idshop}`, data,this.httpOptions);
   }
 
   getUsers(idshop:string) {
