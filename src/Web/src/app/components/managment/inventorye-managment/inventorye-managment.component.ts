@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Inventory} from'../../models/modelsProducts/inventory'
-import {InventoryService} from '../../services/servicesProducts/inventory.service'
-import { ProductCategoryService } from '../../services/servicesProducts/productcategory.service'
-import { ProductCategory } from '../../models/modelsProducts/productcategory'
+import {Inventory} from'../../../models/modelsProducts/inventory'
+import {InventoryService} from '../../../services/servicesProducts/inventory.service'
+import { ProductCategoryService } from '../../../services/servicesProducts/productcategory.service'
+import { ProductCategory } from '../../../models/modelsProducts/productcategory'
 
 @Component({
   selector: 'app-inventorye-managment',

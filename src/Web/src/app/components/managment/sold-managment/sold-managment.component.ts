@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SalesService } from '../../services/sales.service'
-import {Sales} from '../../models/sales'
+import { SalesService } from '../../../services/sales.service'
+import {Sales} from '../../../models/sales'
 
 @Component({
   selector: 'app-sold-managment',

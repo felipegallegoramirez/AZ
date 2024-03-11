@@ -4,25 +4,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LoginRegisterComponent } from './components/login-register/login-register.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { HomeComponent } from './components/home/home.component';
+import { LoginRegisterComponent } from './components/login/login-register/login-register.component';
+import { ForgotPasswordComponent } from './components/login/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './components/login/change-password/change-password.component';
+import { HomeComponent } from './components/misc/home/home.component';
 
-import { UserManagmentComponent } from './components/user-managment/user-managment.component';
+import { UserManagmentComponent } from './components/managment/user-managment/user-managment.component';
 import { PanelWorkspaceComponent } from './components/panel-workspace/panel-workspace.component';
-import { SoldManagmentComponent } from './components/sold-managment/sold-managment.component';
+import { SoldManagmentComponent } from './components/managment/sold-managment/sold-managment.component';
 
 import { InventoryTillComponent } from './components/inventory-till/inventory-till.component';
-import { EmailsendComponent } from './components/emailsend/emailsend.component';
-import { EmailcodeComponent } from './components/emailcode/emailcode.component';
+import { EmailsendComponent } from './components/login/emailsend/emailsend.component';
+import { EmailcodeComponent } from './components/login/emailcode/emailcode.component';
 import { EmployeeManagmentComponent } from './components/employee-managment/employee-managment.component';
-import { InventoryeManagmentComponent } from './components/inventorye-managment/inventorye-managment.component';
+import { InventoryeManagmentComponent } from './components/managment/inventorye-managment/inventorye-managment.component';
 import { PorfileComponent } from './components/porfile/porfile.component';
-import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
-import { SimpleShopMainComponent } from './components/simple-shop-main/simple-shop-main.component';
-import { SimpleShopCartComponent } from './components/simple-shop-cart/simple-shop-cart.component';
-import { SimpleShopCartCheckoutComponent } from './components/simple-shop-cart-checkout/simple-shop-cart-checkout.component';
+import { ComingSoonComponent } from './components/misc/coming-soon/coming-soon.component';
+import { SimpleShopMainComponent } from './components/shop-mobile/simple-shop-main/simple-shop-main.component';
+import { SimpleShopCartComponent } from './components/shop-mobile/simple-shop-cart/simple-shop-cart.component';
+import { SimpleShopCartCheckoutComponent } from './components/shop-mobile/simple-shop-cart-checkout/simple-shop-cart-checkout.component';
 
 
 
