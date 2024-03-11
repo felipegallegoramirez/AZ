@@ -2,18 +2,18 @@ const Joi = require('joi');
 
 //! SubStructurs
 
-const idclient = Joi.string();
+const idclient = Joi.any();
 const dniclient = Joi.number().integer().min(0).max(9999999999);
 const nameclient = Joi.string().min(0).max(20);
 const numberclient = Joi.string();
 const addresclient = Joi.string();
 
 const clientSchema = Joi.object({
-  id: idclient.required(),
+  id: idclient,
   dni: dniclient.required(),
   name: nameclient.required(),
   number: numberclient.required(),
-  addres: addresclient.required(),
+  address: addresclient.required(),
 });
 
 const idemployee = Joi.any();
@@ -76,7 +76,6 @@ const metod = Joi.string();
 
 
 const createOnlineSaleSchema = Joi.object({
-  time: time.required(),
   client: clientSchema.required(),
   //employee: employeeSchema.required(),
   date: date.required(),
@@ -92,7 +91,6 @@ const createOnlineSaleSchema = Joi.object({
 });
 
 const updateOnlinesaleSchema = Joi.object({
-  time: time,
   client: clientSchema,
   //employee: employeeSchema,
   date: date,

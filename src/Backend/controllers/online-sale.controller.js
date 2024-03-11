@@ -64,11 +64,10 @@ OnlineSaleCtrl.getOnlineSales = async (req, res, next) => {
 
 OnlineSaleCtrl.createOnlineSale = async (req, res, next) => {
     try{
-        const { time, client, employee, date, product, service, totalprice, totalpoints, shopid } = req.body;
-        const body = { time, client, employee, date, product, service, totalprice, totalpoints, shopid };
+        const { client, employee, date, product, service, totalprice, totalpoints, shopid,state,metod } = req.body;
+        const body = { client, employee, date, product, service, totalprice, totalpoints, shopid,state,metod };
+        console.log(body)
         var save= await OnlineSale.create(body);
-
-        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
@@ -80,7 +79,7 @@ OnlineSaleCtrl.getOnlineSale = async (req, res, next) => {
     try{
         const { id } = req.params;
         const save = await OnlineSale.findById(id);
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
@@ -91,7 +90,7 @@ OnlineSaleCtrl.editOnlineSale = async (req, res, next) => {
     try{
         const { id } = req.params;
         save = await OnlineSale.findByIdAndUpdate(id, {$set: req.body}, {new: true});
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
     res.status(400).send(err)
 }

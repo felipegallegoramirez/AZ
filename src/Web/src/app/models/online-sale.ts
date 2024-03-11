@@ -1,6 +1,6 @@
-export class Sales {
+export class OnlineSale {
   _id?:string;
-  time?: string;
+
   client?: {
     id?: string;
     dni?: number;
@@ -35,7 +35,6 @@ export class Sales {
 
   constructor(
     _id:string ="",
-    time: string = "",
     client: {
       id?: string;
       dni?: number;
@@ -69,7 +68,6 @@ export class Sales {
     metod:string="",
   ) {
     this._id= _id;
-    this.time = time;
     this.client = client;
     this.date = date;
     this.product = product;

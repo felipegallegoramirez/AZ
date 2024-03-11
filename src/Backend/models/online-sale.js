@@ -4,10 +4,6 @@ const mongoose = require("mongoose");
 //const mongoosePaginateAggregate = require("mongoose-aggregate-paginate-v2");
 const StorageScheme = new mongoose.Schema(
   {
-    time: {
-      type: String,
-      required: true,
-    },
     client: {
       id: {
         type: String,
@@ -84,11 +80,6 @@ const StorageScheme = new mongoose.Schema(
       price: {
         type: String,
         require: false
-      },
-
-      time: {
-        type: String,
-        require: true
       },
       date: {
         type: String,

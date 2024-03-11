@@ -9,10 +9,11 @@ const ToNumber = require("../midleware/toNumber")
 
 const { uploadimage } = require("../utils/savestorage")
 
-router.get("/:shopid", checkpermision(1), inventory.getInventorys);
+router.get("/any/:shopid", checkpermision(1), inventory.getInventorys);
+router.get("/online/:shopid", inventory.getInventorys);
 router.post("/:shopid", checkpermision(7), validatorHandler(createInventorySchema, 'body'), inventory.createInventory);
 router.post("/i/:shopid", checkpermision(7),uploadimage.single('images'), ToNumber(['points', 'price','count']), validatorHandler(createInventorySchema, 'body'),  inventory.createInventory);
-router.get("/:shopid/:id", checkpermision(1), validatorHandler(getInventorySchema, 'params'), inventory.getInventory);
+router.get("/one/:shopid/:id", checkpermision(1), validatorHandler(getInventorySchema, 'params'), inventory.getInventory);
 router.put("/:shopid/:id", checkpermision(7), validatorHandler(getInventorySchema, 'params'), validatorHandler(updateInventorySchema, 'body'), inventory.editInventory);
 router.put("/i/:shopid/:id", checkpermision(7),uploadimage.single('images'), ToNumber(['points', 'price','count']), validatorHandler(getInventorySchema, 'params'), validatorHandler(updateInventorySchema, 'body'), inventory.editInventory);
 router.delete("/:shopid/:id", checkpermision(7), validatorHandler(getInventorySchema, 'params'), inventory.deleteInventory);

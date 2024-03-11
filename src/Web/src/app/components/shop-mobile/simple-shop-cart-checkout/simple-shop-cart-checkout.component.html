@@ -28,6 +28,10 @@
                 <span>Numero celular</span>
                 <input/>
             </div>
+            <div class="input">
+                <span>Direccion</span>
+                <input/>
+            </div>
             <div class="button">
                 <button>Continuar</button>
             </div>
@@ -49,18 +53,22 @@
         <div>
             <div class="input">
                 <span>Nombre</span>
-                <input/>
+                <input id="waName"/>
             </div>
             <div class="input">
                 <span>Cedula</span>
-                <input/>
+                <input type="number" id="waDni"/>
             </div>
             <div class="input">
                 <span>Numero celular</span>
-                <input/>
+                <input type="number" id="waNumber"/>
+            </div>
+            <div class="input">
+                <span>Direccion</span>
+                <input id="waAddres"/>
             </div>
             <div class="button">
-                <button>Continuar</button>
+                <button (click)="whatsapp()">Continuar</button>
             </div>
         </div>
     </div>

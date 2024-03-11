@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Inventory } from 'src/app/models/modelsProducts/inventory';
 import { InventoryService } from 'src/app/services/servicesProducts/inventory.service';
 
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-simple-shop-main',
@@ -12,6 +14,7 @@ export class SimpleShopMainComponent implements OnInit {
 
   constructor(
     private inventoryService:InventoryService,
+    private activatedRoute:ActivatedRoute
 
   ) { }
 
@@ -21,12 +24,16 @@ export class SimpleShopMainComponent implements OnInit {
 
   inventorys:Array<Inventory>=[]
   cart:Array<Inventory>=[]
-
+  id:string=""
   getProducts(){
-    this.inventoryService.getInventorys().subscribe((res) =>{
+    this.activatedRoute.params.subscribe(params => { 
+      this.id= params['id'];
+      this.inventoryService.getInventorysOnline(this.id).subscribe((res) =>{
 
-      this.inventorys = res as Inventory[]
+        this.inventorys = res as Inventory[]
+      })
     })
+
   }
 
   add(i:number){
@@ -43,7 +50,7 @@ export class SimpleShopMainComponent implements OnInit {
 
   next(){
     localStorage.setItem("cart",JSON.stringify(this.cart))
-    window.location.replace("http://localhost:4200/#/shop-cart");
+    window.location.replace("http://localhost:4200/#/shop-cart/"+this.id);
   }
 
 

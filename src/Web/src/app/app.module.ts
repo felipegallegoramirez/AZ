@@ -18,7 +18,7 @@ import { EmailsendComponent } from './components/login/emailsend/emailsend.compo
 import { EmailcodeComponent } from './components/login/emailcode/emailcode.component';
 import { EmployeeManagmentComponent } from './components/managment/employee-managment/employee-managment.component';
 import { InventoryeManagmentComponent } from './components/managment/inventorye-managment/inventorye-managment.component';
-import { PorfileComponent } from './components/porfile/porfile.component';
+import { PorfileComponent } from './components/misc/porfile/porfile.component';
 import { ComingSoonComponent } from './components/misc/coming-soon/coming-soon.component';
 import { SimpleShopMainComponent } from './components/shop-mobile/simple-shop-main/simple-shop-main.component';
 import { SimpleShopCartComponent } from './components/shop-mobile/simple-shop-cart/simple-shop-cart.component';
@@ -44,9 +44,9 @@ const routes: Routes = [
   { path: 'emailcode/:id/:code', component:EmailcodeComponent},
   { path: 'emailsend', component:EmailsendComponent},
   { path: 'comingSoon',component:ComingSoonComponent},
-  { path: 'shop-main',component:SimpleShopMainComponent},
-  { path: 'shop-cart',component:SimpleShopCartComponent},
-  { path: 'shop-checkout',component:SimpleShopCartCheckoutComponent},
+  { path: 'shop-main/:id',component:SimpleShopMainComponent},
+  { path: 'shop-cart/:id',component:SimpleShopCartComponent},
+  { path: 'shop-checkout/:id',component:SimpleShopCartCheckoutComponent},
   { path: 'shop-managment',component:SimpleShopManagmentComponent},
   { path: 'distribuitor-managment',component:DistributorManagmentComponent},
 ];

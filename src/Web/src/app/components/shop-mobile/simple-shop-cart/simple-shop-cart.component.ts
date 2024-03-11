@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Inventory } from 'src/app/models/modelsProducts/inventory';
 import { InventoryService } from 'src/app/services/servicesProducts/inventory.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-simple-shop-cart',
@@ -11,12 +12,17 @@ export class SimpleShopCartComponent implements OnInit {
 
   constructor(
     private inventoryService:InventoryService,
-
+    private activatedRoute:ActivatedRoute
   ) { }
   inventorys:Array<Inventory>=[]
   prices:Array<number>= []
   total:number=0
+  id:string=""
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => { 
+      this.id= params['id'];
+    })
+
     this.inventorys=JSON.parse(localStorage.getItem("cart")||"")
     this.count()
   }
@@ -50,7 +56,7 @@ export class SimpleShopCartComponent implements OnInit {
   }
   next(){
     localStorage.setItem("cart",JSON.stringify(this.inventorys))
-    window.location.replace("http://localhost:4200/#/shop-checkout");
+    window.location.replace("http://localhost:4200/#/shop-checkout/"+this.id);
   }
 
 }

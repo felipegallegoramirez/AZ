@@ -57,10 +57,14 @@ export class InventoryService {
   }
 
   getInventorys() {
-    return this.http.get<Inventory[]>(this.URL_API + `/${this.shopid}/`,this.httpOptions);
+    return this.http.get<Inventory[]>(this.URL_API + `/any/${this.shopid}/`,this.httpOptions);
   }
   getInventory(id:string) {
-    return this.http.get<Inventory>(this.URL_API + `/${this.shopid}/${id}`,this.httpOptions);
+    return this.http.get<Inventory>(this.URL_API + `/one/${this.shopid}/${id}`,this.httpOptions);
+  }
+
+  getInventorysOnline(id:string) {
+    return this.http.get<Inventory[]>(this.URL_API + `/online/${id}/`);
   }
 
   putInventory(inventory: Inventory,id:string) {

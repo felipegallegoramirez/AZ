@@ -1,1 +1,109 @@
-<p>simple-shop-managment works!</p>
+<div class="any">
+    <div class="central">
+      <div class="sup">
+        <div class="sup__stats">
+          <div>
+            <p>Clientes ultimos 15 Dias</p>
+            <p>200</p>
+          </div>
+          <div>
+            <p>Clientes ultimos 30 Dias</p>
+            <p>600</p>
+          </div>
+          <div>
+            <p>Clientes ultimos 6 meses</p>
+            <p>1500</p>
+          </div>
+        </div>
+  
+        <div class="sup__search">
+          <div class="sup__input">
+            <span>Codigo - Nombre</span>
+            <input id ="search" />
+          </div>
+          <button (click)="search()">Buscar</button>
+          <div class="sup__select">
+            <select id="order">
+              <option value="dni/1">Cedula Ascendente</option>
+              <option value="dni/-1">Cedula Desendente</option>
+              <option value="points/1">Puntos Ascendente</option>
+              <option value="points/-1">Puntos Desendente</option>
+            </select>
+          </div>
+          <div class="sup__select">
+            <select id="cate">
+              <option value="">Categoria (Any)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+  
+      <div class="inf">
+        <table>
+          <tr>
+            <th>Cedula</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>puntos</th>
+            <th>Ver compra</th>
+          </tr>
+  
+          <ng-container *ngFor="let data of null;index as i">
+            <tr (click)="rara(data.i)">
+              <td>{{ data.dni }}</td>
+              <td>{{ data.name }}</td>
+              <td>{{ data.email }}</td>
+              <td>{{ data.phone }}</td>
+              <td>{{ data.points }}</td>
+              <td><div  (click)="refill(data.id)">
+                <img src="../../../assets/crud/Pen.svg" />
+              </div></td>
+            </tr>
+            <tr>
+              <td colspan="7">
+                <div class="ocult">
+                  <h2>hola</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                    laboriosam! Quia cupiditate voluptate minus exercitationem
+                    dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Vitae tempora exercitationem modi est repellat quas in
+                    repellendus provident, obcaecati voluptatum ex, hic non.
+                    Suscipit possimus reiciendis, laboriosam repellat obcaecati
+                    libero. repellendus expedita nesciunt autem ullam quidem.
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </table>
+      </div>
+      <div class="pages">
+        <p>Anterior</p>
+        <p class="active">1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>Siguiente</p>
+      </div>
+    </div>
+  
+    <div class="options">
+      <div routerLink="/shop-main/{{id}}">
+        <img src="../../../../../assets/Shop-iconNav.svg" alt="">
+      </div>
+    </div>
+  </div>
+  
+  <div
+    class="panel--ocultar oculto"
+    id="background_panel"
+    (click)="close()"
+  ></div>
+  
+  <div class="add-client panel oculto" id="panel">
+  </div>
+  
