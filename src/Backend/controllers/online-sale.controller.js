@@ -152,6 +152,7 @@ OnlineSaleCtrl.sold = async (req, res, next) => {
                 address: client.address,
                 phone:client.number,
                 email:client.email,
+                shopid
             } 
             clien = await Clients.create(newclient)
             
@@ -182,7 +183,7 @@ OnlineSaleCtrl.sold = async (req, res, next) => {
     
     
         var save= await Sale.create(body);
-        await OnlineSale.findByIdAndUpdate(req.body._id, {$set: {state: 'acept'}}, {new: false});
+        await OnlineSale.findByIdAndUpdate(req.body._id, {$set: {state: 'Accept'}}, {new: false});
         if (clien?.sells){
             clien.sells.push({
                 id:save._id,

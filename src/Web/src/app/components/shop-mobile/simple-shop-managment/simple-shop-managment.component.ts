@@ -76,7 +76,7 @@ export class SimpleShopManagmentComponent implements OnInit {
   refill(a:any){
     this.select=a
     this.add_view();
-    this.acept=this.select.state=="acept"?true:false
+    this.acept=this.select.state=="Accept"?true:false
   }
 
   enviar(){

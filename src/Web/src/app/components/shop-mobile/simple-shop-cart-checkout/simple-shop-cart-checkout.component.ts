@@ -57,7 +57,7 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
       address,
       email
     }
-    online.state="new"
+    online.state="New"
     online.shopid=this.id
 
     // * Fecha

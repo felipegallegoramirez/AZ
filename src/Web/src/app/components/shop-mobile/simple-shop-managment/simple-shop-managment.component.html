@@ -42,22 +42,24 @@
       <table>
         <tr>
           <th>Codigo</th>
-          <th>Nombre</th>
           <th>Cedula</th>
           <th>Celular</th>
           <th>Fecha</th>
           <th>Total</th>
+          <th>Estado</th>
+          <th>Metodo</th>
           <th>Ver compra</th>
         </tr>
 
         <ng-container *ngFor="let data of solds; index as i">
           <tr>
             <td *ngIf="data._id">{{ data._id }}</td>
-            <td *ngIf="data.client?.name">{{ data.client?.name }}</td>
             <td *ngIf="data.client?.dni">{{ data.client?.dni }}</td>
             <td *ngIf="data.client?.number">{{ data.client?.number }}</td>
             <td *ngIf="data.date">{{ data.date }}</td>
             <td *ngIf="data.totalprice">{{ data.totalprice }}</td>
+            <td *ngIf="data.totalprice">{{ data.state }}</td>
+            <td *ngIf="data.totalprice">{{ data.metod }}</td>
             <td>
               <div class="table__img" (click)="refill(data)">
                 <img src="../../../assets/crud/Pen.svg" />
