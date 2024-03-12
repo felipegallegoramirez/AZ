@@ -7,6 +7,7 @@ export class OnlineSale {
     name?: string;
     number?: string;
     address?: string;
+    email?: string;
   };
   date?: string;
   product?: Array<{
@@ -41,6 +42,7 @@ export class OnlineSale {
       name?: string;
       number?: string;
       address?: string;
+      email?: string;
     } = {},
     date: string = "",
     product: Array<{

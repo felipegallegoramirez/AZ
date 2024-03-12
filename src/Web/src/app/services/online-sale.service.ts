@@ -28,7 +28,11 @@ export class OnlineSalesService {
   }
 
   postOnlineSale(onlineSale: OnlineSale,idshop:string) {
-    return this.http.post<OnlineSale>(this.URL_API+ `/${idshop}`, onlineSale);
+    return this.http.post<OnlineSale>(this.URL_API+ `/start/${idshop}`, onlineSale);
+  }
+
+  postOnlineSaleSold(onlineSale: OnlineSale,idshop:string) {
+    return this.http.post<OnlineSale>(this.URL_API+ `/end/${idshop}`, onlineSale,this.httpOptions);
   }
 
   getOnlineSales(idshop:string) {

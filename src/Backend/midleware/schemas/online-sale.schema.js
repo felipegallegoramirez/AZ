@@ -7,6 +7,7 @@ const dniclient = Joi.number().integer().min(0).max(9999999999);
 const nameclient = Joi.string().min(0).max(20);
 const numberclient = Joi.string();
 const addresclient = Joi.string();
+const emailclient = Joi.string();
 
 const clientSchema = Joi.object({
   id: idclient,
@@ -14,6 +15,7 @@ const clientSchema = Joi.object({
   name: nameclient.required(),
   number: numberclient.required(),
   address: addresclient.required(),
+  email: emailclient.required(),
 });
 
 const idemployee = Joi.any();

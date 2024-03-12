@@ -47,13 +47,15 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
     let dni = Number((<HTMLInputElement>document.getElementById("waDni")).value)||0;
     let number = (<HTMLInputElement>document.getElementById("waNumber")).value||"";
     let address = (<HTMLInputElement>document.getElementById("waAddres")).value||"";
+    let email = (<HTMLInputElement>document.getElementById("waEmail")).value||"";
 
     online.client={
       id:"",
       dni,
       name,
       number,
-      address
+      address,
+      email
     }
     online.state="new"
     online.shopid=this.id

@@ -68,8 +68,8 @@ OnlineSaleCtrl.getOnlineSales = async (req, res, next) => {
 
 OnlineSaleCtrl.createOnlineSale = async (req, res, next) => {
     try{
-        const { client, employee, date, product, service, totalprice, totalpoints, shopid,state,metod } = req.body;
-        const body = { client, employee, date, product, service, totalprice, totalpoints, shopid,state,metod };
+        const { client, date, product, service, totalprice, totalpoints, shopid,state,metod } = req.body;
+        const body = { client, date, product, service, totalprice, totalpoints, shopid,state,metod };
         var save= await OnlineSale.create(body);
         res.status(200).send(save)
     }catch(err){
@@ -122,75 +122,93 @@ OnlineSaleCtrl.deleteOnlineSale = async (req, res, next) => {
 
 //  !NO Crud
 const Service = require("../models/modelsServices/service");
+const Sale = require("../models/sales");
 const Inventory = require("../models/modelsProducts/inventory");
 
-OnlineSaleCtrl.soldPreview = async (req, res, next) => {
+OnlineSaleCtrl.sold = async (req, res, next) => {
 
-    const { time, client, date, product, service, totalprice, totalpoints, shopid } = req.body;
-
-
-    var state = true
-
-    /* 
-    !Posible forma de romper esta parte
-        Si durante la compra, se modifica la base de datos al tiempo
-    */
-
-    log=[]
-
-    const token = req.headers.authorization.split(" ").pop();
-    const tokenData = await verifyToken(token);
-    const employeeinfo = await User.findById(tokenData._id);
-    if(client.id=="0"){
-        client.id=tokenData._id
-        client.name="DEFAULT"
-        client.dni=0
-    }
+    try{
+        const { client, date, product, service, totalprice, totalpoints, shopid } = req.body;
 
 
-    const employee={
-        id:tokenData._id,
-        name:employeeinfo.name,
-        dni:employeeinfo.dni
-    }
-    const body = { time, client,employee, date, product, service, totalprice, totalpoints, shopid };
-
-    for (var i= 0 ; i < body.product.length  ;i++){
-        let data = await Inventory.findById(body.product[i].id);
-        if (data.count <body.product[i].count){
-            state=false
-            log.push(`Error Producto ${body.product[i].name} no suficientes`)
-        }else{
-            data.count-= body.product[i].count
-            await Inventory.findByIdAndUpdate(data._id,data);
-
+        var state = true
+    
+        /* 
+        !Posible forma de romper esta parte
+            Si durante la compra, se modifica la base de datos al tiempo
+        */
+    
+        log=[]
+    
+        const token = req.headers.authorization.split(" ").pop();
+        const tokenData = await verifyToken(token);
+        const employeeinfo = await User.findById(tokenData._id);
+    
+        let clien =  await Clients.findOne({email:client.email})
+        if(!clien){
+            let newclient={
+                dni:client.dni,
+                name:client.name,
+                address: client.address,
+                phone:client.number,
+                email:client.email,
+            } 
+            clien = await Clients.create(newclient)
+            
         }
+        client.id=clien._id
+    
+        const employee={
+            id:tokenData._id,
+            name:employeeinfo.name,
+            dni:employeeinfo.dni
+        }
+        const body = { client,employee, date, product, service, totalprice, totalpoints, shopid };
+    
+        for (var i= 0 ; i < body.product.length  ;i++){
+            let data = await Inventory.findById(body.product[i].id);
+            if (data.count <body.product[i].count){
+                state=false
+                log.push(`Error Producto ${body.product[i].name} no suficientes`)
+            }else{
+                data.count-= body.product[i].count
+                await Inventory.findByIdAndUpdate(data._id,data);
+    
+            }
+        }
+        if(!state){
+            res.status(400).send({ error:"Mamo"})
+        }
+    
+    
+        var save= await Sale.create(body);
+        await OnlineSale.findByIdAndUpdate(req.body._id, {$set: {state: 'acept'}}, {new: false});
+        if (clien?.sells){
+            clien.sells.push({
+                id:save._id,
+                price:totalprice,
+                points:totalpoints
+            })
+        }else{
+            clien.sells=[{
+                id:save._id,
+                price:totalprice,
+                points:totalpoints
+            }]
+        }
+        clien.points+=totalpoints
+        await Clients.findByIdAndUpdate(clien._id,clien)
+        saveshop= await Shop.findById(shopid)
+        factura(save._id,clien,saveshop,save)
+    
+    
+        res.status(200).send({ tienda:saveshop.name, total:save.totalprice, id:save._id, correo:clien.email})
+    }catch(e){
+        console.log(e)
+        res.status(400).send({ error:"Mamo"})
     }
 
-
-    var save= await OnlineSale.create(body);
-
-    let clien =  await Clients.findById(client.id)
-    if (clien.sells){
-        clien.sells.push({
-            id:save._id,
-            price:totalprice,
-            points:totalpoints
-        })
-    }else{
-        clien.sells=[{
-            id:save._id,
-            price:totalprice,
-            points:totalpoints
-        }]
-    }
-    clien.points+=totalpoints
-    await Clients.findByIdAndUpdate(clien._id,clien)
-    saveshop= await Shop.findById(shopid)
-    factura(save._id,clien,saveshop,save)
-
-
-    res.status(200).send({ tienda:saveshop.name, total:save.totalprice, id:save._id, correo:clien.email})
+    
 }
 
 

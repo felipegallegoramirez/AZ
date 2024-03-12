@@ -25,6 +25,10 @@ const StorageScheme = new mongoose.Schema(
         type: String,
         require: false
       },
+      email: {
+        type: String,
+        require: false
+      },
     },
 
     date: {

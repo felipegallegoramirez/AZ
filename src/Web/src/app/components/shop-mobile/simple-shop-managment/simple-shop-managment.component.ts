@@ -72,10 +72,29 @@ export class SimpleShopManagmentComponent implements OnInit {
   }
 
   // !---
-
+  acept:boolean=false
   refill(a:any){
     this.select=a
     this.add_view();
+    this.acept=this.select.state=="acept"?true:false
+  }
+
+  enviar(){
+    let x = localStorage.getItem("shop")||""
+    this.onlineSalesService.postOnlineSaleSold(this.select,x).subscribe(res=>{
+      console.log(res)
+      this.search()
+      this.close()
+    })
+  }
+
+  negar(){
+    let x = localStorage.getItem("shop")||""
+    this.onlineSalesService.deleteOnlineSale(this.select._id||"",x).subscribe(res=>{
+      console.log(res)
+      this.search()
+      this.close()
+    })
   }
 
 }

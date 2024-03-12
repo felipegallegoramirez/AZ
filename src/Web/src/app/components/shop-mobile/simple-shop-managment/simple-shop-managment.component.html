@@ -133,7 +133,7 @@
   </div>
 
   <div class="panel--buttons">
-    <button>Aceptar</button>
-    <button>Negar</button>
+    <button [disabled]="acept" (click)="enviar()">Aceptar</button>
+    <button  [disabled]="acept" (click)="negar()">Negar</button>
   </div>
 </div>
