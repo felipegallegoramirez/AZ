@@ -127,6 +127,7 @@ select{
 /*! Barra lateral*/
 .MiddleBody-Payproducts{
     height: calc(100% - 260px);
+    overflow-y: scroll;
 }
 .Payproducts-box{
     display: flex;

@@ -96,6 +96,9 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
 
     this.onlineSalesService.postOnlineSale(online,this.id).subscribe(res=>{
       console.log(res)
+      window.location.replace("https://wa.me/573052572814?text=Hola,%20¿cómo%20estás%3F%20Mi%20Codigo%20es%20:%20"+res._id);
+      
+
     })
 
 

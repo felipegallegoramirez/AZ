@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OnlineSale } from 'src/app/models/online-sale';
+import { OnlineSalesService } from 'src/app/services/online-sale.service';
 
 @Component({
   selector: 'app-simple-shop-managment',
@@ -7,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SimpleShopManagmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private onlineSalesService:OnlineSalesService) { }
 
   ngOnInit(): void {
    this.id= localStorage.getItem('shop')||"";
+   this.search()
   }
   edit:boolean=false
   editar(){
@@ -27,8 +30,19 @@ export class SimpleShopManagmentComponent implements OnInit {
   actualizar (){
       this.getClients()
   }
+  solds:Array<OnlineSale>=[]
+  select:OnlineSale=new OnlineSale()
 
   search(){
+    // order -  cate - search
+    let order= (<HTMLInputElement>document.getElementById("order")).value
+    let cate= (<HTMLInputElement>document.getElementById("cate")).value
+    let search= (<HTMLInputElement>document.getElementById("search")).value
+    let or=order.split("/")
+    this.onlineSalesService.getOnlineSaleSearch(search,1,1000,or[0],Number(or[1]),localStorage.getItem("shop")||"").subscribe((res)=>{
+      this.solds=[]
+      this.solds = res as OnlineSale[]
+  })
   }
 
   // ! ----------- Paneles -----------
@@ -60,7 +74,8 @@ export class SimpleShopManagmentComponent implements OnInit {
   // !---
 
   refill(a:any){
-
+    this.select=a
+    this.add_view();
   }
 
 }

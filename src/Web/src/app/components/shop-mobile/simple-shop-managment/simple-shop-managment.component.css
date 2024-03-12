@@ -189,24 +189,25 @@
     margin: 0px;
     color: var(--c1);
   }
-  .table__img{
-    width: 100%;
+
+  table>tr>td:nth-last-child(1){
     text-align: center;
   }
-  .table__img>div{
+
+  .table__img{
     background-color: var(--c1);
     width: 35px;
     display: inline-block;
     border-radius: 25px;
-    margin: 0px 10px ;
+    margin: 0px 0px ;
     height: 35px;
   }
-  .table__img>div>img{
+  .table__img>img{
     width: 35px;
     height: 35px;
   }
   
-  .table__img>div:hover{
+  .table__img:hover{
     background-color: var(--c2);
   
   
@@ -381,3 +382,122 @@
     border-radius: 20px;
     margin: 0px 10px;
   }
+
+/*!Me cago */
+
+  .MiddleBody-Payproducts{
+    height: calc(100vh - 360px);
+    overflow-y: scroll;
+}
+.Payproducts-box{
+    display: flex;
+    padding: 10px;
+}
+
+.Payproducts-box>.Box-NameP-ButtonQ{
+    width: 100%;
+}
+.Payproducts-box * {
+    margin: 0px;
+}
+
+.ButtonQuantity{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ButtonQuantity>p{
+    text-align: center;
+    width: 30px;
+}
+
+.ButtonQuantity>button{
+    background-color: var(--c1);
+
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.ButtonQuantity>button>b{
+    color: var(--w);
+}
+
+
+
+.Box-NameP-ButtonQ{
+    display: flex;
+}
+
+.Box-NameP-ButtonQ>div{
+    display: flex;
+    width: 50%;
+}
+.Pricetill{
+    min-width: 100px;
+    text-align: end;
+
+}
+
+.BottomBody-Total-Pay-Backcash{
+    padding: 20px;
+}
+.BottomBody-Total-Pay-Backcash>div{
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.BottomBody-Total-Pay-Backcash>div>*{
+    margin: 0px;
+    min-width: 100px;
+}
+
+.BottomBody-Total-Pay-Backcash>div>p:nth-child(2){
+    background-color: var(--c1);
+    color: var(--w);
+    width: 100%;
+    height: 20px;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.BottomBody-Total-Pay-Backcash>div>input:nth-child(2){
+    color: var(--b);
+    border: 2px solid var(--c1);
+    outline: none;
+    width: 100%;
+    height: 20px;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.Complete{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* *asd */
+.panel--info{
+  border-radius: 20px;
+  border: 2px solid var(--g);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.panel--info>p{
+  margin: 10px 5px;
+  width: calc(100%- 10px);
+  border-radius: 20px;
+  padding: 3px;
+  border: 2px solid var(--c1);
+  box-sizing: border-box;
+}
+.panel--info>p:first-child{
+  grid-column: 1 / 3;
+  grid-row: 1;
+}

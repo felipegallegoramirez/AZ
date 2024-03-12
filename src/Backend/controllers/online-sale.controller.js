@@ -22,7 +22,6 @@ OnlineSaleCtrl.getOnlineSales = async (req, res, next) => {
             const size = req.query.size || 1000;
             const param= req.query.param || "createdAt";
             const order= req.query.order || 1;
-            console.log(shopid)
     
             const filters = {
                 $and: [
@@ -39,6 +38,11 @@ OnlineSaleCtrl.getOnlineSales = async (req, res, next) => {
                             input: { $toString: "$date" },
                             regex: search.toString(),
                             options: "i"
+                          } } },
+                          {$expr: { $regexMatch: {
+                            input: { $toString: "$_id" },
+                            regex: search.toString(),
+                            options: "i"
                           } } }
                         ,
                     ]
@@ -51,7 +55,7 @@ OnlineSaleCtrl.getOnlineSales = async (req, res, next) => {
               sort[param]=Number(order);
               const skip = (actpage - 1) * size;
               const docs = await OnlineSale.find(filters).sort(sort).skip(skip).limit(size);
-
+              
     
     
             res.status(200).send(docs)
@@ -66,8 +70,8 @@ OnlineSaleCtrl.createOnlineSale = async (req, res, next) => {
     try{
         const { client, employee, date, product, service, totalprice, totalpoints, shopid,state,metod } = req.body;
         const body = { client, employee, date, product, service, totalprice, totalpoints, shopid,state,metod };
-        console.log(body)
         var save= await OnlineSale.create(body);
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
