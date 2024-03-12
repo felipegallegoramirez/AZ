@@ -26,6 +26,7 @@ import { SimpleShopCartCheckoutComponent } from './components/shop-mobile/simple
 import { SimpleShopManagmentComponent } from './components/shop-mobile/simple-shop-managment/simple-shop-managment.component';
 import { DistributorManagmentComponent } from './components/managment/distributor-managment/distributor-managment.component';
 import { DistributorHistoryComponent } from './components/distributor-history/distributor-history.component';
+import { DistributorhistoryManagmentComponent } from './components/managment/distributorhistory-managment/distributorhistory-managment.component';
 
 
 
@@ -73,7 +74,8 @@ const routes: Routes = [
     SimpleShopCartCheckoutComponent,
     SimpleShopManagmentComponent,
     DistributorManagmentComponent,
-    DistributorHistoryComponent
+    DistributorHistoryComponent,
+    DistributorhistoryManagmentComponent
   ],
   imports: [
     BrowserModule,
