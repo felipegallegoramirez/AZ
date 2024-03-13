@@ -28,7 +28,7 @@
             <div class="sup__select">
                 <select name="lenguajes" id="order">
                   <option value="createdAt/1">Fecha Ascendente</option>
-                  <option value="createdAt/-1">Fehca Desendente</option>
+                  <option value="createdAt/-1">Fecha Desendente</option>
                   <option value="dni/1">Cedula Ascendente</option>
                   <option value="dni/-1">Cedula Desendente</option>
                 </select>
@@ -51,14 +51,14 @@
 
             <tr>
               <th>Nombre</th>
-              <th>Cedula cliente</th>
-              <th>Ganancia</th>
+              <th>Cedula</th>
+              <th>Total</th>
               <th>Fecha</th>
             </tr>
 
 
-            <ng-container *ngFor="let data of solds">
-                <tr (click)="rara(data.i)">
+            <ng-container *ngFor="let data of dihi;index as i">
+                <tr (click)="rara(i+1)">
                   <td>{{ data.name }}</td>
                   <td>{{ data.dni }}</td>
                   <td>{{ data.total }}</td>

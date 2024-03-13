@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SalesService } from '../../services/sales.service'
-import {Sales} from '../../models/sales'
+import { DistributorHistory } from 'src/app/models/modelsDistributor/distributorhistory';
+import { DistributorHistoryService } from 'src/app/services/servicesDistributor/distributorhistory.service';
+
 
 @Component({
   selector: 'app-distributor-history',
@@ -8,34 +9,15 @@ import {Sales} from '../../models/sales'
   styleUrls: ['./distributor-history.component.css']
 })
 export class DistributorHistoryComponent implements OnInit {
-  constructor(private salesService:SalesService) { }
+  constructor(private distributorHistoryService:DistributorHistoryService) { }
 
   ngOnInit(): void {
-    this.actualizar()
+    this.search()
   }
-/*
-              <td>{{data.code}}</td>
-              <td>{{data.dni}}</td>
-              <td>{{data.total}}</td>
-              <td>{{data.date}}</td>
-*/
-solds:Array<{
-    id:string,
-    name:string,
-    dni:number,
-    total:number,
-    date:string,
-    i:number
-  }> =[]
-
-  edit:boolean=false
-
 
 
   rara(op:number) {
-    console.log("me meti")
     let a=document.querySelector(".inf")?.children[0].children[op*2].children[0].children[0]
-    console.log(a)
     if(a?.classList.contains("noocult")){
       a.classList.remove("noocult")
     }else{
@@ -43,26 +25,8 @@ solds:Array<{
     }
   }
 
-  actualizar(){
-    let r = localStorage.getItem("shop") || ""
-    this.solds=[]
-    this.salesService.getSaless(r).subscribe(res=>{
-      console.log(res)
-      let x  = res as Sales[]
-      for(var i=0;i<x.length;i++){
-        this.solds.push({
-          id:x[i]._id||"",
-          dni:x[i].client?.dni||0,
-          name:x[i].client?.name||"",
-          total:x[i].totalprice||0,
-          date:x[i].date||"",
-          i:i+1
-        })
-      }
+  dihi:Array<DistributorHistory>=[]
 
-
-    })
-  }
 
   search(){
     // order -  cate - search
@@ -70,20 +34,8 @@ solds:Array<{
     let cate= (<HTMLInputElement>document.getElementById("cate")).value
     let search= (<HTMLInputElement>document.getElementById("search")).value
     let or=order.split("/")
-    this.salesService.getSalesSearch(search,1,1000,or[0],Number(or[1]),localStorage.getItem("shop")||"").subscribe((res)=>{
-      let x = res as Sales[]
-      this.solds=[]
-      for (let i=0; i< x.length ;i++){
-        this.solds.push({
-          id:x[i]._id||"",
-          dni:x[i].client?.dni||0,
-          name:x[i].client?.name||"",
-          total:x[i].totalprice||0,
-          date:x[i].date||"",
-          i:i+1
-        })
-      }
-
+    this.distributorHistoryService.getDistributorHistorySearch(search,1,1000,or[0],Number(or[1]),localStorage.getItem("shop")||"").subscribe((res)=>{
+      this.dihi= res as DistributorHistory[]
       
     })
 
