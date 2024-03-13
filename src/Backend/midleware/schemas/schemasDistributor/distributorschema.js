@@ -26,19 +26,21 @@ const shopid = Joi.string();
 
 
 const createDistributorSchema = Joi.object({
+  _id:id,
   product: Joi.array().items(productSchema),
   total:total.required(),
   name:name.required(),
   dni:dni.required(),
   phone:phone.required(),
   address:address.required(),
-  lastdate:lastdate.required(),
-  nextdate:nextdate.required(),
+  lastdate:lastdate,
+  nextdate:nextdate,
   shopid: shopid,
 });
 
 
 const updateDistributorSchema = Joi.object({
+  _id:id,
   product: Joi.array().items(productSchema),
   total:total,
   name:name,

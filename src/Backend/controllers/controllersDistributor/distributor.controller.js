@@ -48,8 +48,8 @@ DistributorCtrl.getDistributors = async (req, res, next) => {
 
 DistributorCtrl.createDistributor = async (req, res, next) => {
     try{
-        const { product, total, name, dni, address, lastdate, nextdate } = req.body;
-        const body = { product, total, name, dni, address, lastdate, nextdate };
+        const { product, total, name, dni, address, lastdate, nextdate,shopid,phone } = req.body;
+        const body = { product, total, name, dni, address, lastdate, nextdate,shopid,phone };
         var save= await Distributor.create(body);
         
         res.status(200).send(save)

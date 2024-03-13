@@ -48,8 +48,8 @@ DistributorHistoryCtrl.getDistributorHistorys = async (req, res, next) => {
 
 DistributorHistoryCtrl.createDistributorHistory = async (req, res, next) => {
     try{
-        const { product, total, name, dni, address, date } = req.body;
-        const body = { product, total, name, dni, address, date };
+        const { product, total, name, dni, address, date,shopid,phone } = req.body;
+        const body = { product, total, name, dni, address, date,shopid,phone };
         var save= await DistributorHistory.create(body);
         
         res.status(200).send(save)

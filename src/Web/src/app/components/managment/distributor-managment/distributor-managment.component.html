@@ -1,1 +1,188 @@
-<p>distributor-managment works!</p>
+<div class="any">
+  <div class="central">
+    <div class="sup">
+      <div class="sup__stats">
+        <div>
+          <p>Clientes ultimos 15 Dias</p>
+          <p>200</p>
+        </div>
+        <div>
+          <p>Clientes ultimos 30 Dias</p>
+          <p>600</p>
+        </div>
+        <div>
+          <p>Clientes ultimos 6 meses</p>
+          <p>1500</p>
+        </div>
+      </div>
+
+      <div class="sup__search">
+        <div class="sup__input">
+          <span>Codigo - Nombre</span>
+          <input id="search" />
+        </div>
+        <button (click)="search()">Buscar</button>
+        <div class="sup__select">
+          <select id="order">
+            <option value="dni/1">Cedula Ascendente</option>
+            <option value="dni/-1">Cedula Desendente</option>
+          </select>
+        </div>
+        <div class="sup__select">
+          <select id="cate">
+            <option value="">Categoria (Any)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="inf">
+      <table>
+        <tr>
+          <th>Identificacion</th>
+          <th>Nombre</th>
+          <th>Direccion</th>
+          <th>Celular</th>
+          <th *ngIf="edit">Accion</th>
+        </tr>
+
+        <ng-container *ngFor="let data of distributors; index as i">
+          <tr (click)="rara(i)">
+            <td>{{ data.dni }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.address }}</td>
+            <td>{{ data.phone }}</td>
+            <td *ngIf="edit">
+              <div class="table__img">
+                <div>
+                  <img src="../../../assets/crud/Pen.svg" />
+                </div>
+                <div>
+                  <img src="../../../assets/crud/Paper Bin.svg" />
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7">
+              <div class="ocult">
+                <h2>hola</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                  laboriosam! Quia cupiditate voluptate minus exercitationem
+                  dolorum nisi accusantium. Magnam ipsa maxime, aperiam nulla
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Vitae tempora exercitationem modi est repellat quas in
+                  repellendus provident, obcaecati voluptatum ex, hic non.
+                  Suscipit possimus reiciendis, laboriosam repellat obcaecati
+                  libero. repellendus expedita nesciunt autem ullam quidem.
+                </p>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+    <div class="pages">
+      <p>Anterior</p>
+      <p class="active">1</p>
+      <p>2</p>
+      <p>3</p>
+      <p>4</p>
+      <p>5</p>
+      <p>Siguiente</p>
+    </div>
+  </div>
+
+  <div class="options">
+    <div (click)="add_view()">
+      <img src="../../../assets/crud/Add.svg" />
+    </div>
+    <div (click)="editar()">
+      <img src="../../../assets/crud/Pen.svg" />
+    </div>
+  </div>
+</div>
+
+<div
+  class="panel--ocultar oculto"
+  id="background_panel"
+  (click)="close()"
+></div>
+
+<div class="add-client panel oculto" id="panel">
+  <div class="panel__content">
+    <input id="id_client" type="text" style="display: none" />
+    <input id="image_client" type="text" style="display: none" />
+
+    <div class="input">
+      <span>Nombre</span>
+      <input id="name_distributor" />
+    </div>
+
+    <div class="input">
+      <span>Identificacion</span>
+      <input type="number" id="dni_distributor" />
+    </div>
+
+    <div class="input">
+      <span>Celular</span>
+      <input id="email_distributor" />
+    </div>
+
+    <div class="input">
+      <span>Direccion</span>
+      <input id="address_distributor" />
+    </div>
+
+    <div class="input">
+      <span>Celular</span>
+      <input type="number" id="phone_distributor" />
+    </div>
+
+    <h2>Productos</h2>
+    <div>
+      <div *ngFor="let product of acta; index as r" class="product__container">
+
+        <div class="input">
+          <select (change)="change(r)" class="cate">
+            <option value="{{ categor.id }}" *ngFor="let categor of category;">{{ categor.name }}</option>
+          </select>
+        </div>
+        <div class="input">
+            <select class="product_id">
+                <ng-container *ngFor="let filter of inventorys;">
+                    <ng-container *ngIf="filter.category == acta[r]">
+                        <option class="product_distributor" value="{{ filter._id }}">
+                            {{ filter.productname }}
+                        </option>
+                    </ng-container>
+                </ng-container>
+                
+            </select>
+          </div>
+          <div class="input">
+            <input (change)="sum()" type="number" class="product_unit" value="0" />
+          </div>
+          <div class="input">
+            <input (change)="sum()" type="number" class="product_price" value="0" />
+          </div>
+          <div class="input">
+            <button (change)="sum()" (click)="remove(r)">Eliminar</button>
+          </div>
+
+
+
+      </div>
+    </div>
+    <button class="panel--buttons-product" (click)="add()">Agregar</button>
+
+    <h2>Total: {{total}}</h2>
+
+    <div class="panel--buttons">
+      <button (click)="create()" *ngIf="!update">Crear</button>
+      <button *ngIf="update">Editar</button>
+      <button (click)="close()">Cancelar</button>
+    </div>
+  </div>
+</div>
