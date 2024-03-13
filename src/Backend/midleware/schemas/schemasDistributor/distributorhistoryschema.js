@@ -2,6 +2,7 @@ const Joi = require('joi');
 
 
 const idsells = Joi.string();
+const category = Joi.string();
 const code  = Joi.number().integer().min(0).max(999999999999999999);
 const count  = Joi.number().integer().min(0).max(999999999999999999);
 const price  = Joi.number().integer().min(0).max(999999999999999999);
@@ -9,6 +10,7 @@ const totalprice  = Joi.number().integer().min(0).max(999999999999999999);
 const productSchema = Joi.object({
   id: idsells.required(),
   code: code.required(),
+  category: category.required(),
   count: count.required(),
   price: price.required(),
   totalprice: totalprice.required(),

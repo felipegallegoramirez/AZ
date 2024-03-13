@@ -13,6 +13,10 @@ const StorageScheme = new mongoose.Schema(
         type: String,
         required: true,
       },
+      category: {
+        type: String,
+        required: true,
+      },
       count: {
         type: Number,
         required: true,

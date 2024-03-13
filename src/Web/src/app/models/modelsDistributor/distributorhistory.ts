@@ -4,6 +4,7 @@ export class DistributorHistory {
     id: string;
     code: string;
     count: number;
+    category: string;
     price: number;
     totalprice: number;
   }>;
@@ -21,6 +22,7 @@ export class DistributorHistory {
       id: string,
       code: string,
       count: number,
+      category: string,
       price: number,
       totalprice: number
     }> =[] ,

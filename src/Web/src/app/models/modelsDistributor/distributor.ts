@@ -3,6 +3,7 @@ export class Distributor {
   product?: Array<{
     id: string;
     code: string;
+    category: string;
     count: number;
     price: number;
     totalprice: number;
@@ -21,6 +22,7 @@ export class Distributor {
     product: Array<{
       id: string,
       code: string,
+      category: string,
       count: number,
       price: number,
       totalprice: number

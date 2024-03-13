@@ -47,7 +47,7 @@
         </tr>
 
         <ng-container *ngFor="let data of distributors; index as i">
-          <tr (click)="rara(i)">
+          <tr (click)="rara(i+1)">
             <td>{{ data.dni }}</td>
             <td>{{ data.name }}</td>
             <td>{{ data.address }}</td>
@@ -55,10 +55,13 @@
             <td *ngIf="edit">
               <div class="table__img">
                 <div>
-                  <img src="../../../assets/crud/Pen.svg" />
+                  <img (click)="editDistributor(data._id)" src="/assets/crud/Pen.svg" />
                 </div>
                 <div>
-                  <img src="../../../assets/crud/Paper Bin.svg" />
+                  <img (click)="delete(data._id)" src="/assets/crud/Paper Bin.svg" />
+                </div>
+                <div>
+                  <img (click)="preHistory(data._id)" src="/assets/Arrow.svg" />
                 </div>
               </div>
             </td>
@@ -122,22 +125,17 @@
 
     <div class="input">
       <span>Identificacion</span>
-      <input type="number" id="dni_distributor" />
+      <input id="dni_distributor" />
     </div>
 
     <div class="input">
       <span>Celular</span>
-      <input id="email_distributor" />
+      <input id="phone_distributor" />
     </div>
 
     <div class="input">
       <span>Direccion</span>
       <input id="address_distributor" />
-    </div>
-
-    <div class="input">
-      <span>Celular</span>
-      <input type="number" id="phone_distributor" />
     </div>
 
     <h2>Productos</h2>
@@ -170,18 +168,22 @@
           <div class="input">
             <button (change)="sum()" (click)="remove(r)">Eliminar</button>
           </div>
-
-
-
       </div>
     </div>
     <button class="panel--buttons-product" (click)="add()">Agregar</button>
 
+
     <h2>Total: {{total}}</h2>
 
+    <div *ngIf="update==2">
+      <h2>Ultima entrega: {{lastdate}}</h2>
+      <h2>Proxima entrega: {{nextdate}}</h2>
+    </div>
+
     <div class="panel--buttons">
-      <button (click)="create()" *ngIf="!update">Crear</button>
-      <button *ngIf="update">Editar</button>
+      <button (click)="create()" *ngIf="update==0">Crear</button>
+      <button (click)="editdistributor()" *ngIf="update==1">Editar</button>
+      <button (click)="create()" *ngIf="update==2">Recargar</button>
       <button (click)="close()">Cancelar</button>
     </div>
   </div>
