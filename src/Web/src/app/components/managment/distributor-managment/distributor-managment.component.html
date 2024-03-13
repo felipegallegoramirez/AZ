@@ -120,22 +120,22 @@
 
     <div class="input">
       <span>Nombre</span>
-      <input id="name_distributor" />
+      <input [disabled]="update==2" id="name_distributor" />
     </div>
 
     <div class="input">
       <span>Identificacion</span>
-      <input id="dni_distributor" />
+      <input [disabled]="update==2" id="dni_distributor" />
     </div>
 
     <div class="input">
       <span>Celular</span>
-      <input id="phone_distributor" />
+      <input [disabled]="update==2" id="phone_distributor" />
     </div>
 
     <div class="input">
       <span>Direccion</span>
-      <input id="address_distributor" />
+      <input [disabled]="update==2" id="address_distributor" />
     </div>
 
     <h2>Productos</h2>
@@ -183,7 +183,7 @@
     <div class="panel--buttons">
       <button (click)="create()" *ngIf="update==0">Crear</button>
       <button (click)="editdistributor()" *ngIf="update==1">Editar</button>
-      <button (click)="create()" *ngIf="update==2">Recargar</button>
+      <button (click)="history()" *ngIf="update==2">Recargar</button>
       <button (click)="close()">Cancelar</button>
     </div>
   </div>

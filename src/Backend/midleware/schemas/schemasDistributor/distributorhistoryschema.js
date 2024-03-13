@@ -22,8 +22,7 @@ const name = Joi.string();
 const dni = Joi.string();
 const phone = Joi.number().integer().min(0).max(9999999999);
 const address = Joi.string();
-const lastdate = Joi.string();
-const nextdate = Joi.string();
+const date = Joi.string();
 const shopid = Joi.string();
 
 
@@ -34,8 +33,7 @@ const createDistributorHystorySchema = Joi.object({
   dni:dni.required(),
   phone:phone.required(),
   address:address.required(),
-  lastdate:lastdate.required(),
-  nextdate:nextdate.required(),
+  date:date.required(),
   shopid: shopid,
 });
 
@@ -47,8 +45,7 @@ const updateDistributorHystorySchema = Joi.object({
   dni:dni,
   phone:phone,
   address:address,
-  lastdate:lastdate,
-  nextdate:nextdate,
+  date:date,
   shopid: shopid,
 });
 

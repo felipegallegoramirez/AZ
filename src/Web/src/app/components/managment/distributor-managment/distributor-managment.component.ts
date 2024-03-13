@@ -325,8 +325,8 @@ export class DistributorManagmentComponent implements OnInit {
     this.update=2
   }
 
-  History(id:any){
-    let select = this.distributors.find((x) => x._id == id);
+  history(){
+    let select = this.distributors.find((x) => x._id == this.actual) as Distributor; 
     // * Fecha
     var fechaActual = new Date();
     var año = fechaActual.getFullYear();
@@ -334,7 +334,62 @@ export class DistributorManagmentComponent implements OnInit {
     var día = fechaActual.getDate().toString().padStart(2, '0');
     var fecha = año + '/' + mes + '/' + día;
 
-    let 
+    const classcant=document.getElementsByClassName("product_unit")
+    const classprice=document.getElementsByClassName("product_price")
+    const classproduct=document.getElementsByClassName("product_distributor")
+    const classcate=document.getElementsByClassName("cate")
+
+    let product:Array<any>=[]
+
+    for(let i=0;i<this.acta.length;i++){
+      let id=(<HTMLInputElement> classproduct[i]).value||""
+      let code= this.inventorys.find(x=>x._id==id)?.code||""
+      let count= Number((<HTMLInputElement> classcant[i]).value)||0
+      let price= Number((<HTMLInputElement> classprice[i]).value)||0
+      let category= (<HTMLInputElement> classcate[i]).value||""
+      let totalprice=Number(price)*Number(count)
+      product.push({
+        id,
+        code,
+        count,
+        category,
+        price,
+        totalprice
+      })
+    }
+
+    let distributorhistory= new DistributorHistory("",product,select?.total,select?.name,select?._id,select?.phone,select?.address,fecha,select?.shopid)
+
+    delete distributorhistory._id
+
+
+
+
+    console.log(select)
+
+    this.distributorHistoryService.postDistributorHistory(distributorhistory,select?.shopid||"").subscribe(res=>{
+      this.clear()
+      this.close()
+      if(select){
+        select.lastdate=fecha
+        let selecpro= select.product?.map(objeto => {
+          const r ={
+            id:objeto.id,
+            code:objeto.code,
+            count:objeto.count,
+            category:objeto.category,
+            price:objeto.price,
+            totalprice:objeto.totalprice
+          };
+          return r;
+      });
+        let distributor= new Distributor(select._id,selecpro,select.total,select.name,select.dni,select.phone,select.address,select.lastdate,select.nextdate,select.shopid)
+        this.distributorService.putDistributor(distributor,this.actual,select?.shopid||"").subscribe(res=>{
+          console.log("a")
+        })
+      }
+
+    })
   }
 
 }
