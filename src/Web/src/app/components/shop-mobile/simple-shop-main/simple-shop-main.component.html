@@ -1,14 +1,14 @@
 
 <div class="Category">
-    <select id="cate">
+    <select (change)="change()" id="cate">
         <option value="">Categoria (Any)</option>
-        <option>Comida perros</option>
-        <option>Comida gatos</option>
+        <option value="{{category.id}}" let *ngFor="let category of category;index as i;">{{category.name}}</option>
+
       </select>
 </div>
 
 <div class="content">
-    <div  *ngFor="let product of inventorys;index as i;" class="card-product">
+    <div  *ngFor="let product of inventorysfilter;index as i;" class="card-product">
         <img src="http://localhost:3000/public/images/{{product.image}}" alt="">
         <div class="card-product_text">
             <h3>{{product.productname}}</h3>

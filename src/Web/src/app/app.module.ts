@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'shop-checkout/:id',component:SimpleShopCartCheckoutComponent},
   { path: 'shop-managment',component:SimpleShopManagmentComponent},
   { path: 'distribuitor-managment',component:DistributorManagmentComponent},
+  { path: 'distribuitor-history',component:DistributorHistoryComponent},
 ];
 
 @NgModule({
