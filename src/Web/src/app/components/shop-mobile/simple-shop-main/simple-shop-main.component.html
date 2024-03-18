@@ -9,7 +9,7 @@
 
 <div class="content">
     <div  *ngFor="let product of inventorysfilter;index as i;" class="card-product">
-        <img src="http://localhost:3000/public/images/{{product.image}}" alt="">
+        <img src="{{backend}}/public/images/{{product.image}}" alt="">
         <div class="card-product_text">
             <h3>{{product.productname}}</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci beatae voluptatum </p>

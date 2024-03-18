@@ -9,7 +9,7 @@ import { ClientsService} from "../../services/clients.service"
 import { Sales} from'../../models/sales'
 import { SalesService} from "../../services/sales.service"
 import { PdfService} from "../../services/pdf.service"
-
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-inventory-till',
@@ -106,7 +106,7 @@ export class InventoryTillComponent implements OnInit {
             category: ar?.name||"",
             idcategory: data[i].category || "",
             i:i+1,
-            image:"http://localhost:3000/public/images/"+data[i].image ||""
+            image:environment.backend+"/public/images/"+data[i].image ||""
           })
   
         }
@@ -152,7 +152,7 @@ export class InventoryTillComponent implements OnInit {
             category: ar?.name||"",
             idcategory: data[i].category || "",
             i:i+1,
-            image:"http://localhost:3000/public/images/"+data[i].image ||""
+            image:environment.backend+"/public/images/"+data[i].image ||""
           })
         }
       })

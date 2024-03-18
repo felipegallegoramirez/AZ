@@ -3,6 +3,7 @@ import {Inventory} from'../../../models/modelsProducts/inventory'
 import {InventoryService} from '../../../services/servicesProducts/inventory.service'
 import { ProductCategoryService } from '../../../services/servicesProducts/productcategory.service'
 import { ProductCategory } from '../../../models/modelsProducts/productcategory'
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-inventorye-managment',
@@ -44,7 +45,7 @@ export class InventoryeManagmentComponent implements OnInit {
 
   // * Variable's preview photo
   file:File[]=[]
-  imageDefatult:string="http://localhost:3000/public/images/basic.png"
+  imageDefatult:string=environment.backend+"/public/images/basic.png"
   photoSelected: Array<string> | ArrayBuffer | any =[this.imageDefatult,this.imageDefatult] ;
 
   ngOnInit(): void {
@@ -86,7 +87,7 @@ export class InventoryeManagmentComponent implements OnInit {
           category: ar?.name||"",
           idcategory: data[i].category || "",
           i:i+1,
-          image:"http://localhost:3000/public/images/"+data[i].image ||""
+          image:environment.backend+"/public/images/"+data[i].image ||""
         })
 
       }
@@ -131,7 +132,7 @@ export class InventoryeManagmentComponent implements OnInit {
           category: ar?.name||"",
           idcategory: data[i].category || "",
           i:i+1,
-          image:"http://localhost:3000/public/images/"+data[i].image ||""
+          image:environment.backend+"/public/images/"+data[i].image ||""
         })
       }
     })
@@ -334,7 +335,7 @@ export class InventoryeManagmentComponent implements OnInit {
     let name= (<HTMLInputElement>document.getElementById("name_category"))
     name.value =  x?.name || ""
     let file= (<HTMLInputElement>document.getElementById("file_category"))
-    this.photoSelected[1]="http://localhost:3000/public/images/"+x?.image
+    this.photoSelected[1]=environment.backend+"/public/images/"+x?.image
     file.files= null
 
   }

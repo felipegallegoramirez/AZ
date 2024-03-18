@@ -6,6 +6,7 @@ import { InventoryService } from 'src/app/services/servicesProducts/inventory.se
 import { ActivatedRoute } from '@angular/router';
 import { ProductCategoryService } from 'src/app/services/servicesProducts/productcategory.service';
 import { ProductCategory } from 'src/app/models/modelsProducts/productcategory';
+import { environment } from "src/environments/environment";
 
 
 @Component({
@@ -25,7 +26,7 @@ export class SimpleShopMainComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts()
   }
-
+  backend:String=environment.backend
   inventorys:Array<Inventory>=[]
   cart:Array<Inventory>=[]
   id:string=""
@@ -74,7 +75,7 @@ export class SimpleShopMainComponent implements OnInit {
 
   next(){
     localStorage.setItem("cart",JSON.stringify(this.cart))
-    window.location.replace("http://localhost:4200/#/shop-cart/"+this.id);
+    window.location.replace(environment.baseUrl+"shop-cart/"+this.id);
   }
 
   change(){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService } from '../../../services/user.service'
 import {AuthService } from '../../../services/auth.service'
 import { error } from 'console';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-login-register',
@@ -107,7 +108,7 @@ export class LoginRegisterComponent implements OnInit {
       password:password
     } 
     this.authService.postAuth(data).subscribe((res)=>{
-      window.location.replace("http://localhost:4200/#/emailsend");
+      window.location.replace(environment.baseUrl+"emailsend");
     },(error)=>{
       alert(error)
     })

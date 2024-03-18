@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Clients} from'../../../models/clients'
 import { ClientsService} from "../../../services/clients.service"
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-user-managment',
@@ -42,7 +43,7 @@ export class UserManagmentComponent implements OnInit {
   
     // * Variable's preview photo
     file:File[]=[]
-    imageDefatult:string="http://localhost:3000/public/images/basic.png"
+    imageDefatult:string=environment.backend+"/public/images/basic.png"
     photoSelected: Array<string> | ArrayBuffer | any =[this.imageDefatult,this.imageDefatult] ;
   
     ngOnInit(): void {

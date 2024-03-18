@@ -1,7 +1,7 @@
 
 <div class="content">
     <div *ngFor="let product of inventorys;index as i;" class="card-product">
-        <img src="http://localhost:3000/public/images/{{product.image}}" alt="">
+        <img src="{{backend}}/public/images/{{product.image}}" alt="">
         <div class="card-product_text">
             <div class="card-product_text--cart">
                 <h3>{{product.productname}}</h3>

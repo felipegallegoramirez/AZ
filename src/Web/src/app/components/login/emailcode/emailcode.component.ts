@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {AuthService } from '../../../services/auth.service';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-emailcode',
@@ -26,7 +27,7 @@ export class EmailcodeComponent implements OnInit {
           var y = res.shopid
           localStorage.setItem('token',x);
           localStorage.setItem('shop',y);
-          window.location.replace("http://localhost:4200/#/home");
+          window.location.replace(environment.baseUrl+"home");
       })
 
       //
