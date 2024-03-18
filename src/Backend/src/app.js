@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = process.env.URL_ACEPTED || ['http://localhost:8080', 'https://myapp.co, http://localhost:4200'];
+const whitelist = process.env.URL_ACEPTED || ['http://localhost:8080', 'https://myapp.co, http://localhost:4200','*'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
