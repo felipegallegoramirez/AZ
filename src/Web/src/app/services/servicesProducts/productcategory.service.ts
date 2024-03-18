@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { ProductCategory } from "../../models/modelsProducts/productcategory";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { ProductCategory } from "../../models/modelsProducts/productcategory";
 export class ProductCategoryService {
   selectedProductCategory: ProductCategory;
   productcategorys: ProductCategory[] = [];
-  readonly URL_API = "http://localhost:3000/api/productcategory";
+  readonly URL_API = `${environment.backend}/api/productcategory`
   token = localStorage.getItem('token');
   shopid = localStorage.getItem('shop');
 

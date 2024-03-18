@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { User } from "../models/user";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { User } from "../models/user";
 export class UserService {
   selectedUser: User;
   users: User[] = [];
-  readonly URL_API = "http://localhost:3000/api/user";
+  readonly URL_API = `${environment.backend}/api/user`;
   token = localStorage.getItem('token') || "";
 
   constructor(private http: HttpClient) {

@@ -2,14 +2,14 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { Clients } from "../models/clients";
-
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class ClientsService {
   selectedClients: Clients;
   clientss: Clients[] = [];
-  readonly URL_API = "http://localhost:3000/api/clients";
+  readonly URL_API = `${environment.backend}/api/clients`;
   token = localStorage.getItem('token');
   shopid = localStorage.getItem('shop');
   constructor(private http: HttpClient) {

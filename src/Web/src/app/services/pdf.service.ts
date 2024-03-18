@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
-
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class PdfService {
-  readonly URL_API = "http://localhost:3000/api/pdf";
+  readonly URL_API = `${environment.backend}/api/pdf`;
   token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {

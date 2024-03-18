@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { OnlineSale } from "../models/online-sale";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { OnlineSale } from "../models/online-sale";
 export class OnlineSalesService {
   selectedOnlineSale: OnlineSale;
   onlineSales: OnlineSale[] = [];
-  readonly URL_API = "http://localhost:3000/api/onlineSale";
+  readonly URL_API = `${environment.backend}/api/onlineSale`;
   
   token = localStorage.getItem('token');
 

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { Inventory } from "../../models/modelsProducts/inventory";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Inventory } from "../../models/modelsProducts/inventory";
 export class InventoryService {
   selectedInventory: Inventory;
   inventorys: Inventory[] = [];
-  readonly URL_API = "http://localhost:3000/api/inventory";
+  readonly URL_API = `${environment.backend}/api/inventory`;
   token = localStorage.getItem('token');
   shopid = localStorage.getItem('shop');
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { Distributor } from 'src/app/models/modelsDistributor/distributor';
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Distributor } from 'src/app/models/modelsDistributor/distributor';
 export class DistributorService {
   selectedDistributor: Distributor;
   distributors: Distributor[] = [];
-  readonly URL_API = "http://localhost:3000/api/distributor";
+  readonly URL_API = `${environment.backend}/api/distributor`;
   token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {

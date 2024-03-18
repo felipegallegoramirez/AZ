@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: "https://fup.vercel.app/#/",
+  backend:"https://fup.onrender.com"
 };

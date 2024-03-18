@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient,HttpHeaders  } from "@angular/common/http";
 
 import { Shop } from "../models/shop";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Shop } from "../models/shop";
 export class ShopService {
   selectedShop: Shop;
   shops: Shop[] = [];
-  readonly URL_API = "http://localhost:3000/api/shop";
+  readonly URL_API = `${environment.backend}/api/shop`;
   token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {
