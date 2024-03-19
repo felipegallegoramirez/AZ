@@ -73,6 +73,7 @@ export class InventoryeManagmentComponent implements OnInit {
     this.products=[]
     this.inventoryService.getInventorys().subscribe((res) =>{
 
+
       let data = res as Inventory[]
       this.products=[]
       for (let i=0; i< data.length ;i++){

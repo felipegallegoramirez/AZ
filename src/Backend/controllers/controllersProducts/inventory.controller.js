@@ -19,7 +19,7 @@ InventoryCtrl.getInventorys = async (req, res, next) => {
         const size = req.query.size || 1000;
         const param= req.query.param || "code";
         const order= req.query.order || 1;
-        const cat= req.query.category || 1;
+        const cat= req.query.category || "";
         const filters = {
             $and: [
               {
@@ -79,7 +79,7 @@ InventoryCtrl.getInventory = async (req, res, next) => {
     try{
         const { id } = req.params;
         const save = await Inventory.findById(id);
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 

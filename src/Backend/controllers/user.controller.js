@@ -40,7 +40,7 @@ UserCtrl.getUser = async (req, res, next) => {
     try{
         const { id } = req.params;
         const save = await User.findById(id);
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
@@ -51,7 +51,7 @@ UserCtrl.editUser = async (req, res, next) => {
     try{
         const { id } = req.params;
         save = await User.findByIdAndUpdate(id, {$set: req.body}, {new: true});
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
     res.status(400).send(err)
 }

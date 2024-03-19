@@ -82,7 +82,7 @@ ClientsCtrl.getClients = async (req, res, next) => {
     try{
         const { id } = req.params;
         const save = await Clients.findById(id);
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
@@ -93,7 +93,7 @@ ClientsCtrl.editClients = async (req, res, next) => {
     try{
         const { id } = req.params;
         save = await Clients.findByIdAndUpdate(id, {$set: req.body}, {new: true});
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
     res.status(400).send(err)
 }
