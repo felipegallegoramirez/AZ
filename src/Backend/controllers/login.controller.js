@@ -7,7 +7,7 @@ const { tokenSign } = require("../utils/token");
 
 
 
-const User = require("../models/User");
+const User = require("../models/user");
 
 const loginCtrl = async (req, res, next) => {
   try {
