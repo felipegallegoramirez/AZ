@@ -34,7 +34,7 @@ export class InventoryService {
     const order= req.query.order || 1;
     */
   //Todo category -> <- resto
-    return this.http.get<Inventory[]>(this.URL_API + `/${this.shopid}?search=${select}&actpage=${actpage}&size=${size}&param=${param}&order=${order}&category=${category}`,this.httpOptions);
+    return this.http.get<Inventory[]>(this.URL_API + `/any/${this.shopid}?search=${select}&actpage=${actpage}&size=${size}&param=${param}&order=${order}&category=${category}`,this.httpOptions);
   }
 
 

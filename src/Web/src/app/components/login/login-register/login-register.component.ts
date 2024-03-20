@@ -52,18 +52,18 @@ export class LoginRegisterComponent implements OnInit {
     var address = (<HTMLInputElement>document.getElementById("address_register")).value;
     var phone = (<HTMLInputElement>document.getElementById("phone_register")).value;
 
-    if(nameshop.length<2){
+    if(nameshop.length<3){
       alert(`Nombre de tienda Invalido`)
     }else if(nit.length<5){
       alert(`Nit Invalido`)
     }
-    else if(name.length<5){
+    else if(address.length<8 && address.length>40){
       alert(`Nombre Invalido`)
     }
-    else if(address.length<5){
+    else if(address.length<5 && address.length>40){
       alert(`Direccion Invalido`)
     }
-    else if(phone.length<5){
+    else if(phone.length!=10){
       alert(`Celular Invalido`)
     }else{
 
@@ -87,7 +87,7 @@ export class LoginRegisterComponent implements OnInit {
       }
       
       this.userService.postRegister(data).subscribe((res)=>{
-        console.log(res)
+        window.location.reload()
       })
     }
   }

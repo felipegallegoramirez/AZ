@@ -181,8 +181,8 @@
     </div>
 
     <div class="panel--buttons">
-      <button (click)="create()" *ngIf="update==0">Crear</button>
-      <button (click)="editdistributor()" *ngIf="update==1">Editar</button>
+      <button (click)="create()" *ngIf="update==1">Crear</button>
+      <button (click)="editdistributor()" *ngIf="update==0">Editar</button>
       <button (click)="history()" *ngIf="update==2">Recargar</button>
       <button (click)="close()">Cancelar</button>
     </div>

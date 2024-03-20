@@ -136,7 +136,6 @@ export class InventoryTillComponent implements OnInit {
       // order -  cate - search
       let cate= (<HTMLInputElement>document.getElementById("cate")).value
       let search= (<HTMLInputElement>document.getElementById("search")).value
-      console.log(search)
       this.inventoryService.getProductSearch(search,1,1000,"code",1,cate).subscribe((res)=>{
         let data = res as Inventory[]
         this.products=[]
@@ -187,6 +186,7 @@ export class InventoryTillComponent implements OnInit {
       this.pago.point+=this.products[produ].points
       this.products[produ].count-=1
     }
+    this.pagar();
 
 
     }
@@ -208,6 +208,7 @@ export class InventoryTillComponent implements OnInit {
         this.products[produ].count+=1
         this.carrito.splice(result,result+1)
       }
+      this.pagar();
     }
 
 
@@ -215,7 +216,6 @@ export class InventoryTillComponent implements OnInit {
     stado:boolean=true
     //! Cliente
     searchclient(){
-      console.log(this.cliente)
       // order -  cate - search
       let search= (<HTMLInputElement>document.getElementById("SearchInventory")).value
       if(search.trim().length<=3){
@@ -238,7 +238,6 @@ export class InventoryTillComponent implements OnInit {
 
     pagar(){
       let pago= (<HTMLInputElement>document.getElementById("pago")).value
-      console.log(pago)
       this.pago.pagar=Number(pago)
       this.pago.devuelta=this.pago.pagar-this.pago.total
     }
@@ -265,7 +264,7 @@ export class InventoryTillComponent implements OnInit {
       const shopid=localStorage.getItem("shop")||"a"
 
       const totalprice=this.pago.total
-      const totalpoints=this.pago.total
+      const totalpoints=this.pago.point 
 
 
 
@@ -273,7 +272,6 @@ export class InventoryTillComponent implements OnInit {
       let sal = new Sales(undefined,hora,client,undefined,fecha,this.carrito,undefined,totalprice,totalpoints,shopid,option)
       delete sal._id
       delete sal.employee
-      console.log(sal)
       this.salesService.postSales(sal,shopid).subscribe(res=>{
         if(option==0){
           let data={

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,6 @@ export class AppComponent {
   contador:number = 0;
 
   Hidden(){
-      
-    
     if(this.contador==0){
         document.querySelector("#Central")?.classList.add("visto"),
         this.contador=1}
@@ -20,8 +19,12 @@ export class AppComponent {
         document.querySelector("#Central")?.classList.remove("visto"),
         this.contador=0
     }
-
-
-
   }
+
+  leave(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('shop');
+    window.location.replace(environment.baseUrl+"home");
+  }
+
 }

@@ -4,8 +4,8 @@ const id = Joi.string();
 const email = Joi.string().email();
 const dni = Joi.number().integer().min(0).max(9999999999);
 const password = Joi.string().min(8).max(20);
-const name = Joi.string().min(8).max(20);
-const city = Joi.string().min(5).max(20)
+const name = Joi.string().min(8).max(40);
+const city = Joi.string().min(5).max(40)
 const phone = Joi.number().integer().min(0).max(9999999999)
 const shop = Joi.any()
 
@@ -38,7 +38,6 @@ const getUserSchema = Joi.object({
 
 
 //!-------------------------------------
-
 const idshop = Joi.string();
 const emailshop = Joi.string().email();
 const nitshop = Joi.string().min(2).max(20);

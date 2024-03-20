@@ -20,6 +20,8 @@ InventoryCtrl.getInventorys = async (req, res, next) => {
         const param= req.query.param || "code";
         const order= req.query.order || 1;
         const cat= req.query.category || "";
+
+        console.log(cat)
         const filters = {
             $and: [
               {
