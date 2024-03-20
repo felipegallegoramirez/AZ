@@ -1,0 +1,60 @@
+.ocult{
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--b);
+    opacity: 0.6;
+    position: fixed;
+}
+
+.content>h1{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+
+}
+.main{
+    top:200px;
+    width: 100vw;
+    margin: auto;
+    position: fixed;
+    
+}
+.info{
+    width: max-content;
+    min-width: 600px;
+    padding: 30px;
+    margin: auto;
+    background-color: var(--w);
+    border-radius: 10px;
+}
+
+button{
+    padding: 10px 20px;
+    background-color: var(--b1);
+    border-radius: 5px;
+    color: var(--w);
+    outline: none;
+    border: none;
+    width: 150px;
+}
+
+button:active{
+    background-color: var(--w);
+    color: var(--b1);
+    outline: 2px solid var(--b1);
+}
+
+.button{
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.oculto{
+    visibility: hidden;
+    width:0px;
+    height:0px;
+    overflow: hidden;
+}
