@@ -27,6 +27,10 @@ import { SimpleShopManagmentComponent } from './components/shop-mobile/simple-sh
 import { DistributorManagmentComponent } from './components/managment/distributor-managment/distributor-managment.component';
 import { DistributorHistoryComponent } from './components/distributor-history/distributor-history.component';
 import { DistributorhistoryManagmentComponent } from './components/managment/distributorhistory-managment/distributorhistory-managment.component';
+import { ToastComponent } from './components/alert/toast/toast.component';
+import { NotificationComponent } from './components/alert/notification/notification.component';
+import { AlertComponent } from './components/alert/alert/alert.component';
+import { AboutusComponent } from './components/misc/aboutus/aboutus.component';
 
 
 
@@ -36,6 +40,7 @@ const routes: Routes = [
   { path: 'forgot-Password', component: ForgotPasswordComponent },
   { path: 'change-Password', component: ChangePasswordComponent },
   { path: 'home', component: HomeComponent},
+  { path: 'aboutus', component: AboutusComponent},
   { path: 'panel-workspace', component: PanelWorkspaceComponent },
   { path: 'user-managment', component: UserManagmentComponent },
   { path: 'sold-managment', component: SoldManagmentComponent },
@@ -76,7 +81,11 @@ const routes: Routes = [
     SimpleShopManagmentComponent,
     DistributorManagmentComponent,
     DistributorHistoryComponent,
-    DistributorhistoryManagmentComponent
+    DistributorhistoryManagmentComponent,
+    ToastComponent,
+    NotificationComponent,
+    AlertComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

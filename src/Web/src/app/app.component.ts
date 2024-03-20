@@ -24,7 +24,7 @@ export class AppComponent {
   leave(){
     localStorage.removeItem('token');
     localStorage.removeItem('shop');
-    window.location.replace(environment.baseUrl+"home");
+    window.location.replace(environment.baseUrl+"aboutus");
   }
 
 }

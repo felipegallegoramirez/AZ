@@ -8,7 +8,6 @@ import { windowCount } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  alturaanimado:number = 0;
   
   constructor() { }
 

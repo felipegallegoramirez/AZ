@@ -1,0 +1,504 @@
+
+.SupBody-Nav{
+    text-align: end;
+    top: 3%;
+    position: absolute;
+    width: 100%;
+}
+.Button-login{
+    background-color: var(--c1);
+    padding: 8px;
+    border-radius: 18px;
+    margin-right: 10px;
+
+    color: var(--w);
+    text-decoration: none;
+}
+.SupBody-Info-FrontPage{
+    width: 100%;
+    padding: 0 150px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: wrap row;
+}
+.SupBody-Content-Info-Email{
+    width: 38.7%;
+}
+b{
+    color: var(--c1);
+}
+.Title-Up{
+    font-size: 60px;
+    margin-bottom: 0;
+}
+.P-Up1{
+    margin-top: -10px;
+    font-weight: bold;
+    margin: 3px;
+    font-size: 18px;
+}
+.P-Up2{
+    margin: 50px 0 30px 0;
+}
+.P-Up2 p{
+    font-size:14px;
+}
+.Email-Button-Register label{
+    background-color: var(--c1);
+    color:var(--w);
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 0 3px 0 3px;
+    position: absolute;
+    left: 11.2%;
+    margin-top: -8px;
+    transition: all .8s ease-in;
+}
+.Email-Button-Register .input-Email:focus+label{
+    left: 20%;
+    transition: all .8s ease-in-out;
+}
+.input-Email{
+    border-radius: 10px;
+    outline: 0 none;
+    border:2px Solid var(--c1);
+    height: 30px;
+    width: 300px;
+
+}
+.Email-Button-Register{
+    display: flex;
+    flex-flow: wrap row;
+}
+.Content-Button-Register1{
+    margin: 5px 0 0 15px;
+}
+.Button-Register1{
+    background-color: var(--c1);
+    padding: 5px;
+    border-radius: 18px;
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--w);
+}   
+
+.SupBody-Front-Page-Image{ 
+    width: 56%;
+}
+
+.front-page-image{
+    margin: 120px 0 0 80px;
+}
+
+.circle1, .circle2, .circle3{
+    width: 180px;
+    height: 180px;
+    background-color: var(--c1);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2;
+    
+}
+.circle1{
+    left: 54%;
+    top: 10%;
+    filter: blur(30px);
+}
+.circle2{
+    left: 78%;
+    top: 50%;
+    filter: blur(30px);
+}
+.circle3{
+    left: 48%;
+    top: 44%;
+    filter: blur(30px);
+}
+.Content-MiddleBody1{
+    width: 100%;
+    margin: 0 0 70px 0;
+}
+.MiddleBody1-Title-FreeTrial{
+    margin: 130px 0 0 0;
+    font-size: 22px;
+    width: 80%;
+}
+.MiddleBody1-Section-Publicity{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.Easy-icon{
+    margin: -25px 0 0 -12px;
+}
+.Ranking-icon{
+    margin: 20px 0 0 -12px;
+}
+.Plublicity-Ranking h3{
+    margin: 0 0 0 0;    
+}
+
+.Intelligent-icon{
+    margin: 0 0 0 -8px;
+}
+.Icon-Fup{
+    margin: 5px 0 0 10px;
+}
+.Publicity-Easy, .Publicity-Intelligent, .Plublicity-Ranking, .Publicity-FUP{
+    width: 15%;
+    text-align: center;
+    box-sizing: border-box;
+}
+.Publicity-Easy p, .Publicity-Intelligent p, .Plublicity-Ranking p, .Publicity-FUP p{
+    font-size: 15px;
+}
+.Publicity-Easy h3, .Publicity-Intelligent h3, .Plublicity-Ranking h3, .Publicity-FUP h3{
+    font-size: 18px;
+}
+.Publicity-Intelligent h3{
+    margin: -5px 0 0 0;
+}
+.Publicity-Easy h3{
+    margin: -2px 0 0 0;
+}
+.Content-MiddleBody2{
+    display: flex;
+    flex-flow: wrap row;
+    margin: 80px 0 80px 0;
+}
+.Content-MiddleBody2 h2{
+    font-size: 35px;
+}
+.MiddleBody2-Info, .MiddleBody2-Gif{
+    width: 50%;
+    line-height: 32px;
+}
+.MiddleBody2-Info p{
+    width: 80%;
+    margin-left: 25px;
+    font-size: 15px;
+}
+.MiddleBody2-Gif{
+    margin: 10px 0 0 0;
+}
+.Modules-title{
+    font-size: 22px;
+}
+.Modules-info{
+    display: flex;
+    flex-flow: wrap row;
+
+}
+.Content-MiddleBody3{
+    width: 97%;
+    display: flex;
+    flex-flow: wrap row;
+    margin: 0 0 88px 0;
+}
+.MiddleBody3-modules{
+    width: 65%;
+}
+.MiddleBody3-join{
+    margin-top: 118px;
+    width: 35%;    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 300px;
+}
+.ColorBackground{
+    background-color:var(--c2);
+    filter: blur(60px);
+    width: 280px;
+    height: 230px;
+    position: absolute;
+    z-index: -3;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.ContentJoin label{
+    font-size: 14px;
+    background-color: var(--c1);
+    color:var(--w);
+    border-radius: 10px;
+    padding: 0 3px 0 3px;
+    position: absolute;
+    right: 26.5%;
+    margin-top: -8px;
+    transition: all .8s ease-in;
+}
+.ContentJoin .input-Email2:focus+label{
+    right: 16.5%;
+    transition: all .8s ease-in-out;
+}
+.input-Email2{
+    border-radius: 10px;
+    outline: 0 none;
+    border:2px Solid var(--c1);
+    height: 30px;
+    width: 300px;
+
+}
+.Join{
+    background-color: var(--w);
+    width: 90%;
+    height: 80%;
+    margin: 30px 0 0 0;
+    border-radius: 25px;
+    box-shadow: 0px 0px 144px rgba(0, 0, 0, 0.25);
+}
+.title{
+    font-size: 15px;
+    color: var(--c1);
+    margin: 0 0 40px 0;
+}
+.Register2{
+    width: 100%;
+    background-color: #16A571;
+}
+.Button-Register2{
+    background-color: var(--c1);
+    padding: 5px;
+    font-size: 17px;
+    border-radius: 18px;
+    position: absolute;
+    margin: 25px 0 0 -55px;
+    text-decoration: none;
+    color: var(--w);
+}  
+.Module-inventory,.Module-Store,.Module-Services,.Module-HistoryUser{
+    width: 50%;
+    height: 130px;
+}
+.Module-inventory p,.Module-Store p,.Module-Services p,.Module-HistoryUser p{
+    font-size: 15px;
+    width: 92%;
+}
+.TitleCopy{
+    font-size: 17px;
+    margin-bottom: -10px;
+}
+.Content-icons{
+    float: left;
+    margin: 40px 5px 0 0;
+    height: 100%;
+}
+.BottomBody1-clients{
+    width: 97%;
+    height: 350px;
+}
+.BottomBody1-clients h2{
+    font-size: 32px;
+    margin: 0 0 100px 0;
+}
+.BoxGrid{
+    display: grid;
+    width: 100%;
+    margin: -35px -70px;
+    grid-template-columns: 20% 20% 20%;
+    justify-content: space-around;
+}
+.Opinions{
+    width: 360px;
+    height: 110px;
+    background-color: var(--w);
+    overflow: hidden;
+    filter: drop-shadow(7px 7px 8px rgba(0, 0, 0, 0.5));  
+}
+.Opinions h3{
+    font-size: 16px;
+    margin: 8px 0 -12px 0;
+}
+.Opinions p{
+    font-size: 14px;
+}
+.img1{
+    float: left;
+    margin: 32px 15px 0 15px;
+}
+.img2{
+    margin-top: -60px;
+    float: right;
+    width: 80px;
+    height: 100%;
+    object-fit: cover;
+}
+.BottomBody2-Promotion{
+    display: grid;
+    justify-content: center;
+    margin-bottom: -70px;
+}
+.BottomBody2-Promotion h2{
+    color: var(--c1);
+    font-size: 40px;
+    margin: -30px 0 0 0;
+}
+.Promotion-Button{
+    background-color: var(--c1);
+    width: 200px;
+    height: 70px;
+    border-radius: 25px;
+    margin: 28px auto;
+}
+.Promotion-Button a img{
+    margin: 5px 0 0 25px;
+}
+
+.wave img{
+    z-index: -10;
+    width: 100%;
+    position: absolute;
+    margin: 42px 0 0 0;
+}
+.Logo-Footer{
+    width: 240px;
+}
+.Content-info{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    margin-top: 12%;
+    z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
+    padding:0 24px;
+    position: absolute;
+}
+
+.Icons-follow a img{
+    margin: 70px 0 0 15px;
+    
+}
+.Central{
+    margin: 0 150px;
+}
+@media only screen and (min-width:1920px){
+    .Button-login{
+        font-size: 20px;
+    }
+    .Title-Up{
+        font-size: 80px;
+    }
+    .SupBody-Content-Info-Email p{
+        font-size: 22px;
+    }
+    .input-Email{
+        width: 450px;
+        height: 30px;
+        border: 4px solid #16A571;
+    }
+    .Email-Button-Register label{
+        left: 8.5%;
+        font-size: 20px;
+    }
+    .Email-Button-Register .input-Email:focus+label{
+        left: 20%;
+        transition: all .8s ease-in-out;
+    }
+    .Button-Register1{
+        font-size: 22px;
+    }
+    .front-page-image{
+        margin: 90px 0 0 125px;
+        width: 820px;
+    }
+    .circle1{
+        left: 52%;
+        top: 10%;
+    }
+    .circle2{
+        left: 82%;
+        top: 38%;
+    }
+    .circle3{
+        left: 48%;
+    }
+    .MiddleBody1-Section-Publicity{
+        display: flex;
+        flex-flow: wrap row;
+        justify-content: space-evenly;
+        
+        align-items: center;
+        width: 100%;
+    }
+    .MiddleBody1-Title-FreeTrial h2{
+        font-size: 42px;
+    }
+    .MiddleBody1-Section-Publicity h3{
+        font-size: 25px;
+    }
+    .MiddleBody1-Section-Publicity p{
+        font-size: 22px;
+    }
+    .MiddleBody2-Info h2{
+        font-size: 42px;
+    }
+    .MiddleBody2-Info p{
+        font-size: 22px;
+    }
+    .Content-MiddleBody3 h2{
+        font-size: 42px;
+    }
+    .Modules-info h3{
+        font-size: 25px;
+    }
+    .Modules-info p{
+        font-size: 20px;
+    }
+    .Module-HistoryUser, .Module-Services{
+        margin-top: 15px;
+    }
+    .Join{
+        width:100%;
+        height:100%;
+    }
+    .Join label{
+        font-size: 19px;
+    }
+    .Join input{
+        width: 450px;
+        height: 30px;
+    }
+    .Join .input-Email2:focus+label{
+        right: 13.5%;
+        transition: all .8s ease-in-out;
+    }
+    .Button-Register2{
+        font-size: 22px;
+    }
+    .BottomBody1-clients h2{
+        font-size: 40px;
+    }
+    .Opinions{
+        width: 430px;
+    }
+    .Opinions h3{
+        font-size: 20px;
+    }
+    .Opinions p{
+        font-size: 18px;
+    }
+    .img2{
+        margin-top: -76px;
+    }
+    .BottomBody2-Promotion h2{
+        font-size: 60px;
+    }
+    .Promotion-Button{
+        width:300px;
+        height: 80px;
+    }
+    .Promotion-Button a img{
+        width: 238px;
+        height: 75px;
+        margin: 3px 0 0 35px;
+    }
+    .Icons-follow img{
+        width: 65px;
+    }
+    .Logo-Footer{
+        width:  320px;
+    }
+}
