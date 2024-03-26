@@ -261,38 +261,13 @@ export class InventoryeManagmentComponent implements OnInit {
       return false;
     }
   }
-  verifyProduct(
-    name: string,
-    category: string,
-    count: string,
-    code: string,
-    price: string,
-    points: string
-  ): boolean {
-    if (!this.verify('Nombre', name, 2, 100, 'string')) {
-      return false;
-    }
-    if (!this.verify('Nombre', category, 2, 100, 'string')) {
-      return false;
-    }
-    if (
-      !this.verify('Nombre', count, 0, 9999999999999999999999999999, 'number')
-    ) {
-      return false;
-    }
-    if (!this.verify('Nombre', code, 2, 100, 'string')) {
-      return false;
-    }
-    if (
-      !this.verify('Nombre', price, 1, 9999999999999999999999999999, 'number')
-    ) {
-      return false;
-    }
-    if (
-      !this.verify('Nombre', points, 0, 9999999999999999999999999999, 'number')
-    ) {
-      return false;
-    }
+  verifyProduct(name: string,category: string,count: string,code: string,price: string,points: string): boolean {
+    if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
+    if (!this.verify('Nombre', category, 2, 100, 'string')){return false;}
+    if (!this.verify('Nombre', count, 0, 9999999999999999999999999999, 'number')){return false;}
+    if (!this.verify('Nombre', code, 2, 100, 'string')) {return false;}
+    if (!this.verify('Nombre', price, 1, 9999999999999999999999999999, 'number')) {return false;}
+    if (!this.verify('Nombre', points, 0, 9999999999999999999999999999, 'number')) {return false;}
     return true;
   }
 
@@ -474,16 +449,23 @@ export class InventoryeManagmentComponent implements OnInit {
     delete data._id;
     delete data.image;
     data.shopid = localStorage.getItem('shop') || '';
-
-    if (file) {
-      this.productCategoryService
-        .postProductCategoryI(data, file)
-        .subscribe((res) => {});
-    } else {
-      this.productCategoryService
-        .postProductCategory(data)
-        .subscribe((res) => {});
+    if(this.verifyCategory(name)){
+      if (file) {
+        this.productCategoryService
+          .postProductCategoryI(data, file)
+          .subscribe((res) => {});
+      } else {
+        this.productCategoryService
+          .postProductCategory(data)
+          .subscribe((res) => {});
+      }
     }
+
+  }
+
+  verifyCategory(name: string): boolean {
+    if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
+    return true;
   }
 
   edit_category() {
@@ -501,15 +483,16 @@ export class InventoryeManagmentComponent implements OnInit {
 
     let x = this.category.find((x) => x.id == id);
     data.image = x?.image || '';
-
-    if (file) {
-      this.productCategoryService
-        .putProductCategoryI(data, id, file)
-        .subscribe((res) => {});
-    } else {
-      this.productCategoryService
-        .putProductCategory(data, id)
-        .subscribe((res) => {});
+    if(this.verifyCategory(name)){
+      if (file) {
+        this.productCategoryService
+          .putProductCategoryI(data, id, file)
+          .subscribe((res) => {});
+      } else {
+        this.productCategoryService
+          .putProductCategory(data, id)
+          .subscribe((res) => {});
+      }
     }
   }
 
