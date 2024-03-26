@@ -32,7 +32,7 @@
 
 button{
     padding: 10px 20px;
-    background-color: var(--b1);
+    background-color: var(--c1);
     border-radius: 5px;
     color: var(--w);
     outline: none;
@@ -42,8 +42,8 @@ button{
 
 button:active{
     background-color: var(--w);
-    color: var(--b1);
-    outline: 2px solid var(--b1);
+    color: var(--c1);
+    outline: 2px solid var(--c1);
 }
 
 .button{
