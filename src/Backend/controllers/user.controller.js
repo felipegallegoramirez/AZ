@@ -93,7 +93,8 @@ UserCtrl.register = async (req, res, next) => {
             nit:temp.nit, 
             name:temp.name, 
             ownerid:save._id, 
-            employeeid:[]
+            employeeid:[],
+            phone:req.body.phone
         }
         try{
             var saveShop = await Shop.create(shop);

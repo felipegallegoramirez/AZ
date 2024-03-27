@@ -4,6 +4,8 @@ import { Inventory } from 'src/app/models/modelsProducts/inventory';
 import { OnlineSale } from 'src/app/models/online-sale';
 
 import { OnlineSalesService } from 'src/app/services/online-sale.service';
+import { ShopService } from 'src/app/services/shop.service';
+
 
 @Component({
   selector: 'app-simple-shop-cart-checkout',
@@ -13,7 +15,8 @@ import { OnlineSalesService } from 'src/app/services/online-sale.service';
 export class SimpleShopCartCheckoutComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute,
-    private onlineSalesService:OnlineSalesService
+    private onlineSalesService:OnlineSalesService,
+    private shopService:ShopService
     ) {}
    id:string=""
 
@@ -97,8 +100,10 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
     console.log(online)
 
     this.onlineSalesService.postOnlineSale(online,this.id).subscribe(res=>{
-      console.log(res)
-      window.location.replace("https://wa.me/573052572814?text=Hola,%20¿cómo%20estás%3F%20Mi%20Codigo%20es%20:%20"+res._id);
+      this.shopService.getShopWa(this.id).subscribe(res=>{
+        window.location.replace(`https://wa.me/57${res.wa}?text=Hola,%20¿cómo%20estás%3F%20Mi%20Codigo%20es%20:%20`+res._id);
+      })
+
       
 
     })

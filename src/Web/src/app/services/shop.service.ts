@@ -33,10 +33,13 @@ export class ShopService {
   }
 
   getShops(idshop:string) {
-    return this.http.get<Shop[]>(this.URL_API + `/${idshop}`,this.httpOptions);
+    return this.http.get<Shop[]>(this.URL_API + `/all/${idshop}`,this.httpOptions);
   }
   getShop(id:string,idshop:string) {
-    return this.http.get<Shop>(this.URL_API + `/${idshop}/${id}`,this.httpOptions);
+    return this.http.get<Shop>(this.URL_API + `/one/${idshop}/${id}`,this.httpOptions);
+  }
+  getShopWa(idshop:string) {
+    return this.http.get<any>(this.URL_API + `/wa/${idshop}/`);
   }
 
   putShop(shop: Shop,id:string,idshop:string) {

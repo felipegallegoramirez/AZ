@@ -60,5 +60,16 @@ ShopCtrl.deleteShop = async (req, res, next) => {
 };
 
 
+ShopCtrl.GetWhatsAppShop = async (req, res, next) => {
+    try{
+        const { shopid } = req.params;
+        save = await Shop.findById(shopid);
+        res.status(200).send({wa:save.phone})
+    }catch(err){
+    res.status(400).send(err)
+}
+
+};
+
 
 module.exports = ShopCtrl;
