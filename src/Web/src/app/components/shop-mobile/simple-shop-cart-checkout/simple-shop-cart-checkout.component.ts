@@ -44,6 +44,50 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
     }
   }
 
+  verify(name: string,value: string,min: number,max: number,type: string): boolean {
+
+    if (value) {
+      if (type == 'string') {
+        let size = value.length;
+        if (size < min) {
+          alert(`${name} debe contener almenos ${min} caracteres`);
+          return false;
+        } else if (size > max) {
+          alert(`${name} debe NO puede tener ${max} caracteres`);
+          return false;
+        } else {
+          return true;
+        }
+      } else if (type == 'number') {
+        let number = Number(value);
+
+        if (number < min) {
+          alert(`${name} debe ser mayor a ${min}`);
+          return false;
+        } else if (number > max) {
+          alert(`${name} debe ser menor a ${max}`);
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      alert(`${name} No puede estar vacio`);
+      return false;
+    }
+  }
+
+  verifyDistributor(name: string,dni: string,phone: string,address: string,email:string): boolean {
+    if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
+    if (!this.verify('Identificacion', dni, 2, 100, 'string')){return false;}
+    if (!this.verify('Email', email, 2, 100, 'string')){return false;}
+    if (!this.verify('Celular', phone, 2, 100, 'string')){return false;}
+    if (!this.verify('Direccion', address, 2, 100, 'string')) {return false;}
+    return true;
+  }
+
   whatsapp(){
     let online:OnlineSale=new OnlineSale()
     let name = (<HTMLInputElement>document.getElementById("waName")).value||"";
@@ -98,15 +142,14 @@ export class SimpleShopCartCheckoutComponent implements OnInit {
     delete online._id
 
     console.log(online)
-
-    this.onlineSalesService.postOnlineSale(online,this.id).subscribe(res=>{
-      this.shopService.getShopWa(this.id).subscribe(res=>{
-        window.location.replace(`https://wa.me/57${res.wa}?text=Hola,%20¿cómo%20estás%3F%20Mi%20Codigo%20es%20:%20`+res._id);
+    if(this.verifyDistributor(name,dni+'',number,address,email)){
+      this.onlineSalesService.postOnlineSale(online,this.id).subscribe(res=>{
+        this.shopService.getShopWa(this.id).subscribe(asd=>{
+          window.location.replace(`https://wa.me/57${asd.wa}?text=Hola,%20¿cómo%20estás%3F%20Mi%20Codigo%20es%20:%20`+res._id);
+        })
       })
+    }
 
-      
-
-    })
 
 
   }
