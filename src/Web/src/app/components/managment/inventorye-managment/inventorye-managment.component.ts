@@ -453,11 +453,11 @@ export class InventoryeManagmentComponent implements OnInit {
       if (file) {
         this.productCategoryService
           .postProductCategoryI(data, file)
-          .subscribe((res) => {});
+          .subscribe((res) => { alert('Categoria creada')});
       } else {
         this.productCategoryService
           .postProductCategory(data)
-          .subscribe((res) => {});
+          .subscribe((res) => { alert('Categoria creada')});
       }
     }
 
@@ -487,11 +487,11 @@ export class InventoryeManagmentComponent implements OnInit {
       if (file) {
         this.productCategoryService
           .putProductCategoryI(data, id, file)
-          .subscribe((res) => {});
+          .subscribe((res) => {alert('Categoria Actualizada') });
       } else {
         this.productCategoryService
           .putProductCategory(data, id)
-          .subscribe((res) => {});
+          .subscribe((res) => {alert('Categoria Actualizada')});
       }
     }
   }
@@ -500,6 +500,7 @@ export class InventoryeManagmentComponent implements OnInit {
     let id = (<HTMLInputElement>document.getElementById('create_id')).value;
     this.productCategoryService.deleteProductCategory(id).subscribe(
       (res) => {
+        alert('Categoria Eliminada')
         interface as {
           status: string;
         }

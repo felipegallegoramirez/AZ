@@ -177,7 +177,7 @@ export class DistributorManagmentComponent implements OnInit {
   verifyDistributor(name: string,dni: string,phone: string,address: string): boolean {
     if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
     if (!this.verify('Identificacion', dni, 2, 100, 'string')){return false;}
-    if (!this.verify('Celular', phone, 0, 9999999999999999999999999999, 'number')){return false;}
+    if (!this.verify('Celular', phone, 2, 100, 'string')){return false;}
     if (!this.verify('Direccion', address, 2, 100, 'string')) {return false;}
     return true;
   }
@@ -185,6 +185,7 @@ export class DistributorManagmentComponent implements OnInit {
   delete(id:any){
     this.distributorService.deleteDistributor(id,localStorage.getItem("shop")||"").subscribe(res=>{
       this.search()
+      alert('Distribuidor eliminado')
     })
   }
 

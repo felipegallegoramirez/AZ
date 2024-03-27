@@ -42,6 +42,40 @@ export class EmployeeManagmentComponent implements OnInit {
     this.edit= this.edit==true?false:true
   }
 
+  verify(name: string,value: string,min: number,max: number,type: string): boolean {
+    if (value) {
+      if (type == 'string') {
+        let size = value.length;
+        if (size < min) {
+          alert(`${name} debe contener almenos ${min} caracteres`);
+          return false;
+        } else if (size > max) {
+          alert(`${name} debe NO puede tener ${max} caracteres`);
+          return false;
+        } else {
+          return true;
+        }
+      } else if (type == 'number') {
+        let number = Number(value);
+
+        if (number < min) {
+          alert(`${name} debe ser mayor a ${min}`);
+          return false;
+        } else if (number > max) {
+          alert(`${name} debe ser menor a ${max}`);
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      alert(`${name} No puede estar vacio`);
+      return false;
+    }
+  }
+
 
   getClients(){
     this.employee=[]
@@ -156,13 +190,21 @@ export class EmployeeManagmentComponent implements OnInit {
     delete prueba.city;
     delete prueba.verified;
     delete prueba.ips;
+    if(this.verifyEmployee(name,email,password,dni,phone)){
+      this.userService.postEmployee(prueba,localStorage.getItem("shop")||"").subscribe(res=>{
+        this.actualizar()
+        alert('Empleado creado')
+      })
+    }
+  }
 
-    this.userService.postEmployee(prueba,localStorage.getItem("shop")||"").subscribe(res=>{
-      this.actualizar()
-    })
-
-
-    
+  verifyEmployee(name: string,email: string,password: string,dni : string,phone: string): boolean {
+    if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
+    if (!this.verify('Contraseña', password, 2, 100, 'string')){return false;}
+    if (!this.verify('Correo',email , 2, 100, 'string')){return false;}
+    if (!this.verify('Celular', phone, 2, 100, 'string')){return false;}
+    if (!this.verify('Identificacion', dni, 2, 100, 'string')){return false;}
+    return true;
   }
 
 
@@ -193,10 +235,13 @@ export class EmployeeManagmentComponent implements OnInit {
     delete prueba.city;
     delete prueba.verified;
     delete prueba.ips;
+    if(this.verifyEmployee(name,email,password,dni,phone)){
+      this.userService.putUser(prueba,idc,localStorage.getItem("shop")||"").subscribe(res=>{
+        this.actualizar()
+        alert('Empleado actualizado')
+      })
+    }
 
-    this.userService.putUser(prueba,idc,localStorage.getItem("shop")||"").subscribe(res=>{
-      this.actualizar()
-    })
 
   }
 
@@ -207,6 +252,7 @@ export class EmployeeManagmentComponent implements OnInit {
   delete_employee(id:string){
     this.userService.deleteUser(id,localStorage.getItem("shop")||"").subscribe(res=>{
       this.actualizar()
+      alert('Empleado Eliminado')
     })
   }
 
