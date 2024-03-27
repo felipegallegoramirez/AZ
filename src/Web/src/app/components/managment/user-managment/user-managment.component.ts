@@ -39,7 +39,48 @@ export class UserManagmentComponent implements OnInit {
     edit:boolean=false
     update:boolean=false
   
+    verify(name: string,value: string,min: number,max: number,type: string): boolean {
+      if (value) {
+        if (type == 'string') {
+          let size = value.length;
+          if (size < min) {
+            alert(`${name} debe contener almenos ${min} caracteres`);
+            return false;
+          } else if (size > max) {
+            alert(`${name} debe NO puede tener ${max} caracteres`);
+            return false;
+          } else {
+            return true;
+          }
+        } else if (type == 'number') {
+          let number = Number(value);
   
+          if (number < min) {
+            alert(`${name} debe ser mayor a ${min}`);
+            return false;
+          } else if (number > max) {
+            alert(`${name} debe ser menor a ${max}`);
+            return false;
+          } else {
+            return true;
+          }
+        } else {
+          return false;
+        }
+      } else {
+        alert(`${name} No puede estar vacio`);
+        return false;
+      }
+    }
+  
+    verifyClient(name: string,email: string,address: string,dni : string,phone: string): boolean {
+      if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
+      if (!this.verify('Direccion', address, 2, 100, 'string')){return false;}
+      if (!this.verify('Correo',email , 2, 100, 'string')){return false;}
+      if (!this.verify('Celular', phone, 2, 100, 'string')){return false;}
+      if (!this.verify('Identificacion', dni, 2, 100, 'string')){return false;}
+      return true;
+    }
   
     // * Variable's preview photo
     file:File[]=[]
@@ -169,9 +210,13 @@ export class UserManagmentComponent implements OnInit {
       let data = new Clients(undefined,email,Number(dni),name,address,Number(phone),undefined,undefined)
       delete data._id;
   
-      this.clientsService.postClients(data).subscribe((res)=>{
-        this.getClients();
-      })
+      if(this.verifyClient(name,email,address,dni,phone)){
+        this.clientsService.postClients(data).subscribe((res)=>{
+          this.getClients();
+          alert('Cliente creado')
+        })
+      }
+
       
     }
   
@@ -189,16 +234,21 @@ export class UserManagmentComponent implements OnInit {
       let data = new Clients(undefined,email,Number(dni),name,address,Number(phone),undefined,undefined)
       delete data._id;
   
-      this.clientsService.putClients(data,idc).subscribe((res)=>{
+      if(this.verifyClient(name,email,address,dni,phone)){
+        this.clientsService.putClients(data,idc).subscribe((res)=>{
+          this.getClients();
+          alert('Cliente actualizado')
+        })
         this.getClients();
-      })
-      this.getClients();
+      }
+
   
   
     }
   
     delete_client(id:string){
-      this.clientsService.deleteClients(id).subscribe((res)=>{this.getClients();})
+      this.clientsService.deleteClients(id).subscribe((res)=>{this.getClients();
+      alert('Cliente eliminado')})
     }
   
   
