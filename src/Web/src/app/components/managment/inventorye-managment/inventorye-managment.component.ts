@@ -197,6 +197,7 @@ export class InventoryeManagmentComponent implements OnInit {
     let file = (<HTMLInputElement>(
       document.getElementById('file_product')
     )).files?.item(0);
+
     let data = new Inventory(
       undefined,
       code,
@@ -214,25 +215,21 @@ export class InventoryeManagmentComponent implements OnInit {
       if (file) {
         this.inventoryService.postInventoryI(data, file).subscribe((res) => {
           this.getProducts();
+          alert('Producto Creado')
         });
       } else {
         this.inventoryService.postInventory(data).subscribe((res) => {
           this.getProducts();
+          alert('Producto Creado')
         });
       }
     }
   }
 
-  verify(
-    name: string,
-    value: string,
-    min: number,
-    max: number,
-    type: string
-  ): boolean {
+  verify(name: string,value: string,min: number,max: number,type: string): boolean {
     if (value) {
       if (type == 'string') {
-        let size = type.length;
+        let size = value.length;
         if (size < min) {
           alert(`${name} debe contener almenos ${min} caracteres`);
           return false;
@@ -244,6 +241,7 @@ export class InventoryeManagmentComponent implements OnInit {
         }
       } else if (type == 'number') {
         let number = Number(value);
+
         if (number < min) {
           alert(`${name} debe ser mayor a ${min}`);
           return false;
@@ -261,13 +259,14 @@ export class InventoryeManagmentComponent implements OnInit {
       return false;
     }
   }
+
   verifyProduct(name: string,category: string,count: string,code: string,price: string,points: string): boolean {
     if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
-    if (!this.verify('Nombre', category, 2, 100, 'string')){return false;}
-    if (!this.verify('Nombre', count, 0, 9999999999999999999999999999, 'number')){return false;}
-    if (!this.verify('Nombre', code, 2, 100, 'string')) {return false;}
-    if (!this.verify('Nombre', price, 1, 9999999999999999999999999999, 'number')) {return false;}
-    if (!this.verify('Nombre', points, 0, 9999999999999999999999999999, 'number')) {return false;}
+    if (!this.verify('Category', category, 2, 100, 'string')){return false;}
+    if (!this.verify('Cantidad', count, 0, 9999999999999999999999999999, 'number')){return false;}
+    if (!this.verify('Codigo', code, 2, 100, 'string')) {return false;}
+    if (!this.verify('Precio', price, 1, 9999999999999999999999999999, 'number')) {return false;}
+    if (!this.verify('Puntos', points, 0, 9999999999999999999999999999, 'number')) {return false;}
     return true;
   }
 
@@ -305,7 +304,6 @@ export class InventoryeManagmentComponent implements OnInit {
       undefined
     );
     delete data._id;
-
     if (this.verifyProduct(name, category, count, code, price, points)) {
       if (file) {
         var picture = image.split('/');
@@ -319,6 +317,7 @@ export class InventoryeManagmentComponent implements OnInit {
         delete data.image;
         this.inventoryService.putInventory(data, idc).subscribe((res) => {
           this.getProducts();
+          alert('Producto Actualizado')
         });
       }
       this.getProducts();
@@ -328,6 +327,7 @@ export class InventoryeManagmentComponent implements OnInit {
   delete_product(id: string) {
     this.inventoryService.deleteInventory(id).subscribe((res) => {
       this.getProducts();
+      alert('Producto eliminado')
     });
   }
 

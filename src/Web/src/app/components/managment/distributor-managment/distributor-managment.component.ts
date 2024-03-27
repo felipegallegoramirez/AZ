@@ -70,6 +70,41 @@ export class DistributorManagmentComponent implements OnInit {
     panel?.classList.add('oculto');
   }
 
+  verify(name: string,value: string,min: number,max: number,type: string): boolean {
+
+    if (value) {
+      if (type == 'string') {
+        let size = value.length;
+        if (size < min) {
+          alert(`${name} debe contener almenos ${min} caracteres`);
+          return false;
+        } else if (size > max) {
+          alert(`${name} debe NO puede tener ${max} caracteres`);
+          return false;
+        } else {
+          return true;
+        }
+      } else if (type == 'number') {
+        let number = Number(value);
+
+        if (number < min) {
+          alert(`${name} debe ser mayor a ${min}`);
+          return false;
+        } else if (number > max) {
+          alert(`${name} debe ser menor a ${max}`);
+          return false;
+        } else {
+          return true;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      alert(`${name} No puede estar vacio`);
+      return false;
+    }
+  }
+
   // ! ----------- Provedores -----------
 
   distributors:Array<Distributor> = []
@@ -130,12 +165,21 @@ export class DistributorManagmentComponent implements OnInit {
     }
     delete distributor._id
 
+    if(this.verifyDistributor(name,dni,phone,address)){
+      this.distributorService.postDistributor(distributor,localStorage.getItem("shop")||"").subscribe(res=>{
+        this.distributors.push(distributor)
+        this.clear()
+        alert('Provedor Creado')
+      })
+    }
+  }
 
-    this.distributorService.postDistributor(distributor,localStorage.getItem("shop")||"").subscribe(res=>{
-      this.distributors.push(distributor)
-      this.clear()
-    })
-
+  verifyDistributor(name: string,dni: string,phone: string,address: string): boolean {
+    if (!this.verify('Nombre', name, 2, 100, 'string')) {return false;}
+    if (!this.verify('Identificacion', dni, 2, 100, 'string')){return false;}
+    if (!this.verify('Celular', phone, 0, 9999999999999999999999999999, 'number')){return false;}
+    if (!this.verify('Direccion', address, 2, 100, 'string')) {return false;}
+    return true;
   }
 
   delete(id:any){
@@ -233,11 +277,14 @@ export class DistributorManagmentComponent implements OnInit {
       })
     }
 
+    if(this.verifyDistributor(name,dni,phone,address)){
+      this.distributorService.putDistributor(distributor,this.actual,localStorage.getItem("shop")||"").subscribe(res=>{
+        this.clear()
+        this.close()
+        alert('Distribuidor Actualizado')
+      })
+    }
 
-    this.distributorService.putDistributor(distributor,this.actual,localStorage.getItem("shop")||"").subscribe(res=>{
-      this.clear()
-      this.close()
-    })
 
   }
 
@@ -385,7 +432,7 @@ export class DistributorManagmentComponent implements OnInit {
       });
         let distributor= new Distributor(select._id,selecpro,select.total,select.name,select.dni,select.phone,select.address,select.lastdate,select.nextdate,select.shopid)
         this.distributorService.putDistributor(distributor,this.actual,select?.shopid||"").subscribe(res=>{
-          console.log("a")
+          alert('Inventario Actualizado')
         })
       }
 
