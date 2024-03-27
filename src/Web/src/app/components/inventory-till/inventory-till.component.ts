@@ -72,8 +72,13 @@ export class InventoryTillComponent implements OnInit {
 
   Modal1(){
     if(this.contador==0){
-      document.querySelector("#Mymodal")?.classList.add("visto")
-      this.contador=1
+      if(this.pago.devuelta>0){
+        document.querySelector("#Mymodal")?.classList.add("visto")
+        this.contador=1
+      }else{
+        alert('La devuelta debe ser mayor a 0')
+      }
+
     }else{
       document.querySelector("#Mymodal")?.classList.remove("visto")
       this.contador=0
